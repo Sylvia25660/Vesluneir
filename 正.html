@@ -11,8 +11,22 @@
     ">
 
     <style>
-        .big {
-            position: absolute;
+        /* header logo區 */
+        #logo {
+            padding: 5px;
+            width: 10%;
+        }
+
+        /* 主要圖片區(封面+標誌) */
+        #big {
+            position: relative;
+            width: 50vw;
+            height: auto;
+        }
+
+        #bphoto {
+            max-width: 100%;
+            padding: 3px;
         }
 
         h1 {
@@ -22,8 +36,15 @@
             top: 150px;
         }
 
+        /* 攝影師作品 */
+        #work {
+            border: 3px solid blue;
+            position: relative;
+            height: 60vh;
+        }
+
         #photos img {
-            max-width: 200px;
+            max-width: 500px;
             /* 限制圖片最大寬度 */
             height: auto;
             /* 保持圖片比例 */
@@ -31,24 +52,24 @@
             /* 每張圖片周圍的間距 */
         }
 
-        #photos {
+        /* #photos {
             display: flex;
             justify-content: center;
-            /* 水平置中 */
-            align-items: center;
-            /* 垂直置中 */
-            flex-wrap: nowrap;
-            /* 如果圖片過多，允許換行 */
-            gap: 20px;
-            /* 圖片間距 */
-        }
+             水平置中 
+             align-items: center; 
+            垂直置中 
+             flex-wrap: nowrap; 
+             如果圖片過多，允許換行 
+             gap: 20px; 
+             圖片間距 
+         }  */
 
-        #work {
+        /* #work {
             text-align: center;
             padding: 20px;
             border: 3px solid red;
-            /* 用來顯示邊界，方便確認效果 */
-        }
+            用來顯示邊界，方便確認效果
+        } */
     </style>
 </head>
 
@@ -57,17 +78,16 @@
     <header>
         <div>
             <a href="#">
-                <img style="width: 50px;" src="./img/相機icon.png">
+                <img id="logo" style="width: 10%;" src="./img/PhoterH1.png">
             </a>
         </div>
     </header>
 
     <main>
-        <!-- 主要圖片區(大圖+名稱) -->
-        <section style="border: 3px solid black;">
-            <div><img id="big" style="width: 60%;" src="./img/tower.jpeg">
+        <!-- 主要圖片區(封面+標誌) -->
+        <section id="big" style="border: 3px solid black;">
+            <div><img id="bphoto" src="./img/tower.jpeg">
                 <h1 style="display: inline-block;">Photer</h1> <!--改成圖片-->
-                <h2 style="display: inline-block;">Photer</h2>
             </div>
         </section>
 
