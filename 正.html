@@ -18,11 +18,11 @@
         }
 
         /* 主要圖片區(S1+封面照+標誌) */
-        #big {
-            position: relative;
+         #big { 
+            display: flex;
             width: 60vw;
             height: auto;
-        }
+        } 
 
         #bphoto {
             max-width: 100%;
@@ -30,13 +30,16 @@
         }
 
         h1 {
+            /* position: fixed;	 */
             font-size: 100px;
             position: absolute;
+            display: inline;
             text-align: center;
-            top: 150px;
+            top: 20%;
+            right: 30%;
         }
 
-        /* 攝影師作品 (S2+照片) */
+        /* 攝影師作品輪播 (S2+照片) */
         #work {
             /* border: 3px solid blue; */
             display: flex;
@@ -54,7 +57,10 @@
             /* 確保水平置中 */
         }
 
-        /* 介紹網頁 */
+        /* 介紹網頁 (S4+img+介紹) */
+        #introbox img {
+            max-width: 50%;
+        }
 
 
     </style>
@@ -71,16 +77,16 @@
     </header>
 
     <main>
-        <!-- 主要圖片區(封面+標誌) -->
+        <!-- 主要圖片區S1(封面+標誌) -->
         <section id="big" style="border: 3px solid black;">
             <div><img id="bphoto" src="./img/貓.JPG">
-                <h1 style="display: inline-block;">Photer</h1> <!--改成圖片-->
             </div>
+            <h1>Photer</h1> <!--改成圖片-->
         </section>
 
         <br>
 
-        <!-- 攝影師作品輪播 -->
+        <!-- 攝影師作品輪播S2 -->
         <section id="work">
             <div id="photos" class="carousel slide carousel-fade" data-bs-interval="2000" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -107,7 +113,7 @@
 
         <br>
 
-        <!-- 攝影師一覽 -->
+        <!-- 攝影師一覽S3 -->
         <section style="border: 3px solid yellow;">
             <div class="row">
                 <div class="col-4">
@@ -133,15 +139,48 @@
 
         <br>
 
-        <!-- 介紹網頁 -->
-        <section>
-            <div>
+        <!-- 介紹網頁S4 -->
+        <section id="intro">
+            <div id="introbox">
+                <div>
+                    <img src="./img/背影貓.JPG">
+                </div>
 
+                <article id="arti">OKOKOO</article>
+
+                <div>
+                    <img src="./img/海.JPG">
+                </div>
+                
+                <article id="arti">fjksie</article>
+                
+                <div>
+                    <img src="./img/球狐狸直.JPG">
+                </div>
+                
+                <article id="arti">asjkls</article>
+                
+                <div>
+                    <img src="./img/背影3人橫.JPG">
+                </div>
+                
+                <article id="arti">jekliao</article>
             </div>
         </section>
 
     </main>
 
+
+    <!-- footer 頁尾聯絡方式-->
+    <footer>
+        <section>
+            <div>
+                <a href="#"><img style="width: 60px;" src="./img/logo.png"></a>
+                <a href="#"><img style="width: 60px;" src="./img/logo.png"></a>
+            </div>
+        </section>
+
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
