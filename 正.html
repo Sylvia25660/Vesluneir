@@ -11,18 +11,28 @@
     ">
 
     <style>
+        body {
+            background-color: rgb(255, 255, 251);
+        }
+
         /* header logo區 (logo大小) */
         #logo {
             padding: 10px;
             width: 10%;
         }
-
+        
         /* 主要圖片區(S1+封面照+標誌) */
-         #big { 
+        #big {
             display: flex;
-            width: 60vw;
+            width: 65vw;
             height: auto;
-        } 
+        }
+        
+        #s1 {
+            display: flex;
+            width: 25vh;
+            left: 30%;
+        }
 
         #bphoto {
             max-width: 100%;
@@ -31,12 +41,13 @@
 
         h1 {
             /* position: fixed;	 */
+            color: rgb(168, 216, 185);
             font-size: 100px;
             position: absolute;
             display: inline;
             text-align: center;
             top: 20%;
-            right: 30%;
+            right: 20%;
         }
 
         /* 攝影師作品輪播 (S2+照片) */
@@ -58,11 +69,26 @@
         }
 
         /* 介紹網頁 (S4+img+介紹) */
+        #intro {
+            border: 3px solid purple;
+        }
+
+        #introbox {
+            border: 3px solid palevioletred;
+        }
+
+        #arti {
+            color: aliceblue;
+            border: 3px solid brown;
+        }
+
         #introbox img {
             max-width: 50%;
         }
 
-
+        #intro #arti {
+            position: absolute;
+        }
     </style>
 </head>
 
@@ -78,9 +104,9 @@
 
     <main>
         <!-- 主要圖片區S1(封面+標誌) -->
-        <section id="big" style="border: 3px solid black;">
-            <div><img id="bphoto" src="./img/貓.JPG">
-            </div>
+        <section id="big">
+            <div id="s1"></div>
+            <div><img id="bphoto" src="./img/貓.JPG"></div>
             <h1>Photer</h1> <!--改成圖片-->
         </section>
 
@@ -151,25 +177,26 @@
                 <div>
                     <img src="./img/海.JPG">
                 </div>
-                
+
                 <article id="arti">fjksie</article>
-                
+
                 <div>
                     <img src="./img/球狐狸直.JPG">
                 </div>
-                
+
                 <article id="arti">asjkls</article>
-                
+
                 <div>
                     <img src="./img/背影3人橫.JPG">
                 </div>
-                
+
                 <article id="arti">jekliao</article>
             </div>
         </section>
 
     </main>
 
+    <br>
 
     <!-- footer 頁尾聯絡方式-->
     <footer>
