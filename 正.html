@@ -11,8 +11,14 @@
     ">
 
     <style>
+        /* 排版元素 */
         body {
             background-color: rgb(255, 255, 251);
+        }
+
+        #box {
+            width: 100px;
+            height: 50px;
         }
 
         /* header logo區 (logo大小) */
@@ -40,7 +46,6 @@
         }
 
         h1 {
-            /* position: fixed;	 */
             color: rgb(168, 216, 185);
             font-size: 100px;
             position: absolute;
@@ -52,7 +57,6 @@
 
         /* 攝影師作品輪播 (S2+照片) */
         #work {
-            /* border: 3px solid blue; */
             display: flex;
             justify-content: center;
             /* 水平置中 */
@@ -77,18 +81,16 @@
         }
 
         /* 介紹網頁 (S4+img+介紹) */
-        #intro {
-            border: 3px solid purple;
-        }
-
-        #introbox {
-            border: 3px solid palevioletred;
-            width: 100%;
+        #bbox {
+            display: flex;
+            margin-left: 10px;
+            margin-right: 10px;
         }
 
         #arti {
-            color: aliceblue;
-            border: 3px solid brown;
+            /* border: 3px solid brown; */
+            display: inline-block;
+            width: 50vw;
         }
 
         #introbox img {
@@ -101,6 +103,19 @@
             margin-right: 0;
         }
 
+        /* footer 頁尾 */
+        #foot {
+            background-color: rgba(181, 202, 160, 0.5);
+            display: block;
+            height: 200px;
+            width: auto;
+            text-align: center;
+        }
+
+        #foot>a>img {
+            width: 25%;
+        }
+        
     </style>
 </head>
 
@@ -122,7 +137,7 @@
             <h1>Photer</h1> <!--改成圖片-->
         </section>
 
-        <br>
+        <div id="box"></div>
 
         <!-- 攝影師作品輪播S2 -->
         <section id="work">
@@ -149,7 +164,7 @@
             </div>
         </section>
 
-        <br><br>
+        <div id="box"></div>
 
         <!-- 攝影師一覽S3 -->
         <section>
@@ -187,47 +202,45 @@
             </div>
         </section>
 
-        <br><br>
+        <div id="box"></div>
 
         <!-- 介紹網頁S4 -->
-        <section id="intro">
+        <section>
             <div id="introbox">
-                <div>
-                    <img id="left" src="./img/仙翁.JPG">
+                <div id="bbox">
+                    <img src="./img/仙翁.JPG">
+                    <article id="arti">dsadsa</article>
                 </div>
-
-                <article id="arti">dsadsa</article>
-
-                <div>
+                <div id="box"></div>
+                <div id="bbox">
+                    <article id="arti">fjksie</article>
                     <img id="right" src="./img/海.JPG">
                 </div>
-
-                <article id="arti">fjksie</article>
-
-                <div>
-                    <img id="left" src="./img/樹牌.JPG">
+                <div id="box"></div>
+                <div id="bbox">
+                    <img src="./img/樹牌.JPG">
+                    <article id="arti">asjkls</article>
                 </div>
-
-                <article id="arti">asjkls</article>
-
-                <div>
+                <div id="box"></div>
+                <div id="bbox">
+                    <article id="arti">jekliao</article>
                     <img id="right" src="./img/背影3人橫.JPG">
                 </div>
-
-                <article id="arti">jekliao</article>
             </div>
         </section>
 
     </main>
 
-    <br>
+    <div id="box"></div>
+    <div id="box"></div>
+
 
     <!-- footer 頁尾聯絡方式-->
     <footer>
         <section>
-            <div>
-                <a href="#"><img style="width: 60px;" src="./img/logo.png"></a>
-                <a href="#"><img style="width: 60px;" src="./img/logo.png"></a>
+            <div id="foot">
+                <a href="#"><img src="./img/logo.png"></a>
+                <a href="#"><img src="./img/logo.png"></a>
             </div>
         </section>
 
