@@ -20,14 +20,14 @@
             padding: 10px;
             width: 10%;
         }
-        
+
         /* 主要圖片區(S1+封面照+標誌) */
         #big {
             display: flex;
             width: 65vw;
             height: auto;
         }
-        
+
         #s1 {
             display: flex;
             width: 25vh;
@@ -68,6 +68,14 @@
             /* 確保水平置中 */
         }
 
+        /* 攝影師一覽(S3) */
+        #manbox {
+            display: flex;
+            width: 100vw;
+            justify-content: center;
+            align-items: center;
+        }
+
         /* 介紹網頁 (S4+img+介紹) */
         #intro {
             border: 3px solid purple;
@@ -75,6 +83,7 @@
 
         #introbox {
             border: 3px solid palevioletred;
+            width: 100%;
         }
 
         #arti {
@@ -83,12 +92,15 @@
         }
 
         #introbox img {
-            max-width: 50%;
+            max-width: 50vw;
         }
 
-        #intro #arti {
-            position: absolute;
+        #right {
+            display: block;
+            margin-left: auto;
+            margin-right: 0;
         }
+
     </style>
 </head>
 
@@ -137,57 +149,69 @@
             </div>
         </section>
 
-        <br>
+        <br><br>
 
         <!-- 攝影師一覽S3 -->
-        <section style="border: 3px solid yellow;">
-            <div class="row">
-                <div class="col-4">
+        <section>
+            <div id="manbox" class="row">
+                <div id="man" class="col-2">
                     <figure class="figure">
                         <img src="./img/river.jpeg" class="img-fluid figure-img">
                         <figcaption class="figure-caption">河</figcaption>
                     </figure>
                 </div>
-                <div class="col-4">
+                <div id="man" class="col-2">
                     <figure class="figure">
                         <img src="./img/street.jpeg" class="img-fluid figure-img">
                         <figcaption class="figure-caption">街</figcaption>
                     </figure>
                 </div>
-                <div class="col-4">
+                <div id="man" class="col-2">
                     <figure class="figure ">
                         <img src="./img/tower2.jpeg" class="img-fluid figure-img">
+                        <figcaption class="figure-caption">塔</figcaption>
+                    </figure>
+                </div>
+                <div id="man" class="col-2">
+                    <figure class="figure ">
+                        <img src="./img/月亮廢墟.JPG" class="img-fluid figure-img">
+                        <figcaption class="figure-caption">塔</figcaption>
+                    </figure>
+                </div>
+                <div id="man" class="col-2">
+                    <figure class="figure ">
+                        <img src="./img/通天閣+看板.JPG" class="img-fluid figure-img">
                         <figcaption class="figure-caption">塔</figcaption>
                     </figure>
                 </div>
             </div>
         </section>
 
-        <br>
+        <br><br>
 
         <!-- 介紹網頁S4 -->
         <section id="intro">
             <div id="introbox">
                 <div>
-                    <img src="./img/背影貓.JPG">
+                    <img id="left" src="./img/仙翁.JPG">
                 </div>
 
-                <article id="arti">OKOKOO</article>
+                <article id="arti">dsadsa</article>
 
                 <div>
-                    <img src="./img/海.JPG">
+                    <img id="right" src="./img/海.JPG">
                 </div>
 
                 <article id="arti">fjksie</article>
 
                 <div>
-                    <img src="./img/球狐狸直.JPG">
+                    <img id="left" src="./img/樹牌.JPG">
                 </div>
 
                 <article id="arti">asjkls</article>
 
                 <div>
-                    <img src="./img/背影3人橫.JPG">
+                    <img id="right" src="./img/背影3人橫.JPG">
                 </div>
 
                 <article id="arti">jekliao</article>
