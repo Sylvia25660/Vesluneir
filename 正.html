@@ -23,47 +23,25 @@
             height: 30px;
         }
 
-        /* 1. header (logo+漢堡) */
-        /* header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 80px;
-            background-color: #5078A0;
-        } */
+        /* ---------header (Logo+漢堡)-------------------- */
 
-        #hbox {
-            max-height: 100%;
-            width: auto;
-            margin: 0 auto;
-        }
+        #hbox {}
 
-        /* 2. 主要圖片區(S1+封面照+標誌) */
-        #big {
+        /* ----------1. 主要圖片區(S1+封面照+標誌)------------------ */
+
+        #s1 {
             display: flex;
             width: 100vw;
             height: auto;
         }
 
-        #bphoto {
+        #s1photo {
             max-width: 100%;
             padding: 3px;
         }
 
-        color: #2A3D4C;
-        color: #457B9D;
-        font-size: 100px;
-        position: absolute;
-        display: inline;
-        text-align: center;
-        top: 20%;
-        right: 20%;
-        }
+        /* -----------2. 照片一覽(S2)+(S4)--------------------------- */
 
-        */
-
-        /* 3. 照片一覽(S2)+(S4) */
         #manbox {
             display: flex;
             width: 100vw;
@@ -71,8 +49,10 @@
             align-items: center;
         }
 
-        /* 4. 照片輪播 (S3+照片) */
-        #work {
+
+        /* -----------3. 照片輪播 (S3+照片)--------------------------- */
+
+        #s3 {
             display: flex;
             justify-content: center;
             /* 水平置中 */
@@ -80,7 +60,7 @@
             /* 垂直置中 */
         }
 
-        #photos img {
+        #s3photo img {
             max-width: 50%;
             height: auto;
             /* 保持圖片比例 */
@@ -88,24 +68,23 @@
             /* 確保水平置中 */
         }
 
-        /* 6. 介紹網頁 (S5+img+介紹) */
-        #intro {
-            background-color: #030608;
+        /* ------------5. 介紹網頁 (S5+img+介紹)----------------------- */
+        #S5 {
+            background-color: #14202c;
         }
 
-        #bbox {
+        #s5box {
             display: flex;
             margin-left: 10px;
             margin-right: 10px;
         }
 
-        #arti {
-            /* border: 3px solid brown; */
+        #intro {
             display: inline-block;
             width: 50vw;
         }
 
-        #introbox img {
+        #s5 img {
             max-width: 50vw;
         }
 
@@ -125,7 +104,8 @@
             margin-right: 20px;
         }
 
-        /* 7. footer 頁尾(S6) */
+        /* ------------7. footer 頁尾(S6)------------------------- */
+
         #foot {
             background-color: #14202c;
             /* background-color: #5078A0; */
@@ -142,7 +122,7 @@
 </head>
 
 <body>
-    <!-- 1. header (Logo+漢堡)-->
+    <!-------------- header (Logo+漢堡)---------------------->
     <header>
         <div id="hbox">
             <a href="#" id="a">
@@ -151,24 +131,22 @@
         </div>
     </header>
 
+
+    <div id="box"></div>
+
     <main>
-        <!-- 2. 主要圖片區(S1+封面+標誌) -->
-
-        <div id="box"></div>
-
-        <section id="big">
-            <!-- <div id="s1"></div> -->
-            <div><img id="bphoto" src="./img/石頭海爆改2.jpg"></div>
-            <!-- <div><img src="./img/海邊女背影.jpg"></div> -->
-            <!--<h1>Photer</h1> 改成圖片-->
-            <!-- <div><img id="h1" src="./img/logo6.png" alt=""></div> -->
+        <!--------- 1. 主要圖片區(S1+封面+標誌) ----------------->
+        <section id="s1">
+            <div><img id="s1photo" src="./img/石頭海爆改2.jpg"></div>
         </section>
 
+
         <div id="box"></div>
         <div id="box"></div>
         <div id="box"></div>
 
-        <!-- 3. 照片一覽(S2) -->
+
+        <!--------- 2. 照片一覽(S2) --------------------------->
         <section>
             <div id="manbox" class="row">
                 <div id="man" class="col-4">
@@ -192,12 +170,14 @@
             </div>
         </section>
 
+
         <div id="box"></div>
         <div id="box"></div>
 
-        <!-- 4. 照片輪播(S3) -->
-        <section id="work">
-            <div id="photos" class="carousel slide carousel-fade" data-bs-interval="1500" data-bs-ride="carousel">
+
+        <!---------- 3. 照片輪播(S3) -------------------------->
+        <section id="s3">
+            <div id="s3photo" class="carousel slide carousel-fade" data-bs-interval="1500" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="./img/櫻花富士山.jpg" class="d-block w-100">
@@ -224,7 +204,8 @@
         <div id="box"></div>
         <div id="box"></div>
 
-        <!-- 5. 照片一覽(S4) -->
+
+        <!---------- 4. 照片一覽(S4) -------------------------->
         <section>
             <div id="manbox" class="row">
                 <div id="man" class="col-2">
@@ -266,34 +247,37 @@
             </div>
         </section>
 
+
         <div id="box"></div>
         <div id="box"></div>
         <div id="box"></div>
 
-        <!-- 6. 介紹網頁(S5) -->
-        <section>
-            <div id="introbox">
-                <div id="bbox">
+
+        <!---------- 5. 介紹網頁(S5) -------------------------->
+        <section id="S5">
+            <div id="s5">
+                <div id="s5box">
                     <img id="left" src="./img/女人及車子.jpg">
-                    <article id="arti">dsadsa</article>
+                    <article id="intro">dsadsa</article>
                 </div>
                 <div id="box"></div>
                 <div id="bbox">
-                    <article id="arti">fjksie</article>
+                    <article id="intro">fjksie</article>
                     <img id="right" src="./img/正面花.jpg">
                 </div>
                 <div id="box"></div>
                 <div id="bbox">
                     <img id="left" src="./img/金髮美女.jpg">
-                    <article id="arti">asjkls</article>
+                    <article id="intro">asjkls</article>
                 </div>
                 <div id="box"></div>
                 <div id="bbox">
-                    <article id="arti">jekliao</article>
+                    <article id="intro">jekliao</article>
                     <img id="right" src="./img/背景花.jpg">
                 </div>
             </div>
         </section>
+
 
     </main>
 
@@ -301,7 +285,7 @@
     <div id="box"></div>
 
 
-    <!-- 7. footer 頁尾聯絡方式(S6)-->
+    <!-------------- 7. footer 頁尾聯絡方式(S6)----------------->
     <footer>
         <section>
             <div id="foot">
