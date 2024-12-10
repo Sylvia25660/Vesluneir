@@ -9,6 +9,9 @@
     ">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js
     ">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@1,583&display=swap" rel="stylesheet">
 
     <style>
         /* ------------------- 排版元素 ------------------*/
@@ -69,6 +72,24 @@
             justify-content: center;
             /* 在 Flexbox 中，應用 justify-content & align-items  */
             align-content: center;
+        }
+
+        #s2 h1 {
+            color: #c29e76;
+            font-size: 80px;
+            font-family: "Alegreya", serif;
+            font-optical-sizing: auto;
+            font-weight: 550;
+            font-style: italic;
+        }
+
+        #strbox {
+            position: relative;
+        }
+
+        #str9 {
+            position: absolute;
+            bottom: 15px;
         }
 
         /* -----------2. 照片一覽(S3)+(S5)--------------------------- */
@@ -162,7 +183,7 @@
             </div>
             <nav id="nav">
                 <ul id="navbox">
-                    <li onclick=""><img src="./img/放大鏡.png"></li>
+                    <li onclick=""><a href="#"><img src="./img/放大鏡.png"></a></li>
                     <li><a href="#"><img style="width: 100%;" src="./img/Photographer.png"></a></li>
                     <li><a href="#"><img style="width: 100%;" src="./img/Look Book.png"></a></li>
                     <li><a href="#"><img style="width: 100%;" src="./img/Lesson.png"></a></li>
@@ -173,20 +194,35 @@
     </header>
 
     <div id="box"></div>
+    <div id="box"></div>
+    <div id="box"></div>
+    <div id="box"></div>
 
     <main>
 
         <!------------ 1. 文字介紹(S2) ----------------->
         <section id="s2">
             <div>
-                <img style="width: 100%;" src="./img/標語.png">
+                <img src="./img/Star 8.png">
+            </div>
+            <div>
+                <h1 id="slo">
+                    “ Every Moment
+                </h1>
+                <h1 id="slo">
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Carries an Endless Story. ”
+                </h1>
+            </div>
+            <div id="strbox">
+                <img id="str9" src="./img/Star 9.png">
             </div>
         </section>
 
-        視覺的記憶，在每一個瞬間中蔓延。
+        <!-- 視覺的記憶，在每一個瞬間中蔓延。
 
-        「每一幅畫面，都是沉默中流動的時光遺跡。」
+        「每一幅畫面，都是沉默中流動的時光遺跡。」 -->
 
+        <div id="box"></div>
         <div id="box"></div>
         <div id="box"></div>
         <div id="box"></div>
@@ -219,6 +255,8 @@
 
         <div id="box"></div>
         <div id="box"></div>
+        <div id="box"></div>
+        <div id="box"></div>
 
 
         <!------------- 3. 照片輪播(S4) -------------------------->
@@ -235,17 +273,18 @@
                         <img src="./img/飲料機.jpg" class="d-block w-100">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#photos" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#s4photo" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#photos" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#s4photo" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
         </section>
 
+        <div id="box"></div>
         <div id="box"></div>
         <div id="box"></div>
         <div id="box"></div>
