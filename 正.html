@@ -121,7 +121,7 @@
 
         /* ------------4. 介紹網頁 (S6+img+介紹)----------------------- */
         #s6 {
-            background-color: #14202c;
+            /* background-color: #14202c; */
         }
 
         #s6box {
@@ -145,7 +145,7 @@
             object-fit: cover;
             /* 確保圖片不變形 */
             margin-left: 30px;
-        }
+        } 
 
         #right {
             clip-path: circle(50%);
@@ -153,7 +153,7 @@
             width: 40%;
             margin-left: auto;
             margin-right: 20px;
-        }
+        } 
 
         /* ------------5. footer 頁尾(S7)------------------------- */
 
@@ -260,27 +260,27 @@
 
 
         <!------------- 3. 照片輪播(S4) -------------------------->
-        <section id="s4">
-            <div id="s4photo" class="carousel slide carousel-fade" data-bs-interval="1500" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./img/櫻花富士山.jpg" class="d-block w-100">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./img/苔癬.jpg" class="d-block w-100">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./img/飲料機.jpg" class="d-block w-100">
-                    </div>
+        <section>
+            <div id="s6">
+                <div id="s6box">
+                    <img id="left" src="./img/女人及車子.jpg">
+                    <article id="intro">dsadsa</article>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#s4photo" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#s4photo" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                <div id="box"></div>
+                <div id="bbox">
+                    <article id="intro">fjksie</article>
+                    <img id="right" src="./img/正面花.jpg">
+                </div>
+                <div id="box"></div>
+                <div id="bbox">
+                    <img id="left" src="./img/金髮美女.jpg">
+                    <article id="intro">asjkls</article>
+                </div>
+                <div id="box"></div>
+                <div id="bbox">
+                    <article id="intro">jekliao</article>
+                    <img id="right" src="./img/背景花.jpg">
+                </div>
             </div>
         </section>
 
@@ -339,29 +339,30 @@
 
 
         <!---------- 5. 介紹網頁(S6) -------------------------->
-        <section>
-            <div id="s6">
-                <div id="s6box">
-                    <img id="left" src="./img/女人及車子.jpg">
-                    <article id="intro">dsadsa</article>
+        <section id="s4">
+            <div id="s4photo" class="carousel slide carousel-fade" data-bs-interval="1500" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./img/櫻花富士山.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/苔癬.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/飲料機.jpg" class="d-block w-100">
+                    </div>
                 </div>
-                <div id="box"></div>
-                <div id="bbox">
-                    <article id="intro">fjksie</article>
-                    <img id="right" src="./img/正面花.jpg">
-                </div>
-                <div id="box"></div>
-                <div id="bbox">
-                    <img id="left" src="./img/金髮美女.jpg">
-                    <article id="intro">asjkls</article>
-                </div>
-                <div id="box"></div>
-                <div id="bbox">
-                    <article id="intro">jekliao</article>
-                    <img id="right" src="./img/背景花.jpg">
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#s4photo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#s4photo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </section>
+        
 
 
     </main>
