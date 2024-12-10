@@ -11,9 +11,9 @@
     ">
 
     <style>
-        /* 排版元素 */
+        /* ------------------- 排版元素 ------------------*/
+
         body {
-            /* background-color: #000000; */
             background-color: rgb(255, 250, 251);
             /* background-color: #F5F5F5; */
         }
@@ -23,11 +23,7 @@
             height: 30px;
         }
 
-        /* ---------header (Logo+漢堡)-------------------- */
-
-        #hbox {}
-
-        /* ----------1. 主要圖片區(S1+封面照+標誌)------------------ */
+        /* ---------header (S1+封面+logo+nav)-------------------- */
 
         #s1 {
             display: flex;
@@ -37,10 +33,45 @@
 
         #s1photo {
             max-width: 100%;
-            padding: 3px;
         }
 
-        /* -----------2. 照片一覽(S2)+(S4)--------------------------- */
+        #logobox {
+            max-width: 80%;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+
+        #logobox img {
+            max-width: 80%;
+        }
+
+        #nav {
+            position: absolute;
+            right: 50px;
+            top: 40px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: grid;
+            grid-auto-flow: column;
+            /* 水平方向排列 */
+            gap: 40px;
+            /* 設定項目之間的間距 */
+        }
+
+        /* ---------- 1. 文字介紹(S2)-------------------- */
+
+        #s2 {
+            display: flex;
+            width: 100vw;
+            justify-content: center;
+            /* 在 Flexbox 中，應用 justify-content & align-items  */
+            align-content: center;
+        }
+
+        /* -----------2. 照片一覽(S3)+(S5)--------------------------- */
 
         #manbox {
             display: flex;
@@ -49,10 +80,9 @@
             align-items: center;
         }
 
+        /* -----------3. 照片輪播 (S4+照片)--------------------------- */
 
-        /* -----------3. 照片輪播 (S3+照片)--------------------------- */
-
-        #s3 {
+        #s4 {
             display: flex;
             justify-content: center;
             /* 水平置中 */
@@ -60,7 +90,7 @@
             /* 垂直置中 */
         }
 
-        #s3photo img {
+        #s4photo img {
             max-width: 50%;
             height: auto;
             /* 保持圖片比例 */
@@ -68,12 +98,12 @@
             /* 確保水平置中 */
         }
 
-        /* ------------5. 介紹網頁 (S5+img+介紹)----------------------- */
-        #S5 {
+        /* ------------4. 介紹網頁 (S6+img+介紹)----------------------- */
+        #s6 {
             background-color: #14202c;
         }
 
-        #s5box {
+        #s6box {
             display: flex;
             margin-left: 10px;
             margin-right: 10px;
@@ -84,7 +114,7 @@
             width: 50vw;
         }
 
-        #s5 img {
+        #s6 img {
             max-width: 50vw;
         }
 
@@ -104,11 +134,10 @@
             margin-right: 20px;
         }
 
-        /* ------------7. footer 頁尾(S6)------------------------- */
+        /* ------------5. footer 頁尾(S7)------------------------- */
 
         #foot {
             background-color: #14202c;
-            /* background-color: #5078A0; */
             display: block;
             height: 200px;
             width: auto;
@@ -122,31 +151,48 @@
 </head>
 
 <body>
-    <!-------------- header (Logo+漢堡)---------------------->
+    <!-------------- header (S1+封面+logo)---------------------->
     <header>
-        <div id="hbox">
-            <a href="#" id="a">
-                <!-- <img src="./img/LOGO2.png"> -->
-            </a>
-        </div>
-    </header>
+        <section id="s1">
+            <div><img id="s1photo" src="./img/石頭海爆改2.jpg"></div>
+            <div id="logobox">
+                <a href="#">
+                    <img src="./img/Vesluneir.png">
+                </a>
+            </div>
+            <nav id="nav">
+                <ul id="navbox">
+                    <li onclick=""><img src="./img/放大鏡.png"></li>
+                    <li><a href="#"><img style="width: 100%;" src="./img/Photographer.png"></a></li>
+                    <li><a href="#"><img style="width: 100%;" src="./img/Look Book.png"></a></li>
+                    <li><a href="#"><img style="width: 100%;" src="./img/Lesson.png"></a></li>
+                </ul>
+            </nav>
+        </section>
 
+    </header>
 
     <div id="box"></div>
 
     <main>
-        <!--------- 1. 主要圖片區(S1+封面+標誌) ----------------->
-        <section id="s1">
-            <div><img id="s1photo" src="./img/石頭海爆改2.jpg"></div>
+
+        <!------------ 1. 文字介紹(S2) ----------------->
+        <section id="s2">
+            <div>
+                <img style="width: 100%;" src="./img/標語.png">
+            </div>
         </section>
 
+        視覺的記憶，在每一個瞬間中蔓延。
+
+        「每一幅畫面，都是沉默中流動的時光遺跡。」
 
         <div id="box"></div>
         <div id="box"></div>
         <div id="box"></div>
 
 
-        <!--------- 2. 照片一覽(S2) --------------------------->
+        <!------------- 2. 照片一覽(S3) --------------------------->
         <section>
             <div id="manbox" class="row">
                 <div id="man" class="col-4">
@@ -175,9 +221,9 @@
         <div id="box"></div>
 
 
-        <!---------- 3. 照片輪播(S3) -------------------------->
-        <section id="s3">
-            <div id="s3photo" class="carousel slide carousel-fade" data-bs-interval="1500" data-bs-ride="carousel">
+        <!------------- 3. 照片輪播(S4) -------------------------->
+        <section id="s4">
+            <div id="s4photo" class="carousel slide carousel-fade" data-bs-interval="1500" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="./img/櫻花富士山.jpg" class="d-block w-100">
@@ -205,7 +251,7 @@
         <div id="box"></div>
 
 
-        <!---------- 4. 照片一覽(S4) -------------------------->
+        <!---------- 4. 照片一覽(S5) -------------------------->
         <section>
             <div id="manbox" class="row">
                 <div id="man" class="col-2">
@@ -253,10 +299,10 @@
         <div id="box"></div>
 
 
-        <!---------- 5. 介紹網頁(S5) -------------------------->
-        <section id="S5">
-            <div id="s5">
-                <div id="s5box">
+        <!---------- 5. 介紹網頁(S6) -------------------------->
+        <section>
+            <div id="s6">
+                <div id="s6box">
                     <img id="left" src="./img/女人及車子.jpg">
                     <article id="intro">dsadsa</article>
                 </div>
@@ -285,7 +331,7 @@
     <div id="box"></div>
 
 
-    <!-------------- 7. footer 頁尾聯絡方式(S6)----------------->
+    <!-------------- 6. footer 頁尾聯絡方式(S7)----------------->
     <footer>
         <section>
             <div id="foot">
