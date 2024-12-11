@@ -120,41 +120,71 @@
         }
 
         /* ------------4. 介紹網頁 (S6+img+介紹)----------------------- */
-        #s6 {
-            /* background-color: #14202c; */
-        }
-
-        #s6box {
+        #fs6 {
+            background-color: #14202c;
+            /* 黑色背景 */
             display: flex;
-            margin-left: 10px;
-            margin-right: 10px;
+            justify-content: center;
+            align-items: center;
+            height: auto;
         }
 
-        #intro {
-            display: inline-block;
-            width: 50vw;
+        #s6 {
+            position: relative;
+            width: 120vmin;
+            /* 圓形的寬度，根據視口大小調整 */
+            height: 150vmin;
+            /* 圓形的高度 */
+            background-color: #fff;
+            /* 白色圓形背景 */
+            border-radius: 20%;
+            /* 圓形化 */
+            display: flex;
+            flex-direction: column;
+            /* 垂直排列 */
+            justify-content: space-around;
+            /* 均勻分佈內容 */
+            align-items: center;
+            /* 垂直方向居中 */
         }
 
-        #s6 img {
-            max-width: 50vw;
+        /* 每組圖片與內容的設置 */
+        .s6box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* 兩個子元素之間保持距離 */
+            width: 70%;
+            /* 每組內容的寬度相對圓形 */
         }
 
-        #left {
-            clip-path: ellipse(60% 50% at 50% 50%);
-            /* 裁剪左右，保留上下 */
+        /* 圖片設置 */
+        .s6box img {
+            width: 50%;
+            /* 固定圖片大小 */
+            height: auto;
+            border-radius: 10px;
+            /* 圖片圓角 */
             object-fit: cover;
-            /* 確保圖片不變形 */
-            margin-left: 30px;
-        } 
+            /* 確保圖片比例正常 */
+        }
 
-        #right {
-            clip-path: circle(50%);
-            display: block;
-            width: 40%;
-            margin-left: auto;
-            margin-right: 20px;
-        } 
+        /* 文章設置 */
+        .s6box article {
+            width: 100px;
+            /* 固定文章區域 */
+            font-size: 14px;
+            text-align: center;
+            /* 文字居中 */
+            color: #333;
+            /* 深色文字 */
+        }
 
+        #ssbox {
+            width: 1200px;
+            height: auto;
+            background-color: #14202c;
+        }
         /* ------------5. footer 頁尾(S7)------------------------- */
 
         #foot {
@@ -255,37 +285,33 @@
 
         <div id="box"></div>
         <div id="box"></div>
-        <div id="box"></div>
-        <div id="box"></div>
 
-
-        <!------------- 3. 照片輪播(S4) -------------------------->
-        <section>
-            <div id="s6">
-                <div id="s6box">
-                    <img id="left" src="./img/女人及車子.jpg">
-                    <article id="intro">dsadsa</article>
+        
+        <!------------- 3. 介紹網頁(S6+img+介紹) --------------------->
+        <div id="ssbox"></div>
+        <div id="ssbox"></div>
+        <section id="fs6">
+            <section id="s6">
+                <!-- 第一組內容 -->
+                <div class="s6box">
+                    <img src="./img/金髮美女.jpg" alt="image1">
+                    <article>今天我很棒</article>
                 </div>
-                <div id="box"></div>
-                <div id="bbox">
-                    <article id="intro">fjksie</article>
-                    <img id="right" src="./img/正面花.jpg">
+                <!-- 第二組內容 -->
+                <div class="s6box">
+                    <article>Content 2</article>
+                    <img src="img/book&camera2.jpg" alt="image2">
                 </div>
-                <div id="box"></div>
-                <div id="bbox">
-                    <img id="left" src="./img/金髮美女.jpg">
-                    <article id="intro">asjkls</article>
+                <!-- 第三組內容 -->
+                <div class="s6box">
+                    <img src="img/camerabook.jpg" alt="image3">
+                    <article>Content 3</article>
                 </div>
-                <div id="box"></div>
-                <div id="bbox">
-                    <article id="intro">jekliao</article>
-                    <img id="right" src="./img/背景花.jpg">
-                </div>
-            </div>
+            </section>
         </section>
+        <div id="ssbox"></div>
+        <div id="ssbox"></div>
 
-        <div id="box"></div>
-        <div id="box"></div>
         <div id="box"></div>
         <div id="box"></div>
 
@@ -338,7 +364,7 @@
         <div id="box"></div>
 
 
-        <!---------- 5. 介紹網頁(S6) -------------------------->
+        <!---------- 5. 照片輪播(S4) -------------------------->
         <section id="s4">
             <div id="s4photo" class="carousel slide carousel-fade" data-bs-interval="1500" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -362,7 +388,7 @@
                 </button>
             </div>
         </section>
-        
+
 
 
     </main>
