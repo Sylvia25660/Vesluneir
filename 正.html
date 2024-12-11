@@ -17,7 +17,8 @@
         /* ------------------- 排版元素 ------------------*/
 
         body {
-            background-color: rgb(255, 250, 251);
+            background-color: #14202c;
+            /* background-color: rgb(255, 250, 251); */
             /* background-color: #F5F5F5; */
         }
 
@@ -68,12 +69,36 @@
 
         #s2 {
             display: flex;
-            width: 100vw;
+            /* width: 100vw; */
+            height: auto;
             justify-content: center;
             /* 在 Flexbox 中，應用 justify-content & align-items  */
             align-content: center;
+            /* 控制元素內的子元素用的語法 */
+            /* flex-wrap: wrap; */
+            /* 換行 */
         }
 
+        #hbox{
+            position: relative;
+            width: 150vmin;
+            /* 圓形的寬度，根據視口大小調整 */
+            height: 60vmin;
+            /* 圓形的高度 */
+            background-color: rgb(255, 250, 251);
+            /* 白色圓形背景 */
+            border-radius: 60%;
+            /* 圓形化 */
+            display: flex;
+            flex-direction: column;
+            /* 垂直排列 */
+            justify-content: center;
+            /* 均勻分佈內容 */
+            align-items: center;
+            /* 垂直方向居中 */
+            /* flex-wrap: wrap; */
+        }
+        
         #s2 h1 {
             color: #c29e76;
             font-size: 80px;
@@ -135,7 +160,7 @@
             /* 圓形的寬度，根據視口大小調整 */
             height: 150vmin;
             /* 圓形的高度 */
-            background-color: #fff;
+            background-color: rgb(255, 250, 251);
             /* 白色圓形背景 */
             border-radius: 20%;
             /* 圓形化 */
@@ -185,6 +210,7 @@
             height: auto;
             background-color: #14202c;
         }
+
         /* ------------5. footer 頁尾(S7)------------------------- */
 
         #foot {
@@ -235,12 +261,13 @@
             <div>
                 <img src="./img/Star 8.png">
             </div>
-            <div>
-                <h1 id="slo">
-                    “ Every Moment
+            <div id="hbox">
+                <h1>
+                     “ Every Moment&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 </h1>
-                <h1 id="slo">
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Carries an Endless Story. ”
+                <h1>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    Carries an Endless Story. ”
                 </h1>
             </div>
             <div id="strbox">
@@ -286,10 +313,8 @@
         <div id="box"></div>
         <div id="box"></div>
 
-        
-        <!------------- 3. 介紹網頁(S6+img+介紹) --------------------->
-        <div id="ssbox"></div>
-        <div id="ssbox"></div>
+
+        <!------------- 3. 介紹網頁(S6+img+介紹) --------------------->        
         <section id="fs6">
             <section id="s6">
                 <!-- 第一組內容 -->
@@ -309,8 +334,6 @@
                 </div>
             </section>
         </section>
-        <div id="ssbox"></div>
-        <div id="ssbox"></div>
 
         <div id="box"></div>
         <div id="box"></div>
