@@ -17,7 +17,7 @@
         /* ------------------- 排版元素 ------------------*/
 
         body {
-            background-color: #14202c;
+            background-color: #000000;
             /* background-color: rgb(255, 250, 251); */
             /* background-color: #F5F5F5; */
         }
@@ -36,7 +36,7 @@
         }
 
         #s1photo {
-            max-width: 100%;
+            max-width: 100vw;
         }
 
         #logobox {
@@ -79,7 +79,7 @@
             /* 換行 */
         }
 
-        #hbox{
+        #hbox {
             position: relative;
             width: 150vmin;
             /* 圓形的寬度，根據視口大小調整 */
@@ -98,7 +98,7 @@
             /* 垂直方向居中 */
             /* flex-wrap: wrap; */
         }
-        
+
         #s2 h1 {
             color: #c29e76;
             font-size: 80px;
@@ -114,9 +114,20 @@
 
         #str9 {
             position: absolute;
-            bottom: 15px;
+            bottom: 60px;
         }
 
+        #str11 {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #str51 {
+            position: absolute;
+            bottom: 20px;
+            right: 85px;
+        }
         /* -----------2. 照片一覽(S3)+(S5)--------------------------- */
 
         #manbox {
@@ -127,7 +138,6 @@
         }
 
         /* -----------3. 照片輪播 (S4+照片)--------------------------- */
-
         #s4 {
             display: flex;
             justify-content: center;
@@ -146,7 +156,7 @@
 
         /* ------------4. 介紹網頁 (S6+img+介紹)----------------------- */
         #fs6 {
-            background-color: #14202c;
+            background-color: #000000;
             /* 黑色背景 */
             display: flex;
             justify-content: center;
@@ -162,7 +172,7 @@
             /* 圓形的高度 */
             background-color: rgb(255, 250, 251);
             /* 白色圓形背景 */
-            border-radius: 20%;
+            border-radius: 18%;
             /* 圓形化 */
             display: flex;
             flex-direction: column;
@@ -231,7 +241,7 @@
     <!-------------- header (S1+封面+logo)---------------------->
     <header>
         <section id="s1">
-            <div><img id="s1photo" src="./img/石頭海爆改2.jpg"></div>
+            <div><img id="s1photo" src="./img/girl5.jpg"></div>
             <div id="logobox">
                 <a href="#">
                     <img src="./img/Vesluneir.png">
@@ -261,17 +271,35 @@
             <div>
                 <img src="./img/Star 8.png">
             </div>
+            <div>
+                <img src="./img/Star 10.png">
+            </div>
+            <div>
+                <img src="./img/Star 5.png">
+            </div>
+            <div id="strbox">
+                <img id="str51" src="./img/Star 5.png">
+            </div>
             <div id="hbox">
                 <h1>
-                     “ Every Moment&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    “ Every Moment&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 </h1>
                 <h1>
                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     Carries an Endless Story. ”
                 </h1>
             </div>
+            <div>
+                <img src="./img/Star 5.png">
+            </div>
+            <div id="strbox">
+                <img id="str51" src="./img/Star 5.png">
+            </div>
             <div id="strbox">
                 <img id="str9" src="./img/Star 9.png">
+            </div>
+            <div id="strbox">
+                <img id="str11" src="/img/Star 11.png">
             </div>
         </section>
 
@@ -290,19 +318,19 @@
             <div id="manbox" class="row">
                 <div id="man" class="col-4">
                     <figure class="figure">
-                        <img src="./img/海邊一人.jpg" class="img-fluid figure-img">
+                        <img src="./img/book&camera.jpg" class="img-fluid figure-img">
                         <figcaption class="figure-caption">河</figcaption>
                     </figure>
                 </div>
                 <div id="man" class="col-4">
                     <figure class="figure">
-                        <img src="./img/海灘兩人.jpg" class="img-fluid figure-img">
+                        <img src="./img/金髮美女.jpg" class="img-fluid figure-img">
                         <figcaption class="figure-caption">街</figcaption>
                     </figure>
                 </div>
                 <div id="man" class="col-4">
                     <figure class="figure ">
-                        <img src="./img/眼鏡趴著女.jpg" class="img-fluid figure-img">
+                        <img src="./img/photer2.jpg" class="img-fluid figure-img">
                         <figcaption class="figure-caption">塔</figcaption>
                     </figure>
                 </div>
@@ -314,7 +342,7 @@
         <div id="box"></div>
 
 
-        <!------------- 3. 介紹網頁(S6+img+介紹) --------------------->        
+        <!------------- 3. 介紹網頁(S6+img+介紹) --------------------->
         <section id="fs6">
             <section id="s6">
                 <!-- 第一組內容 -->
