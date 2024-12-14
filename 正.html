@@ -14,21 +14,25 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500&family=Alegreya:ital,wght@0,483;1,483&display=swap"
         rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500&family=Alegreya:ital,wght@0,483;1,483&family=Kaisei+Decol:wght@500&display=swap"
+        rel="stylesheet">
+
 
     <style>
         /* ------------------- 排版元素 ------------------*/
 
         body {
-            background-image: url(/img/book&camera.jpg);
+            /* background-image: url(/img/book&camera.jpg);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: top 0;
             background-attachment: fixed;
-            backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px); */
 
-            /* background-color: #000000; */
+            background-color: #000000;
             /* background-color: rgb(255, 250, 251); */
-            /* background-color: #F5F5F5; */
+            /* background-color: #F5F5F5;  */
         }
 
         #box {
@@ -86,24 +90,26 @@
 
         #s2 {
             display: flex;
-            /* width: 100vw; */
             height: auto;
             justify-content: center;
             /* 在 Flexbox 中，應用 justify-content & align-items  */
             align-content: center;
             /* 控制元素內的子元素用的語法 */
-            /* flex-wrap: wrap; */
             /* 換行 */
         }
 
         #hbox {
-            position: relative;
+            background-image: url(/img/CB2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(30px);
+            background-attachment: fixed;
+            /* position: relative; */
             width: 150vmin;
             /* 圓形的寬度，根據視口大小調整 */
             height: 60vmin;
             /* 圓形的高度 */
-            background-color: rgb(255, 250, 251);
-            /* 白色圓形背景 */
             border-radius: 60%;
             /* 圓形化 */
             display: flex;
@@ -111,13 +117,13 @@
             /* 垂直排列 */
             justify-content: center;
             /* 均勻分佈內容 */
-            align-items: center;
+            margin: 0;
+            /* align-items: center; */
             /* 垂直方向居中 */
-            /* flex-wrap: wrap; */
         }
 
         #s2 h1 {
-            color: #c29e76;
+            color: rgb(255, 250, 251);
             font-size: 80px;
             font-family: "Alegreya", serif;
             font-optical-sizing: auto;
@@ -242,7 +248,7 @@
         /* ------------5. footer 頁尾(S7)------------------------- */
 
         #foot {
-            background-color: #14202c;
+            background-color: #000000;
             display: block;
             height: 200px;
             width: auto;
@@ -300,10 +306,9 @@
             </div>
             <div id="hbox">
                 <h1>
-                    “ Every Moment&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    “ Every Moment
                 </h1>
                 <h1>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     Carries an Endless Story. ”
                 </h1>
             </div>
