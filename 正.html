@@ -23,13 +23,6 @@
         /* ------------------- 排版元素 ------------------*/
 
         body {
-            /* background-image: url(/img/book&camera.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: top 0;
-            background-attachment: fixed;
-            backdrop-filter: blur(3px); */
-
             background-color: #000000;
             /* background-color: rgb(255, 250, 251); */
             /* background-color: #F5F5F5;  */
@@ -37,7 +30,7 @@
 
         #box {
             width: 100px;
-            height: 30px;
+            height: 75px;
         }
 
         /* ---------header (S1+封面+logo+nav)-------------------- */
@@ -99,13 +92,14 @@
         }
 
         #hbox {
+            border: 2px dashed rgba(231, 221, 221, 0.5);
             background-image: url(/img/CB2.jpg);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             backdrop-filter: blur(30px);
             background-attachment: fixed;
-            /* position: relative; */
+            position: relative;
             width: 150vmin;
             /* 圓形的寬度，根據視口大小調整 */
             height: 60vmin;
@@ -115,9 +109,9 @@
             display: flex;
             flex-direction: column;
             /* 垂直排列 */
-            justify-content: center;
+            /* justify-content: center; */
             /* 均勻分佈內容 */
-            margin: 0;
+            /* padding-left: 30px; */
             /* align-items: center; */
             /* 垂直方向居中 */
         }
@@ -129,6 +123,18 @@
             font-optical-sizing: auto;
             font-weight: 550;
             font-style: italic;
+        }
+
+        #h11 {
+            position: absolute;
+            left: 22%;
+            top: 180px;
+        }
+
+        #h12 {
+            position: absolute;
+            left: 32%;
+            bottom: 180px;
         }
 
         #strbox {
@@ -180,8 +186,6 @@
 
         /* ------------4. 介紹網頁 (S6+img+介紹)----------------------- */
         #fs6 {
-            /* background-color: #000000; */
-            /* 黑色背景 */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -209,6 +213,7 @@
 
         /* 每組圖片與內容的設置 */
         .s6box {
+            border: 3px solid blue;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -219,7 +224,8 @@
 
         /* 圖片設置 */
         .s6box img {
-            width: 50%;
+            border: yellow 3px solid;
+            width: 40%;
             /* 固定圖片大小 */
             height: auto;
             border-radius: 10px;
@@ -230,10 +236,11 @@
 
         /* 文章設置 */
         .s6box article {
-            width: 100px;
+            border: red 3px solid;
+            width: auto;
             /* 固定文章區域 */
             font-size: 14px;
-            text-align: center;
+            text-align: left;
             /* 文字居中 */
             color: #333;
             /* 深色文字 */
@@ -305,10 +312,10 @@
                 <img id="str51" src="./img/Star 5.png">
             </div>
             <div id="hbox">
-                <h1>
+                <h1 id="h11">
                     “ Every Moment
                 </h1>
-                <h1>
+                <h1 id="h12">
                     Carries an Endless Story. ”
                 </h1>
             </div>
@@ -341,7 +348,7 @@
             <div id="manbox" class="row">
                 <div id="man" class="col-4">
                     <figure class="figure">
-                        <img src="./img/book&camera.jpg" class="img-fluid figure-img">
+                        <img src="./img/photer2.jpg" class="img-fluid figure-img">
                         <figcaption class="figure-caption">河</figcaption>
                     </figure>
                 </div>
@@ -373,17 +380,27 @@
                 <!-- 第一組內容 -->
                 <div class="s6box">
                     <img src="./img/金髮美女.jpg" alt="image1">
-                    <article>今天我很棒</article>
+                    <article>
+                        攝影師專區可以輕鬆展示您的作品集，分享您的拍攝風格和專業技能。<br>
+                        無論是時尚攝影、婚禮攝影、肖像攝影還是藝術創作，這裡是您展示才華的完美平台。
+                    </article>
                 </div>
                 <!-- 第二組內容 -->
                 <div class="s6box">
-                    <article>Content 2</article>
+                    <article>
+                        模特兒專區是您展示自我、尋找最佳攝影師合作的理想場所。<br>
+                        您可以上傳並展示您的最新作品，讓攝影師了解您的拍攝風格與能力。<br>
+                        不僅如此，您還可以依照自己的需求篩選合適的攝影師，從各種攝影師的作品集和服務介紹中選擇最佳合作夥伴。
+                    </article>
                     <img src="img/book&camera2.jpg" alt="image2">
                 </div>
                 <!-- 第三組內容 -->
                 <div class="s6box">
                     <img src="img/camerabook.jpg" alt="image3">
-                    <article>Content 3</article>
+                    <article>
+                        無論您是模特兒還是攝影師，拍攝技巧都是提升作品質量的關鍵。<br>
+                        在我們的拍攝技巧區，您可以找到專業的教程和建議，幫助您在拍攝過程中表現更出色。
+                    </article>
                 </div>
             </section>
         </section>
@@ -439,8 +456,7 @@
 
         <div id="box"></div>
         <div id="box"></div>
-        <div id="box"></div>
-        <div id="box"></div>
+
 
 
         <!---------- 5. 照片輪播(S4) -------------------------->
@@ -474,8 +490,7 @@
 
     <div id="box"></div>
     <div id="box"></div>
-    <div id="box"></div>
-    <div id="box"></div>
+
 
 
     <!-------------- 6. footer 頁尾聯絡方式(S7)----------------->
