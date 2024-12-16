@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歡迎動畫 - GIF 範例</title>
+    <style>
+        /* 動態畫面樣式 */
+        #welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            /* 黑色背景透明度 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s;
+        }
+
+        /* 主頁內容 */
+        #main-content {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* 自訂文字樣式 */
+        #welcome-screen h1 {
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 歡迎動畫 -->
+    <div id="welcome-screen">
+        <div>
+            <!-- 插入 GIF 動畫 -->
+            <img src="https://media.giphy.com/media/3o7abldj0b3rxrZUxW/giphy.gif" alt="Loading Animation" width="200">
+            <h1>正在載入，請稍候...</h1>
+        </div>
+    </div>
+
+    <!-- 主頁內容 -->
+    <div id="main-content">
+        <h1>主頁內容</h1>
+        <p>這是網頁的主要內容，歡迎進入！</p>
+    </div>
+
+    <script>
+        // 等待所有資源載入完成後執行
+        window.onload = function () {
+            console.log("所有資源載入完成！");
+
+            // 獲取歡迎動畫和主頁內容
+            const welcomeScreen = document.getElementById("welcome-screen");
+            const mainContent = document.getElementById("main-content");
+
+            // 2 秒後淡出動畫，然後顯示主頁內容
+            setTimeout(() => {
+                welcomeScreen.style.opacity = "0"; // 開始淡出
+                setTimeout(() => {
+                    welcomeScreen.style.display = "none"; // 隱藏歡迎畫面
+                    mainContent.style.display = "block"; // 顯示主頁內容
+                }, 1000); // 確保淡出動畫完成
+            }, 2000);
+        };
+    </script>
+</body>
+
+</html>
