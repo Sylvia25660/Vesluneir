@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圖片顯示效果</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        /* 歡迎畫面設定 */
+        #welcome-screen {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            /* 從畫面左側開始，50% 位置 */
+            width: 50%;
+            /* 設置寬度 */
+            height: auto;
+            /* 高度佔滿整個畫面 */
+            transform: translateX(-50%);
+            /* 把元素向左偏移 50%，實現水平方向居中 */
+            display: flex;
+            /* 設置為 Flexbox */
+            justify-content: center;
+            /* 水平置中 */
+            align-items: center;
+            /* 垂直置中 */
+            text-align: center;
+            /* 文字居中 */
+            object-fit: cover;
+            /* 確保圖片等內容的比例不會被拉伸 */
+            z-index: 10;
+            transition: opacity 1s ease;
+            /* 淡出效果 */
+        }
+
+        /* 需要依序顯示的圖片容器 */
+        #welcome-img-container {
+            display: none;
+            /* 初始隱藏 */
+            text-align: center;
+        }
+
+        /* 每張圖片的樣式 */
+        .welcome-img {
+            display: none;
+            /* 初始隱藏所有圖片 */
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            opacity: 0;
+            transition: opacity 1s ease;
+            /* 淡入效果 */
+        }
+
+        /* 主頁內容隱藏，待顯示 */
+        #main-content {
+            color: aliceblue;
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 歡迎畫面 -->
+    <img id="welcome-screen"
+        src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHN4OTY5czAzZGkwbXRhODU2bnVnbGtsZ2x0cG5nNm5pcnV0YXVkbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mCGZhRjavuqYg/giphy.gif"
+        alt="歡迎畫面">
+
+    <!-- 要依序顯示的三張圖片 -->
+    <div id="welcome-img-container">
+        <img class="welcome-img" src="/img/camerabook.jpg" alt="圖片 1">
+        <img class="welcome-img" src="/img/girl.jpg" alt="圖片 2">
+        <img class="welcome-img" src="/img/photer3.jpg" alt="圖片 3">
+    </div>
+
+    <!-- 主頁內容 -->
+    <div id="main-content">
+        <h1>主頁內容</h1>
+        <p>這是網站的主頁。</p>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const welcomeScreen = document.getElementById("welcome-screen");
+            const welcomeImgs = document.querySelectorAll(".welcome-img");
+            const mainContent = document.getElementById("main-content");
+            const welcomeImgContainer = document.getElementById("welcome-img-container");
+
+            // 1. 歡迎畫面顯示後 0.12 秒消失
+            setTimeout(() => {
+                welcomeScreen.style.opacity = "0"; // 開始淡出
+                setTimeout(() => {
+                    welcomeScreen.style.display = "none"; // 隱藏歡迎畫面
+                    showImages(); // 開始顯示圖片
+                }, 1000); // 等待淡出動畫結束後隱藏
+            }, 0); // 歡迎畫面顯示時間 0.12 秒
+
+            // 2. 顯示依序的圖片
+            let imageIndex = 0;
+            function showImages() {
+                welcomeImgContainer.style.display = "block"; // 顯示圖片容器
+                if (imageIndex < welcomeImgs.length) {
+                    const currentImage = welcomeImgs[imageIndex];
+                    currentImage.style.display = "block"; // 顯示圖片
+                    setTimeout(() => {
+                        currentImage.style.opacity = "1"; // 淡入圖片
+                    }, 10); // 確保顯示後啟動淡入
+
+                    setTimeout(() => {
+                        currentImage.style.opacity = "0"; // 開始淡出當前圖片
+                        setTimeout(() => {
+                            currentImage.style.display = "none"; // 隱藏圖片
+                            imageIndex++; // 顯示下一張圖片
+                            showImages(); // 遞迴顯示下一張
+                        }, 1000); // 等待淡出動畫結束後隱藏圖片
+                    }, 2000); // 每張圖片顯示 2 秒
+                } else {
+                    // 所有圖片顯示完後顯示主頁內容
+                    setTimeout(() => {
+                        mainContent.style.display = "block"; // 顯示主頁內容
+                        mainContent.style.opacity = "1"; // 淡入主頁內容
+                    }, 500); // 延遲顯示
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>

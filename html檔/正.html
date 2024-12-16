@@ -22,12 +22,10 @@
     <style>
         #welcome-screen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            /* 黑色背景透明度 */
+            top: 30%;
+            left: 35%;
+            width: 30%;
+            height: auto;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,10 +33,11 @@
             transition: opacity 1s;
         }
 
+        /* 主頁內容 */
         #main-content {
             display: none;
-            text-align: center;
-            padding: 20px;
+            /* text-align: center;
+            padding: 20px; */
         }
 
         /* ------------------- 排版元素 ------------------*/
@@ -290,28 +289,23 @@
 </head>
 
 <body>
-    <section id="welcome-screen">
-        <div>
-            <iframe src="https://giphy.com/embed/Rk3MD1PtvVatwMQeBN" width="480" height="269"></iframe>
-        </div>
-        <div id="welcome-img"><img src="/img/girl.jpg" style="width: 500px;"></div>
-        <div id="welcome-img"><img src="/img/金髮美女.jpg" style="width: 600px;"></div>
-        <div id="welcome-img"><img src="/img/女人及車子.jpg" style="width: 700px;"></div>
-    </section>
+
+    <img id="welcome-screen"
+        src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHN4OTY5czAzZGkwbXRhODU2bnVnbGtsZ2x0cG5nNm5pcnV0YXVkbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mCGZhRjavuqYg/giphy.gif">
 
     <section id="main-content">
         <!-------------- header (S1+封面+logo)---------------------->
         <header>
             <section id="s1">
-                <div id="s1phobox"><img id="s1photo" src="./img/girl5.jpg"></div>
+                <div id="s1phobox"><img id="s1photo" src="/img/girl5.jpg"></div>
                 <div id="logobox">
                     <a href="正.html">
-                        <img src="./img/Vesluneir.png">
+                        <img src="/img/Vesluneir.png">
                     </a>
                 </div>
                 <nav id="nav">
                     <ul id="navbox">
-                        <li onclick=""><a href="#"><img src="./img/放大鏡.png"></a></li>
+                        <li onclick=""><a href="#"><img src="/img/放大鏡.png"></a></li>
                         <li><a href="Photographer.html">PHOTOGRAPHER</a></li>
                         <li><a href="LookBook.html">LOOK BOOK</a></li>
                         <li><a href="Article.html">Article</a></li>
@@ -331,16 +325,16 @@
             <!------------ 1. 文字介紹(S2) ----------------->
             <section id="s2">
                 <div>
-                    <img src="./img/Star 8.png">
+                    <img src="/img/Star 8.png">
                 </div>
                 <div>
-                    <img src="./img/Star 10.png">
+                    <img src="/img/Star 10.png">
                 </div>
                 <div>
-                    <img src="./img/Star 5.png">
+                    <img src="/img/Star 5.png">
                 </div>
                 <div id="strbox">
-                    <img id="str51" src="./img/Star 5.png">
+                    <img id="str51" src="/img/Star 5.png">
                 </div>
                 <div id="hbox">
                     <h1 id="h11">
@@ -351,13 +345,13 @@
                     </h1>
                 </div>
                 <div>
-                    <img src="./img/Star 5.png">
+                    <img src="/img/Star 5.png">
                 </div>
                 <div id="strbox">
-                    <img id="str51" src="./img/Star 5.png">
+                    <img id="str51" src="/img/Star 5.png">
                 </div>
                 <div id="strbox">
-                    <img id="str9" src="./img/Star 9.png">
+                    <img id="str9" src="/img/Star 9.png">
                 </div>
                 <div id="strbox">
                     <img id="str11" src="/img/Star 11.png">
@@ -379,19 +373,19 @@
                 <div id="manbox" class="row">
                     <div id="man" class="col-4">
                         <figure class="figure">
-                            <img src="./img/photer2.jpg" class="img-fluid figure-img">
+                            <img src="/img/photer2.jpg" class="img-fluid figure-img">
                             <figcaption class="figure-caption">河</figcaption>
                         </figure>
                     </div>
                     <div id="man" class="col-4">
                         <figure class="figure">
-                            <img src="./img/金髮美女.jpg" class="img-fluid figure-img">
+                            <img src="/img/photer2.jpg" class="img-fluid figure-img">
                             <figcaption class="figure-caption">街</figcaption>
                         </figure>
                     </div>
                     <div id="man" class="col-4">
                         <figure class="figure ">
-                            <img src="./img/photer2.jpg" class="img-fluid figure-img">
+                            <img src="/img/photer2.jpg" class="img-fluid figure-img">
                             <figcaption class="figure-caption">塔</figcaption>
                         </figure>
                     </div>
@@ -410,7 +404,7 @@
                 <section id="s6">
                     <!-- 第一組內容 -->
                     <div class="s6box">
-                        <img src="./img/金髮美女.jpg" alt="image1">
+                        <img src="/img/goldenhair.jpg" alt="image1">
                         <article>
                             攝影師專區可以輕鬆展示您的作品集，分享您的拍攝風格和專業技能。<br>
                             無論是時尚攝影、婚禮攝影、肖像攝影還是藝術創作，這裡是您展示才華的完美平台。
@@ -422,15 +416,13 @@
                             每一份作品集都是攝影師的名片。在這裡，您可以展示您的拍攝風格、專業領域與代表作，讓模特兒和客戶快速了解您的實力。
                             無論是時尚大片、婚禮紀實，還是創意作品，這裡都是您展示才華的最佳平台，吸引更多合作機會！
                         </article>
-                        <img src="img/book&camera2.jpg" alt="image2">
+                        <img src="/img/book&camera.jpg" alt="image2">
                     </div>
                     <!-- 第三組內容 -->
                     <div class="s6box">
-                        <img src="img/camerabook.jpg" alt="image3">
+                        <img src="/img/womancar.jpg" alt="image3">
                         <article>
-                            拍攝是一門藝術，我們的課程專區有許多為攝影師與模特兒打造的學習資源。<br>
-                            從基礎攝影設定到進階燈光運用，從構圖技巧到創意拍攝秘訣，
-                            無論是新手還是專業人士，都能在這裡找到提升技術的靈感，讓每一張照片都成為藝術品！<br>
+                            交流專區
                         </article>
                     </div>
                 </section>
@@ -535,40 +527,33 @@
 
         </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+
 
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script>
+
         window.onload = function () {
 
+            // 歡迎動畫
             const welcomeScreen = document.getElementById("welcome-screen");
             const mainContent = document.getElementById("main-content");
-            const welcomeImg = new Array("welcome-img");
-            welcomeImg[0] = "img\girl.jpg"
-            welcomeImg[1] = "img\金髮美女.jpg"
-            welcomeImg[2] = "img\女人及車子.jpg"
 
-
+            // 等待 2 秒後淡出動畫，顯示主頁內容
             setTimeout(() => {
                 welcomeScreen.style.opacity = "0";
                 setTimeout(() => {
                     welcomeScreen.style.display = "none";
-                }, 1000);
-            }, 1000);
-            setTimeout(() => {
-                welcomeImg.style.display = "block";
-                setTimeout(() => {
-                    welcomeImg.style.display = "none";
-                }, 1000);
-            }, 1000);
-            setTimeout(() => { 
-                mainContent.style.display = "block";                
-             }, 1000);
+                    mainContent.style.display = "block"; // 顯示主頁內容
+                }, 800); // 等待淡出動畫結束
+            }, 120);
         };
+
+
+
     </script>
-    
 </body>
 
 </html>
