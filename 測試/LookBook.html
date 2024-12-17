@@ -24,13 +24,13 @@
         }
 
         #s4photo img {
-            max-width: 80%;
+            max-width: 100%;
             height: auto;
             margin: 0 auto;
         }
 
         nav ul {
-            width: 90vw;
+            width: 100vw;
             background-color: rgba(90, 188, 222, 0.5);
             list-style: none;
             display: flex;
@@ -62,22 +62,29 @@
             max-width: 60%;
         }
 
-        #sidebox {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            /* 定義兩列，左邊側邊欄固定寬度，右邊為自動分配的主內容區域 */
-            height: 100vh;
-            margin: 25px 100px 25px 100px;
+        main {
+            display: flex;
+            /* 使用 Flexbox 進行水平排列 */
+            gap: 20px;
+            /* 控制側邊欄與主內容的間距 */
+            margin: 20px;
         }
 
-        .sidebar {
+        /* --------------------- 側邊欄 ---------------------- */
+
+        #sidebox {
+            display: grid;
+            height: 100vh;
+            width: 15vw;
+            margin: 25px;
             background-color: rgba(54, 143, 199, 0.5);
             color: white;
             display: flex;
             flex-direction: column;
             /* 垂直排列 */
-            padding-top: 15px;
-            padding-left: 15px;
+            padding: 15px;
+            flex: 0 0 20%;
+            /* 固定寬度為父容器的 20% */
         }
 
         .sidebar h2 {
@@ -106,24 +113,31 @@
         }
 
         /*-------------------- 相冊 ------------------*/
+        #s8 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            /* 動態調整列的數量 */
+            gap: 20px;
+            /* 調整相簿之間的間距 */
+            padding: 10px;
+            margin: 20px;
+            flex: 1;
+            /* 占據剩餘空間 */
+        }
 
         .book-cover {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 30%;
+            width: 100%;
+            /* 調整為父元素的寬度 */
             height: auto;
-            margin-left: 30px;
             background-color: #f5f5f5;
             border: 1px solid #ddd;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
-            cursor: pointer;
             transition: transform 0.3s ease-in-out;
-        }
-
-        .book-cover:hover {
-            transform: scale(1.05);
+            cursor: pointer;
         }
 
         .book-cover img {
@@ -132,10 +146,12 @@
             border-radius: 8px;
         }
 
-        /* 彈出框內容 */
+        .book-cover:hover {
+            transform: scale(1.05);
+        }
+
         .modal {
             display: none;
-            /* 初始隱藏 */
             position: fixed;
             top: 0;
             left: 0;
@@ -144,6 +160,7 @@
             z-index: 2;
             justify-content: center;
             align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .modal-content {
@@ -154,13 +171,12 @@
             max-height: 80%;
             overflow-y: auto;
             text-align: center;
+            position: relative;
         }
 
         .modal-gallery img {
             width: 30%;
             margin: 5px;
-            border: 2px solid black;
-            z-index: 3;
         }
 
         .close {
@@ -204,8 +220,6 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-
-
         </section>
 
         <nav id="nav">
@@ -218,9 +232,9 @@
         </nav>
     </header>
 
-    <!---------------------- 側邊欄 ------------------------->
-    <section id="sidebox">
-        <div class="sidebar">
+    <main>
+        <!---------------------- 側邊欄 ------------------------->
+        <section id="sidebox">
             <h2>Search</h2>
             <input type="text" placeholder="搜尋攝影師...">
 
@@ -253,26 +267,27 @@
                     <option>高雄</option>
                 </select>
             </div>
-        </div>
-        
-     <section id="s8">
+        </section>
+
+        <!----------------------- 相簿 -------------------------->
+        <section id="s8">
+            <!-- 相簿 1 -->
+            <img class="book-cover" data-album="1" src="/img/book&camera2.jpg" alt="相冊1封面">
+            <!-- 相簿 2 -->
+            <img class="book-cover" data-album="2" src="/img/goldenhair.jpg" alt="相冊2封面">
+            <!-- 相簿 3 -->
+            <img class="book-cover" data-album="3" src="/img/photer3.jpg" alt="相冊3封面">
+        </section>
+
         <!-- 彈出框 -->
         <div id="modal" class="modal">
             <div class="modal-content">
                 <span class="close" id="closebar">&times;</span>
-                <div id="modalGallery" class="modal-gallery"> 
-                    <!-- 彈出框裡的固定圖片 -->
+                <div id="modalGallery" class="modal-gallery">
+                    <!-- 彈出框裡的相片會動態生成 -->
                 </div>
             </div>
-        </div> 
-        書封面 
-        <img class="book-cover" id="bookCover" style="border: 3px solid blue;" src="/img/李河南.JPG" width="50%;"
-            alt="相冊封面">
-    </section>
-    </section>
-
-    <!----------------------- 相簿 -------------------------->
-
+        </div>
     </main>
 
     <!-- 1. 顯示相簿封面
@@ -282,33 +297,39 @@
         3. 點網頁其他地方或右上角X，相冊被收起 -->
 
     <script>
-        //定義關鍵元素
-        const bookCover = document.getElementById("bookCover");
+        // 相簿對應的圖片組
+        const albumImages = {
+            1: ["/img/Lemon.jpg", "/img/book&camera.jpg", "/img/redhouse.jpg"],
+            2: ["/img/Lemon.jpg", "/img/book&camera.jpg", "/img/Lemon.jpg"],
+            3: ["/img/redhouse.jpg", "/img/book&camera.jpg", "/img/redhouse.jpg"]
+        };
+
+        // 選取關鍵元素
+        const bookCovers = document.querySelectorAll(".book-cover");
         const modal = document.getElementById("modal");
-        const closeBar = document.getElementById("closebar");
         const modalGallery = document.getElementById("modalGallery");
-        const fixedImages = [
-            "/img/goldenhair.jpg",
-            "/img/photer2.jpg",
-            "/img/womancar.jpg",
-            "/img/book&camera.jpg",
-        ];
+        const closeBar = document.getElementById("closebar");
 
-        // 事件：點擊封面顯示彈出框
-        bookCover.addEventListener('click', function () {
-            // 清空彈出框內容
-            modalGallery.innerHTML = "";
+        // 為每個相簿添加點擊事件
+        bookCovers.forEach((cover) => {
+            cover.addEventListener("click", function () {
+                const albumId = this.getAttribute("data-album"); // 獲取相簿 ID
+                const images = albumImages[albumId]; // 根據 ID 獲取圖片組
 
-            // 將固定圖片加入彈出框          
-            fixedImages.forEach((imageSrc) => {
-                const imgElement = document.createElement("img");
-                imgElement.src = imageSrc;
-                imgElement.alt = "相片";
-                modalGallery.appendChild(imgElement);
-            })
+                // 清空彈出框內容
+                modalGallery.innerHTML = "";
 
-            // 顯示彈出框
-            modal.style.display = "flex";
+                // 動態添加圖片到彈出框
+                images.forEach((imageSrc) => {
+                    const imgElement = document.createElement("img");
+                    imgElement.src = imageSrc;
+                    imgElement.alt = "相片";
+                    modalGallery.appendChild(imgElement);
+                });
+
+                // 顯示彈出框
+                modal.style.display = "flex";
+            });
         });
 
         // 關閉彈出框
@@ -316,25 +337,12 @@
             modal.style.display = "none";
         });
 
-        // 點擊彈出框外部也關閉
-        window.addEventListener('click', function (event) {
+        // 點擊彈出框外部關閉
+        window.addEventListener("click", function (event) {
             if (event.target === modal) {
                 modal.style.display = "none";
             }
         });
-
-        // 點擊相簿中的圖片，彈出框顯示
-        // gallery.addEventListener('click', function (event) {
-        //     if (event.target.tagName === "IMG") {
-        //         modalImage.src = event.target.src;
-        //         modal.style.display = "block";
-        //     }
-        // });
-
-        // // 點擊關閉按鈕，關閉彈出框
-        // closeBar.addEventListener('click', function () {
-        //     modal.style.display = "none";
-        // });
     </script>
 </body>
 

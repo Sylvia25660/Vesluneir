@@ -35,48 +35,53 @@
         }
 
         #s4photo img {
-            max-width: 80%;
+            max-width: 100%;
             height: auto;
             /* 保持圖片比例 */
             margin: 0 auto;
             /* 確保水平置中 */
         }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: auto;
-            position: relative;
-        }
-
         nav ul {
-            width: 90vw;
-            background-color: rgba(90, 188, 222, 0.5);
-            background-size: auto;
             list-style: none;
             display: flex;
-            /* 使用 Flexbox */
+            /* 設定 flexbox 來並排顯示項目 */
             justify-content: center;
-            /* 水平置中 */
-            text-align: center;
-            /* 居中文本 */
-            gap: 90px;
-            /* 項目間距 */
-            margin: 10px;
+            /* 項目在水平方向上居中 */
+            padding: 0;
+            /* 移除內邊距 */
+            margin: 0;
+            /* 移除外邊距 */
+            background-color: rgba(90, 188, 222, 0.5);
+            width: 100vw;
+            height: auto;
         }
 
         nav li {
+            margin: 0 20px;
+            /* 設置每個菜單項目的左右間距 */
             font-family: "Alegreya", serif;
-            font-optical-sizing: auto;
-            font-weight: 483;
-            font-style: normal;
             font-size: 25px;
         }
 
         nav li a {
             text-decoration: none;
+            /* 移除連結下劃線 */
             color: aliceblue;
+            /* 設定文字顏色 */
+            display: block;
+            /* 使鏈接區域可以點擊 */
+            padding: 5px 10px;
+            /* 設置內邊距 */
+        }
+
+        .container-fluid {
+            position: relative;
+        }
+
+        .d-flex {
+            position: absolute;
+            right: 30px;
         }
 
         #logobox {
@@ -140,7 +145,7 @@
         .photographer-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 50px;
             padding: 20px;
             justify-items: center;
             /* 使卡片水平居中 */
@@ -223,7 +228,7 @@
         </div>
 
         <section id="s4">
-            <div id="s4photo" class="carousel slide carousel-fade" data-bs-interval="1500" data-bs-ride="carousel">
+            <div id="s4photo" class="carousel slide carousel-fade" data-bs-interval="2000" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="/img/sarura_mt.jpg" class="d-block w-100">
@@ -235,36 +240,40 @@
                         <img src="/img/seawoman.jpg" class="d-block w-100">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#s4photo" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#s4photo" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </section>
 
-        <nav id="nav">
-            <ul id="navbox">
-                <li><a href="正.html">HOME</a></li>
-                <li><a href="Photographer.html">PHOTOGRAPHER</a></li>
-                <li><a href="LookBook.html">LOOK BOOK</a></li>
-                <li><a href="Article.html">ARTICLE</a></li>
-            </ul>
-        </nav>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Photographer</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled">Article</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+
 
     </header>
 
     <!---------------------- 側邊欄 ------------------------->
     <section id="sidebox">
         <div class="sidebar">
-            <h2>Search</h2>
-            <input type="text" placeholder="搜尋攝影師...">
-
-            <div style="width: 100px; height: 25px;"></div>
-
             <div class="filter-group">
                 <h2>Type</h2>
                 <label><input type="checkbox"> 婚禮攝影</label>
