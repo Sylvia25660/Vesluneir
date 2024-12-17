@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 創建主要結構
+document.addEventListener('DOMContentLoaded', () => {
+    // 創建 body 標籤內容
+    const body = document.body;
+
+    // 書封面
+    const bookCover = document.createElement('div');
+    bookCover.className = 'book-cover';
+    const coverImage = document.createElement('img');
+    coverImage.src = 'img\一枝櫻花橫.jpg';
+    coverImage.alt = '相冊封面';
+    bookCover.appendChild(coverImage);
+    body.appendChild(bookCover);
+
+    // 相冊內容 (隱藏)
+    const gallery = document.createElement('section');
+    gallery.className = 'gallery';
+
+    const images = [
+        'img\手.jpg',
+        'img\book&camera2.jpg',
+        'img\womancar.jpg'
+    ];
+
+    images.forEach(src => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+
+        const galleryImage = document.createElement('img');
+        galleryImage.className = 'gallery-image';
+        galleryImage.src = src;
+        galleryImage.alt = '相冊圖片';
+
+        galleryItem.appendChild(galleryImage);
+        gallery.appendChild(galleryItem);
+    });
+
+    body.appendChild(gallery);
+
+    // CSS 樣式 (內嵌到頁面中)
+    const style = document.createElement('style');
+    style.textContent = `
+        body {
+            background-color: rgb(255, 250, 251);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* 書封面樣式 */
+        .book-cover {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 400px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .book-cover:hover {
+            transform: scale(1.05);
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        /* 相冊樣式 */
+        .gallery {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            flex: 1 1 calc(33.333% - 30px);
+            max-width: 300px;
+        }
+
+        .gallery-image {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+    `;
+    document.head.appendChild(style);
+
+    // 點擊書封面切換到相冊
+    bookCover.addEventListener('click', () => {
+        bookCover.style.display = 'none';
+        gallery.style.display = 'flex';
+    });
+});
+
+    </script>
+</body>
+</html>

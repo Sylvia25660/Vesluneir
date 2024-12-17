@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彈出框範例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* 彈出框樣式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        /* 書封面樣式 */
+        .book-cover {
+            display: block;
+            margin: 20px auto;
+            border: 3px solid blue;
+            cursor: pointer;
+            max-width: 200px;
+        }
+
+        /* 相簿內容 */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px;
+            border: 3px solid yellow;
+        }
+
+        .gallery-item {
+            border: 3px solid purple;
+            padding: 5px;
+        }
+
+        .gallery-image {
+            max-width: 150px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section id="s8">
+            <!-- 彈出框 -->
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeBar">&times;</span>
+                    <img id="modalImage" src="" alt="彈出框圖片">
+                </div>
+            </div>
+
+            <!-- 書封面 -->
+            <img class="book-cover" id="bookCover" src="/img/李河南.JPG" alt="相冊封面">
+
+            <!-- 相簿內容 -->
+            <div class="gallery" id="gallery" style="display: none;">
+                <div class="gallery-item">
+                    <img src="/img/camerabook.jpg" alt="風景1" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="/img/goldenhair.jpg" alt="風景2" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="/img/貓書.jpg" alt="風景3" class="gallery-image">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const bookCover = document.getElementById("bookCover");
+        const gallery = document.getElementById("gallery");
+        const modal = document.getElementById("modal");
+        const modalImage = document.getElementById("modalImage");
+        const closeBar = document.getElementById("closeBar");
+
+        // 點擊書封面顯示相簿
+        bookCover.addEventListener('click', function () {
+            gallery.style.display = "flex"; // 顯示相簿
+        });
+
+        // 點擊相簿中的圖片，彈出框顯示
+        gallery.addEventListener('click', function (event) {
+            if (event.target.tagName === "IMG") {
+                modalImage.src = event.target.src; // 設定彈出框圖片
+                modal.style.display = "block"; // 顯示彈出框
+            }
+        });
+
+        // 點擊關閉按鈕，關閉彈出框
+        closeBar.addEventListener('click', function () {
+            modal.style.display = "none"; // 隱藏彈出框
+        });
+    </script>
+</body>
+
+</html>

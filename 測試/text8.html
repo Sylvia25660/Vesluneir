@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彈出框顯示相簿</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* 書封面 */
+        .book-cover {
+            display: block;
+            margin: 50px auto;
+            border: 3px solid blue;
+            cursor: pointer;
+            max-width: 200px;
+        }
+
+        /* 彈出框樣式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1000;
+            width: 80%;
+            max-width: 600px;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .popup-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .popup-gallery img {
+            max-width: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- 書封面 -->
+        <img class="book-cover" id="bookCover" src="/img/李河南.JPG" alt="相冊封面">
+
+        <!-- 彈出框 -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeBar">&times;</span>
+                <div class="popup-gallery" id="popupGallery">
+                    <!-- 相片內容會動態生成 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const bookCover = document.getElementById("bookCover");
+        const modal = document.getElementById("modal");
+        const closeBar = document.getElementById("closeBar");
+        const popupGallery = document.getElementById("popupGallery");
+
+        // 書封面點擊事件：彈出一組相片
+        bookCover.addEventListener('click', function () {
+            // 清空彈出框內容
+            popupGallery.innerHTML = "";
+
+            // 動態生成一組相片
+            const images = [
+                "/img/camerabook.jpg",
+                "/img/goldenhair.jpg",
+                "/img/貓書.jpg",
+                "/img/李河南.JPG",
+                "/img/其他圖片.JPG"
+            ];
+
+            images.forEach(src => {
+                const img = document.createElement("img");
+                img.src = src;
+                popupGallery.appendChild(img);
+            });
+
+            // 顯示彈出框
+            modal.style.display = "block";
+        });
+
+        // 關閉彈出框
+        closeBar.addEventListener('click', function () {
+            modal.style.display = "none";
+        });
+
+        // 點擊彈出框外部也關閉
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
