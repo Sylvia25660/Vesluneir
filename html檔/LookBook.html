@@ -14,64 +14,13 @@
 
         body {
             background-color: rgb(255, 250, 251);
-        }
-
-        /* ---------header (輪播+封面+logo+nav)-------------------- */
-
-        #s4 {
             display: flex;
-            width: 100vw;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        #s4photo img {
-            max-width: 100%;
-            height: auto;
-            margin: 0 auto;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            /* 設定 flexbox 來並排顯示項目 */
-            justify-content: center;
-            /* 項目在水平方向上居中 */
-            padding: 0;
-            /* 移除內邊距 */
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
             margin: 0;
-            /* 移除外邊距 */
-            background-color: rgba(90, 188, 222, 0.5);
-            width: 100vw;
-            height: auto;
-        }
-
-        nav li {
-            margin: 0 20px;
-            /* 設置每個菜單項目的左右間距 */
-            font-family: "Alegreya", serif;
-            font-size: 25px;
-        }
-
-        nav li a {
-            text-decoration: none;
-            /* 移除連結下劃線 */
-            color: aliceblue;
-            /* 設定文字顏色 */
-            display: block;
-            /* 使鏈接區域可以點擊 */
-            padding: 5px 10px;
-            /* 設置內邊距 */
-        }
-
-        .container-fluid {
-            position: relative;
-        }
-
-        .d-flex {
-            position: absolute;
-            right: 30px;
+            padding: 0;
+            min-height: 100vh;
         }
 
         #logobox {
@@ -86,130 +35,129 @@
             max-width: 60%;
         }
 
-        /* --------------------- 側邊欄 ---------------------- */
-
-        #sidebox {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            /* 定義兩列，左邊側邊欄固定寬度，右邊為自動分配的主內容區域 */
-            height: 100vh;
-            margin: 25px 100px 25px 100px;
+        main {
+            padding-block: 2rem;
+            width: 90%;
+            max-width: 70rem;
+            margin: auto;
+            color: var(--clr-black);
         }
 
-        .sidebar {
-            background-color: rgba(54, 143, 199, 0.5);
-            color: white;
+        .container {
+            margin-top: 2em;
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .card {
+            background: var(--clr-white);
+            border-radius: 1.2rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
-            /* 垂直排列 */
-            padding-top: 15px;
-            padding-left: 15px;
+            justify-content: flex-start;
+            align-items: stretch;
         }
 
-        .sidebar h2 {
-            font-size: 24px;
-            /* margin-bottom: 5px; */
+        .card:hover {
+            transform: translateY(-10px);
         }
 
-        .sidebar input[type="text"] {
-            width: 80%;
-            border: none;
-            border-radius: 5px;
-        }
-
-        /* 側邊欄中的選單項目 */
-        .sidebar a {
-            padding: 10px 20px;
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            border-bottom: 1px solid #444;
-        }
-
-        /* 側邊欄選單項目懸停效果 */
-        .sidebar a:hover {
-            background-color: #575757;
-        }
-
-        /*-------------------- 相冊 ------------------*/
-        #s8 {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            /* 動態調整列的數量 */
-            gap: 20px;
-            /* 調整相簿之間的間距 */
-            padding: 10px;
-            margin: 20px;
-            flex: 1;
-            /* 占據剩餘空間 */
-        }
-
-        .book-cover {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .card .imgBox img {
             width: 100%;
-            /* 調整為父元素的寬度 */
-            height: auto;
-            background-color: #f5f5f5;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            transition: transform 0.3s ease-in-out;
+            height: 100%;
+            object-fit: cover;
             cursor: pointer;
         }
 
-        .book-cover img {
-            width: 80%;
+        .imgBox {
+            width: 100%;
             height: auto;
-            border-radius: 8px;
         }
 
-        .book-cover:hover {
-            transform: scale(1.05);
+        .tag {
+            padding: 0.625rem;
+            background: var(--clr-white);
+            text-align: center;
+            margin-top: 1rem;
+            /* 確保tag有間隔 */
+        }
+
+        a {
+            font-size: 0.8rem;
+            color: var(--clr-black);
+            font-weight: 400;
+            border: 0.125rem solid #c8c8c8;
+            border-radius: 3.125rem;
+            padding: 0.313rem 0.625rem;
+            display: inline-block;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
         }
 
         .modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            z-index: 2;
             justify-content: center;
             align-items: center;
-            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            /* 半透明背景 */
         }
 
         .modal-content {
-            background: white;
+            background: #fff;
             padding: 20px;
             border-radius: 10px;
-            max-width: 80%;
+            max-width: 65%;
             max-height: 80%;
             overflow-y: auto;
             text-align: center;
             position: relative;
         }
 
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            /* 調整每行圖片寬度 */
+            gap: 10px;
+            padding: 10px;
+        }
+
         .modal-gallery img {
-            width: 30%;
-            /* margin: 5px; */
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            max-width: 100%;
+            /* 設定圖片最大寬度 */
+            max-height: auto;
+            /* 設定圖片最大高度 */
+        }
+
+        .modal-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
         }
 
         .close {
             position: absolute;
             top: 10px;
-            right: 10px;
+            right: 20px;
             font-size: 24px;
+            font-weight: bold;
             cursor: pointer;
         }
     </style>
 </head>
 
 <body>
-    <!--------------------- header ----------------------->
     <header>
         <div id="logobox">
             <a href="正.html">
@@ -232,148 +180,105 @@
                 </div>
             </div>
         </section>
-
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <!-- <a class="navbar-brand" href="#"><img src="/img/Vesluneir.png"></a> -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Photographer</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Article</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-
     </header>
 
-    <!---------------------- 側邊欄 ------------------------->
-    <section id="sidebox">
-        <div class="sidebar">
-            <h2>Search</h2>
-            <input type="text" placeholder="搜尋攝影師...">
-
-            <div style="width: 100px; height: 25px;"></div>
-
-            <div class="filter-group">
-                <h2>Type</h2>
-                <label><input type="checkbox"> 婚禮攝影</label>
-                <label><input type="checkbox"> 時尚攝影</label>
-                <label><input type="checkbox"> 商業攝影</label>
-                <label><input type="checkbox"> 兒童攝影</label>
-            </div>
-
-            <div style="width: 100px; height: 25px;"></div>
-
-            <div class="filter-group">
-                <h2>Price</h2>
-                <input type="range" min="0" max="5000" step="100">
-                <p>最高價格：<span id="price-range">2500</span> 元</p>
-            </div>
-
-            <div style="width: 100px; height: 25px;"></div>
-
-            <div class="filter-group">
-                <h2>Location</h2>
-                <select>
-                    <option>全台</option>
-                    <option>台北</option>
-                    <option>台中</option>
-                    <option>高雄</option>
-                </select>
-            </div>
-        </div>
-
     <main>
-        <!----------------------- 相簿 -------------------------->
-        <section id="s8">
-            <!-- 相簿 1 -->
-            <img class="book-cover" data-album="1" src="/img/book&camera2.jpg" alt="相冊1封面">
-            <!-- 相簿 2 -->
-            <img class="book-cover" data-album="2" src="/img/goldenhair.jpg" alt="相冊2封面">
-            <!-- 相簿 3 -->
-            <img class="book-cover" data-album="3" src="/img/photer3.jpg" alt="相冊3封面">
-        </section>
+        <div class="container">
+            <div class="card" data-album="1">
+                <div class="imgBox">
+                    <img src="https://images.unsplash.com/photo-1598601065215-751bf8798a2c?q=80&w=1883&auto=format&fit=crop"
+                        alt="Awesome views">
+                </div>
+                <div class="tag">
+                    <a href="#">#Awesome views</a>
+                </div>
+            </div>
 
-        <!-- 彈出框 -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closebar">&times;</span>
-                <div id="modalGallery" class="modal-gallery">
-                    <!-- 彈出框裡的相片會動態生成 -->
+            <div class="card" data-album="2">
+                <div class="imgBox">
+                    <img src="https://images.unsplash.com/photo-1598601065215-751bf8798a2c?q=80&w=1883&auto=format&fit=crop"
+                        alt="Awesome views">
+                </div>
+                <div class="tag">
+                    <a href="#">#Awesome views</a>
+                </div>
+            </div>
+
+            <div class="card" data-album="3">
+                <div class="imgBox">
+                    <img src="https://images.unsplash.com/photo-1501554728187-ce583db33af7?q=80&w=1887&auto=format&fit=crop"
+                        alt="Hiking">
+                </div>
+                <div class="tag">
+                    <a href="#">#Hiking</a>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-------------------- JS ------------------------>
+    <!-- 彈出框 -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <div id="modalGallery" class="modal-gallery"></div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- 1. 顯示相簿封面
-        2. 點開時展開相冊
-        3. 彈出新的小視窗(不是新分頁)
-        4. 分頁內排滿相片
-        3. 點網頁其他地方或右上角X，相冊被收起 -->
     <script>
-        // 相簿對應的圖片組
         const albumImages = {
-            1: ["/img/Lemon.jpg", "/img/book&camera.jpg", "/img/redhouse.jpg", "/img/girl.jpg"],
-            2: ["/img/Lemon.jpg", "/img/book&camera.jpg", "/img/Lemon.jpg", "/img/tower2.jpeg"],
-            3: ["/img/redhouse.jpg", "/img/book&camera.jpg", "/img/redhouse.jpg", "/img/goldenhair.jpg"]
+            1: ["/img/Lemon.jpg", "/img/book&camera.jpg", "/img/redhouse.jpg", "/img/girl.jpg", "/img/Paul's.jpg"],
+            2: ["/img/Lemon.jpg", "/img/book&camera.jpg", "/img/Lemon.jpg", "/img/tower2.jpeg", "/img/searock.jpg"],
+            3: ["/img/redhouse.jpg", "/img/book&camera.jpg", "/img/redhouse.jpg", "/img/goldenhair.jpg", "/img/sketch.jpg"]
         };
 
-        // 選取關鍵元素
-        const bookCovers = document.querySelectorAll(".book-cover");
+        const cards = document.querySelectorAll(".card");
         const modal = document.getElementById("modal");
         const modalGallery = document.getElementById("modalGallery");
-        const closeBar = document.getElementById("closebar");
+        const closeModal = document.getElementById("closeModal");
 
-        // 為每個相簿添加點擊事件
-        bookCovers.forEach((cover) => {
-            cover.addEventListener("click", function () {
-                const albumId = this.getAttribute("data-album"); // 獲取相簿 ID
-                const images = albumImages[albumId]; // 根據 ID 獲取圖片組
+        function adjustImageSizes() {
+            const images = document.querySelectorAll(".modal-gallery img");
 
-                // 清空彈出框內容
+            modalGallery.style.display = "grid";
+            modalGallery.style.gridTemplateColumns = "repeat(auto-fill, minmax(200px, 1fr))";
+            modalGallery.style.gridAutoRows = "auto";
+            modalGallery.style.gap = "10px";
+
+            images.forEach((img) => {
+                img.onload = () => {
+                    const rowSpan = Math.ceil(img.naturalHeight / 350); // 使用圖片的高度來調整每行跨度
+                    img.style.gridRowEnd = `span ${rowSpan}`;
+                };
+            });
+        }
+
+        cards.forEach(card => {
+            card.addEventListener("click", () => {
+                const albumId = card.getAttribute("data-album");
+                const images = albumImages[albumId];
+
                 modalGallery.innerHTML = "";
 
-                // 動態添加圖片到彈出框
-                images.forEach((imageSrc) => {
-                    const imgElement = document.createElement("img");
-                    imgElement.src = imageSrc;
-                    imgElement.alt = "相片";
-                    modalGallery.appendChild(imgElement);
+                images.forEach(src => {
+                    const img = document.createElement("img");
+                    img.src = src;
+                    img.alt = "相片";
+                    modalGallery.appendChild(img);
                 });
 
-                // 顯示彈出框
+                adjustImageSizes();
+
                 modal.style.display = "flex";
             });
         });
 
-        // 關閉彈出框
-        closeBar.addEventListener("click", function () {
+        closeModal.addEventListener("click", () => {
             modal.style.display = "none";
         });
 
-        // 點擊彈出框外部關閉
-        window.addEventListener("click", function (event) {
+        window.addEventListener("click", (event) => {
             if (event.target === modal) {
                 modal.style.display = "none";
             }
