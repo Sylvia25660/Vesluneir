@@ -30,6 +30,9 @@
         }
 
         /* ---------1. header (S1+封面+logo+nav)-------------------- */
+        header {
+            position: relative;
+        }
 
         #s1 {
             display: flex;
@@ -43,7 +46,7 @@
 
         #logobox {
             max-width: 80%;
-            /* position: absolute; */
+            position: absolute;
             left: 20px;
             top: 20px;
         }
@@ -54,9 +57,15 @@
 
         #nav {
             background-color: azure;
-            /* position: absolute; */
-            right: 50px;
-            top: 30px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            height: 30px;
+            /* 圓形的高度 */
+            width: 100%;
+            /* border-radius: 15px; */
         }
 
         nav ul {
@@ -64,7 +73,7 @@
             display: grid;
             grid-auto-flow: column;
             /* 水平方向排列 */
-            gap: 40px;
+            gap: 5px;
             /* 設定項目之間的間距 */
         }
 
@@ -73,7 +82,7 @@
             font-optical-sizing: auto;
             font-weight: 483;
             font-style: normal;
-            font-size: 25px;
+            font-size: 15px;
         }
 
         /* ---------------- 2. 無限滑動照片 -----------------*/
@@ -252,8 +261,6 @@
     <header>
         <nav id="nav">
             <ul id="navbox">
-                <li></li>
-                <li onclick=""><a href="#"><img src="/img/放大鏡.png"></a></li>
                 <li><a href="Photographer.html">PHOTOGRAPHER</a></li>
                 <li><a href="LookBook.html">LOOK BOOK</a></li>
                 <li><a href="Article.html">ARTICLE</a></li>
