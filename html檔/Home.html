@@ -63,14 +63,14 @@
             right: 18px;
             width: 15%;
             height: 50%;
-            border-radius: 3px;            
+            border-radius: 3px;
             z-index: 999;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
             /* grid-auto-flow: column; */
             /* 水平方向排列 */
             gap: 5px;
@@ -94,7 +94,7 @@
             top: 20px;
             right: 30px;
             /* 將按鈕容器對齊右側 */
-            height: 20px;            
+            height: 20px;
             z-index: 999;
         }
 
@@ -105,7 +105,7 @@
             cursor: pointer;
             background-color: rgba(240, 248, 255, 0.5);
             background-size: auto;
-            border-radius: 3px;            
+            border-radius: 3px;
         }
 
         .btn-trigger span {
@@ -208,13 +208,12 @@
             background-attachment: fixed;
             position: relative;
             width: 150vmin;
-            /* 圓形的寬度，根據視口大小調整 */
             height: 60vmin;
-            /* 圓形的高度 */
             border-radius: 60%;
-            /* 圓形化 */
             display: flex;
             flex-direction: column;
+            overflow: visible;
+            /* 確保子元素不被裁剪 */
         }
 
         #s2 h1 {
@@ -239,24 +238,32 @@
         }
 
         #strbox {
-            position: relative;
+            position: absolute;
+            top: 30px;
+            
         }
 
         #str9 {
-            position: absolute;
             bottom: 60px;
+            z-index: 3;
         }
 
         #str11 {
-            position: absolute;
             right: 10px;
             bottom: 10px;
+            z-index: 3;
         }
 
         #str51 {
-            position: absolute;
             bottom: 20px;
             right: 85px;
+            z-index: 3;
+        }
+
+        #str52 {
+            top: 50px;
+            left: 50px;
+            z-index: 3;
         }
 
         /* ------------4. 介紹網頁 (S6+img+介紹)----------------------- */
@@ -372,6 +379,8 @@
 
     <div id="box"></div>
     <div id="box"></div>
+    <div id="box"></div>
+    <div id="box"></div>
 
 
 
@@ -393,18 +402,14 @@
             <img id="str51" src="/img/Star 5.png">
         </div>
         <div id="hbox">
-            <h1 id="h11">
-                “ Every Moment
-            </h1>
-            <h1 id="h12">
-                Carries an Endless Story. ”
-            </h1>
+            <h1 id="h11">“ Every Moment</h1>
+            <h1 id="h12">Carries an Endless Story. ”</h1>
         </div>
         <div>
             <img src="/img/Star 5.png">
         </div>
         <div id="strbox">
-            <img id="str51" src="/img/Star 5.png">
+            <img id="str52" src="/img/Star 5.png"> <!-- 修改 ID -->
         </div>
         <div id="strbox">
             <img id="str9" src="/img/Star 9.png">
@@ -414,6 +419,9 @@
         </div>
     </section>
 
+
+    <div id="box"></div>
+    <div id="box"></div>
     <div id="box"></div>
     <div id="box"></div>
 
