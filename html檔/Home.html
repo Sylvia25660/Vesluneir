@@ -56,22 +56,22 @@
         }
 
         #nav {
-            background-color: azure;
+            display: none;
+            background-color: rgba(173, 179, 179, 0.7);
             position: fixed;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            height: 30px;
-            /* 圓形的高度 */
-            width: 100%;
-            /* border-radius: 15px; */
+            top: 25px;
+            right: 18px;
+            width: 15%;
+            height: 50%;
+            border-radius: 3px;            
+            z-index: 999;
         }
 
         nav ul {
             list-style: none;
-            display: grid;
-            grid-auto-flow: column;
+            display: flex;
+            flex-direction: column; 
+            /* grid-auto-flow: column; */
             /* 水平方向排列 */
             gap: 5px;
             /* 設定項目之間的間距 */
@@ -84,6 +84,77 @@
             font-style: normal;
             font-size: 15px;
         }
+
+        #nav.active {
+            display: flex;
+        }
+
+        #btnbox {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            /* 將按鈕容器對齊右側 */
+            height: 20px;            
+            z-index: 999;
+        }
+
+        .btn-trigger {
+            position: relative;
+            width: 30px;
+            height: 44px;
+            cursor: pointer;
+            background-color: rgba(240, 248, 255, 0.5);
+            background-size: auto;
+            border-radius: 3px;            
+        }
+
+        .btn-trigger span {
+            position: absolute;
+            right: 10px;
+            width: 100%;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+
+        .btn-trigger,
+        .btn-trigger span {
+            display: inline-block;
+            transition: all .4s;
+            box-sizing: border-box;
+        }
+
+        .btn-trigger span:nth-of-type(1) {
+            top: 0;
+        }
+
+        .btn-trigger span:nth-of-type(2) {
+            top: 12px;
+        }
+
+        .btn-trigger span:nth-of-type(3) {
+            top: 24px;
+        }
+
+        #btn03.active {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+
+        #btn03.active span:nth-of-type(1) {
+            -webkit-transform: translateY(12px) rotate(-45deg);
+            transform: translateY(12px) rotate(-45deg);
+        }
+
+        #btn03.active span:nth-of-type(2) {
+            -webkit-transform: translateY(0) rotate(45deg);
+            transform: translateY(0) rotate(45deg);
+        }
+
+        #btn03.active span:nth-of-type(3) {
+            opacity: 0;
+        }
+
 
         /* ---------------- 2. 無限滑動照片 -----------------*/
 
@@ -266,6 +337,14 @@
                 <li><a href="Article.html">ARTICLE</a></li>
             </ul>
         </nav>
+        <section id="btnbox">
+            <div class="btn-trigger" id="btn03">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+
         <section id="s1">
             <div id="s1phobox"><img id="s1photo" src="/img/girl (3).jpg"></div>
             <div id="logobox">
@@ -375,7 +454,27 @@
 
     </main>
 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+
+        // btn漢堡轉X
+        $(function () {
+            $('.btn-trigger').on('click', function () {
+                $(this).toggleClass('active');
+                return false;
+            });
+        });
+
+        // 
+        const btn = document.getElementById('btn03');
+        const nav = document.getElementById('nav');
+
+        btn.addEventListener('click', () => {
+            // 切換 active class
+            nav.classList.toggle('active');
+        });
+
         // Optional JavaScript to control manual slide transitions (for example, adding buttons to navigate)
         const marquee = document.getElementById('marquee');
         const items = document.querySelectorAll('.marquee-item');

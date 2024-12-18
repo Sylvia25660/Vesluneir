@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #nav {
+            background-color: azure;
+            position: fixed;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            height: 30px;
+            /* 圓形的高度 */
+            width: 100%;
+            /* border-radius: 15px; */
+        }
+
+        nav ul {
+            list-style: none;
+            display: grid;
+            grid-auto-flow: column;
+            /* 水平方向排列 */
+            gap: 5px;
+            /* 設定項目之間的間距 */
+        }
+
+        nav li {
+            font-family: "Alegreya", serif;
+            font-optical-sizing: auto;
+            font-weight: 483;
+            font-style: normal;
+            font-size: 15px;
+        }
+
+        .btn-trigger {
+            position: relative;
+            width: 50px;
+            height: 44px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .btn-trigger span {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+
+        .btn-trigger,
+        .btn-trigger span {
+            display: inline-block;
+            transition: all .5s;
+            box-sizing: border-box;
+        }
+
+        .btn-trigger span:nth-of-type(1) {
+            top: 0;
+        }
+
+        .btn-trigger span:nth-of-type(2) {
+            top: 20px;
+        }
+
+        .btn-trigger span:nth-of-type(3) {
+            bottom: 0;
+        }
+
+        #btn03.active {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+
+        #btn03.active span:nth-of-type(1) {
+            -webkit-transform: translateY(20px) rotate(-45deg);
+            transform: translateY(20px) rotate(-45deg);
+        }
+
+        #btn03.active span:nth-of-type(2) {
+            -webkit-transform: translateY(0) rotate(45deg);
+            transform: translateY(0) rotate(45deg);
+        }
+
+        #btn03.active span:nth-of-type(3) {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <ul id="navbox">
+            <li><a href="Photographer.html">PHOTOGRAPHER</a></li>
+            <li><a href="LookBook.html">LOOK BOOK</a></li>
+            <li><a href="Article.html">ARTICLE</a></li>
+        </ul>
+        <section>
+            <div class="btn-trigger" id="btn03">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+    </nav>
+
+    <script>
+        $(function () {
+            $('.btn-trigger').on('click', function () {
+                $(this).toggleClass('active');
+                return false;
+            });
+        });
+    </script>
+</body>
+
+</html>
