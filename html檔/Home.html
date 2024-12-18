@@ -15,42 +15,21 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500&family=Alegreya:ital,wght@0,483;1,483&family=Kaisei+Decol:wght@500&display=swap"
         rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <style>
-        #welcome-screen {
-            position: fixed;
-            top: 30%;
-            left: 35%;
-            width: 30%;
-            height: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 1s;
-        }
-
-        /* 主頁內容 */
-        #main-content {
-            display: none;
-            /* text-align: center;
-            padding: 20px; */
-        }
-
         /* ------------------- 排版元素 ------------------*/
 
         body {
             background-color: #000000;
-            /* background-color: rgb(255, 250, 251); */
-            /* background-color: #F5F5F5;  */
         }
 
         #box {
             width: 100px;
-            height: 75px;
+            height: 50px;
         }
 
-        /* ---------header (S1+封面+logo+nav)-------------------- */
+        /* ---------1. header (S1+封面+logo+nav)-------------------- */
 
         #s1 {
             display: flex;
@@ -59,12 +38,12 @@
         }
 
         #s1photo {
-            max-width: 100vw;
+            max-width: 100%;
         }
 
         #logobox {
             max-width: 80%;
-            position: absolute;
+            /* position: absolute; */
             left: 20px;
             top: 20px;
         }
@@ -74,7 +53,8 @@
         }
 
         #nav {
-            position: absolute;
+            background-color: azure;
+            /* position: absolute; */
             right: 50px;
             top: 30px;
         }
@@ -96,16 +76,46 @@
             font-size: 25px;
         }
 
-        /* ---------- 1. 文字介紹(S2)-------------------- */
+        /* ---------------- 2. 無限滑動照片 -----------------*/
 
+        .marquee-wrapper {
+            position: relative;
+            width: 100%;
+            /* 容器寬度 */
+            overflow: hidden;
+            /* 隱藏溢出的內容 */
+        }
+
+        .marquee {
+            display: flex;
+            /* 圖片橫向排列 */
+            will-change: transform;
+            /* 優化動畫性能 */
+        }
+
+        .marquee-item {
+            flex-shrink: 0;
+            /* 圖片不縮小 */
+            width: 500px;
+            height: auto;
+            /* 單張圖片寬度 */
+            margin-right: 10px;
+            /* 間距 */
+        }
+
+        .marquee img {
+            width: 100%;
+            /* 圖片填滿 */
+            height: auto;
+        }
+
+        /* ---------- 3. 星星區(S2)-------------------- */
         #s2 {
             display: flex;
             height: auto;
             justify-content: center;
             /* 在 Flexbox 中，應用 justify-content & align-items  */
             align-content: center;
-            /* 控制元素內的子元素用的語法 */
-            /* 換行 */
         }
 
         #hbox {
@@ -125,12 +135,6 @@
             /* 圓形化 */
             display: flex;
             flex-direction: column;
-            /* 垂直排列 */
-            /* justify-content: center; */
-            /* 均勻分佈內容 */
-            /* padding-left: 30px; */
-            /* align-items: center; */
-            /* 垂直方向居中 */
         }
 
         #s2 h1 {
@@ -173,32 +177,6 @@
             position: absolute;
             bottom: 20px;
             right: 85px;
-        }
-
-        /* -----------2. 照片一覽(S3)+(S5)--------------------------- */
-
-        #manbox {
-            display: flex;
-            width: 100vw;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* -----------3. 照片輪播 (S4+照片)--------------------------- */
-        #s4 {
-            display: flex;
-            justify-content: center;
-            /* 水平置中 */
-            align-items: center;
-            /* 垂直置中 */
-        }
-
-        #s4photo img {
-            max-width: 50%;
-            height: auto;
-            /* 保持圖片比例 */
-            margin: 0 auto;
-            /* 確保水平置中 */
         }
 
         /* ------------4. 介紹網頁 (S6+img+介紹)----------------------- */
@@ -263,293 +241,163 @@
             /* 深色文字 */
         }
 
-        #ssbox {
-            width: 1200px;
-            height: auto;
-            background-color: #14202c;
-        }
-
         /* ------------5. footer 頁尾(S7)------------------------- */
-
-        #foot {
-            background-color: #000000;
-            display: block;
-            height: 200px;
-            width: auto;
-            text-align: center;
-        }
-
-        #foot>a>img {
-            width: 25%;
-        }
     </style>
 </head>
 
+
+
 <body>
-
-    <img id="welcome-screen"
-        src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHN4OTY5czAzZGkwbXRhODU2bnVnbGtsZ2x0cG5nNm5pcnV0YXVkbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mCGZhRjavuqYg/giphy.gif">
-
-    <section id="main-content">
-        <!-------------- header (S1+封面+logo)---------------------->
-        <header>
-            <section id="s1">
-                <div id="s1phobox"><img id="s1photo" src="/img/girl5.jpg"></div>
-                <div id="logobox">
-                    <a href="正.html">
-                        <img src="/img/Vesluneir.png">
-                    </a>
-                </div>
-                <nav id="nav">
-                    <ul id="navbox">
-                        <li onclick=""><a href="#"><img src="/img/放大鏡.png"></a></li>
-                        <li><a href="Photographer.html">PHOTOGRAPHER</a></li>
-                        <li><a href="LookBook.html">LOOK BOOK</a></li>
-                        <li><a href="Article.html">ARTICLE</a></li>
-                    </ul>
-                </nav>
-            </section>
-
-        </header>
-
-        <div id="box"></div>
-        <div id="box"></div>
-        <div id="box"></div>
-        <div id="box"></div>
-
-        <main>
-
-            <!------------ 1. 文字介紹(S2) ----------------->
-            <section id="s2">
-                <div>
-                    <img src="/img/Star 8.png">
-                </div>
-                <div>
-                    <img src="/img/Star 10.png">
-                </div>
-                <div>
-                    <img src="/img/Star 5.png">
-                </div>
-                <div id="strbox">
-                    <img id="str51" src="/img/Star 5.png">
-                </div>
-                <div id="hbox">
-                    <h1 id="h11">
-                        “ Every Moment
-                    </h1>
-                    <h1 id="h12">
-                        Carries an Endless Story. ”
-                    </h1>
-                </div>
-                <div>
-                    <img src="/img/Star 5.png">
-                </div>
-                <div id="strbox">
-                    <img id="str51" src="/img/Star 5.png">
-                </div>
-                <div id="strbox">
-                    <img id="str9" src="/img/Star 9.png">
-                </div>
-                <div id="strbox">
-                    <img id="str11" src="/img/Star 11.png">
-                </div>
-            </section>
-
-            <!-- 視覺的記憶，在每一個瞬間中蔓延。
-
-        「每一幅畫面，都是沉默中流動的時光遺跡。」 -->
-
-            <div id="box"></div>
-            <div id="box"></div>
-            <div id="box"></div>
-            <div id="box"></div>
-
-
-            <!------------- 2. 照片一覽(S3) --------------------------->
-            <section>
-                <div id="manbox" class="row">
-                    <div id="man" class="col-4">
-                        <figure class="figure">
-                            <img src="/img/photer2.jpg" class="img-fluid figure-img">
-                            <figcaption class="figure-caption">河</figcaption>
-                        </figure>
-                    </div>
-                    <div id="man" class="col-4">
-                        <figure class="figure">
-                            <img src="/img/photer2.jpg" class="img-fluid figure-img">
-                            <figcaption class="figure-caption">街</figcaption>
-                        </figure>
-                    </div>
-                    <div id="man" class="col-4">
-                        <figure class="figure ">
-                            <img src="/img/photer2.jpg" class="img-fluid figure-img">
-                            <figcaption class="figure-caption">塔</figcaption>
-                        </figure>
-                    </div>
-                </div>
-            </section>
-
-
-            <div id="box"></div>
-            <div id="box"></div>
-            <div id="box"></div>
-            <div id="box"></div>
-
-
-            <!------------- 3. 介紹網頁(S6+img+介紹) --------------------->
-            <section id="fs6">
-                <section id="s6">
-                    <!-- 第一組內容 -->
-                    <div class="s6box">
-                        <img src="/img/goldenhair.jpg" alt="image1">
-                        <article>
-                            攝影師專區可以輕鬆展示您的作品集，分享您的拍攝風格和專業技能。<br>
-                            無論是時尚攝影、婚禮攝影、肖像攝影還是藝術創作，這裡是您展示才華的完美平台。
-                        </article>
-                    </div>
-                    <!-- 第二組內容 -->
-                    <div class="s6box">
-                        <article>
-                            每一份作品集都是攝影師的名片。在這裡，您可以展示您的拍攝風格、專業領域與代表作，讓模特兒和客戶快速了解您的實力。
-                            無論是時尚大片、婚禮紀實，還是創意作品，這裡都是您展示才華的最佳平台，吸引更多合作機會！
-                        </article>
-                        <img src="/img/book&camera.jpg" alt="image2">
-                    </div>
-                    <!-- 第三組內容 -->
-                    <div class="s6box">
-                        <img src="/img/womancar.jpg" alt="image3">
-                        <article>
-                            交流專區
-                        </article>
-                    </div>
-                </section>
-            </section>
-
-            <div id="box"></div>
-            <div id="box"></div>
-            <div id="box"></div>
-            <div id="box"></div>
-
-
-            <!---------- 4. 照片一覽(S5) -------------------------->
-            <!-- <section>
-            <div id="manbox" class="row">
-                <div id="man" class="col-2">
-                    <figure class="figure">
-                        <img src="./img/波西米亞.jpg" class="img-fluid figure-img">
-                        <figcaption class="figure-caption">河</figcaption>
-                    </figure>
-                </div>
-                <div id="man" class="col-2">
-                    <figure class="figure">
-                        <img src="./img/側面櫻花直.jpg" class="img-fluid figure-img">
-                        <figcaption class="figure-caption">街</figcaption>
-                    </figure>
-                </div>
-                <div id="man" class="col-2">
-                    <figure class="figure ">
-                        <img src="./img/狗狗門.jpg" class="img-fluid figure-img">
-                        <figcaption class="figure-caption">塔</figcaption>
-                    </figure>
-                </div>
-                <div id="man" class="col-2">
-                    <figure class="figure ">
-                        <img src="./img/滑板女.jpg" class="img-fluid figure-img">
-                        <figcaption class="figure-caption">塔</figcaption>
-                    </figure>
-                </div>
-                <div id="man" class="col-2">
-                    <figure class="figure ">
-                        <img src="./img/檸檬底片.jpg" class="img-fluid figure-img">
-                        <figcaption class="figure-caption">塔</figcaption>
-                    </figure>
-                </div>
-                <div id="man" class="col-2">
-                    <figure class="figure ">
-                        <img src="./img/風車塔.jpg" class="img-fluid figure-img">
-                        <figcaption class="figure-caption">塔</figcaption>
-                    </figure>
-                </div>
+    <!-------------- 1. header (S1+封面+logo)---------------------->
+    <header>
+        <nav id="nav">
+            <ul id="navbox">
+                <li></li>
+                <li onclick=""><a href="#"><img src="/img/放大鏡.png"></a></li>
+                <li><a href="Photographer.html">PHOTOGRAPHER</a></li>
+                <li><a href="LookBook.html">LOOK BOOK</a></li>
+                <li><a href="Article.html">ARTICLE</a></li>
+            </ul>
+        </nav>
+        <section id="s1">
+            <div id="s1phobox"><img id="s1photo" src="/img/girl (3).jpg"></div>
+            <div id="logobox">
+                <a href="正.html">
+                    <img src="/img/Vesluneir.png">
+                </a>
             </div>
-        </section> -->
+        </section>
+    </header>
+
+    <div id="box"></div>
+
+    <!------------------- 2. 無限滑動照片(S2) ----------------->
+
+    <div class="marquee-wrapper">
+        <div class="marquee" id="marquee">
+            <div class="marquee-item"><img src="/img/海邊一人.jpg" alt="Image 1" /></div>
+            <div class="marquee-item"><img src="/img/goldenhair.jpg" alt="Image 2" /></div>
+            <div class="marquee-item"><img src="/img/redhouse.jpg" alt="Image 3" /></div>
+            <div class="marquee-item"><img src="/img/飲料機.jpg" alt="Image 4" /></div>
+            <div class="marquee-item"><img src="/img/海灘兩人.jpg" alt="Image 5" /></div>
+        </div>
+    </div>
 
 
-            <div id="box"></div>
-            <div id="box"></div>
-
-
-
-            <!---------- 5. 照片輪播(S4) -------------------------->
-            <!-- <section id="s4">
-            <div id="s4photo" class="carousel slide carousel-fade" data-bs-interval="1500" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./img/櫻花富士山.jpg" class="d-block w-100">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./img/苔癬.jpg" class="d-block w-100">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./img/飲料機.jpg" class="d-block w-100">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#s4photo" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#s4photo" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </section> -->
+    <div id="box"></div>
+    <div id="box"></div>
 
 
 
-        </main>
+    <!------------------ 3. 星星區(S2) --------------------------->
+    <!-- 視覺的記憶，在每一個瞬間中蔓延。-->
+    <!--「每一幅畫面，都是沉默中流動的時光遺跡。」 -->
 
-        <div id="box"></div>
-        <div id="box"></div>
-
-
-
-        <!-------------- 6. footer 頁尾聯絡方式(S7)----------------->
-        <footer>
-            <section>
-                <div id="foot">
-                    <!-- <a href="#"><img src="./img/logo.png"></a>
-                <a href="#"><img src="./img/logo.png"></a> -->
-                </div>
-            </section>
-
-        </footer>
-
-
-
+    <section id="s2">
+        <div>
+            <img src="/img/Star 8.png">
+        </div>
+        <div>
+            <img src="/img/Star 10.png">
+        </div>
+        <div>
+            <img src="/img/Star 5.png">
+        </div>
+        <div id="strbox">
+            <img id="str51" src="/img/Star 5.png">
+        </div>
+        <div id="hbox">
+            <h1 id="h11">
+                “ Every Moment
+            </h1>
+            <h1 id="h12">
+                Carries an Endless Story. ”
+            </h1>
+        </div>
+        <div>
+            <img src="/img/Star 5.png">
+        </div>
+        <div id="strbox">
+            <img id="str51" src="/img/Star 5.png">
+        </div>
+        <div id="strbox">
+            <img id="str9" src="/img/Star 9.png">
+        </div>
+        <div id="strbox">
+            <img id="str11" src="/img/Star 11.png">
+        </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <div id="box"></div>
+    <div id="box"></div>
+
+
+    <!------------- 4. 介紹網頁(S6+img+介紹) --------------------->
+
+    <main id="main-content">
+        <section id="fs6">
+            <section id="s6">
+                <!-- 第一組內容 -->
+                <div class="s6box">
+                    <img src="/img/goldenhair.jpg" alt="image1">
+                    <article>
+                        攝影師專區可以輕鬆展示您的作品集，分享您的拍攝風格和專業技能。<br>
+                        無論是時尚攝影、婚禮攝影、肖像攝影還是藝術創作，這裡是您展示才華的完美平台。
+                    </article>
+                </div>
+                <!-- 第二組內容 -->
+                <div class="s6box">
+                    <article>
+                        每一份作品集都是攝影師的名片。在這裡，您可以展示您的拍攝風格、專業領域與代表作，讓模特兒和客戶快速了解您的實力。
+                        無論是時尚大片、婚禮紀實，還是創意作品，這裡都是您展示才華的最佳平台，吸引更多合作機會！
+                    </article>
+                    <img src="/img/book&camera.jpg" alt="image2">
+                </div>
+                <!-- 第三組內容 -->
+                <div class="s6box">
+                    <img src="/img/womancar.jpg" alt="image3">
+                    <article>
+                        交流專區
+                    </article>
+                </div>
+            </section>
+        </section>
+
+        <div id="box"></div>
+        <div id="box"></div>
+
+    </main>
+
     <script>
+        // Optional JavaScript to control manual slide transitions (for example, adding buttons to navigate)
+        const marquee = document.getElementById('marquee');
+        const items = document.querySelectorAll('.marquee-item');
+        const totalItems = items.length;
+        const copyCount = 5; // 控制每組圖片的複製次數，確保圖片足夠以無縫輪播
 
-        window.onload = function () {
+        // 複製圖片
+        for (let i = 0; i < copyCount; i++) {
+            for (let j = 0; j < totalItems; j++) {
+                const clone = items[j].cloneNode(true);
+                marquee.appendChild(clone); // 添加複製的元素
+            }
+        }
 
-            // 歡迎動畫
-            const welcomeScreen = document.getElementById("welcome-screen");
-            const mainContent = document.getElementById("main-content");
+        // 滾動圖片
+        let offset = 0;
+        const itemWidth = items[0].offsetWidth + 10; // 單張圖片的寬度（包含間距）
 
-            // 等待 2 秒後淡出動畫，顯示主頁內容
-            setTimeout(() => {
-                welcomeScreen.style.opacity = "0";
-                setTimeout(() => {
-                    welcomeScreen.style.display = "none";
-                    mainContent.style.display = "block"; // 顯示主頁內容
-                }, 800); // 等待淡出動畫結束
-            }, 120);
-        };
+        function slide() {
+            offset -= 1; // 每次向左移動 1px
+            if (Math.abs(offset) >= itemWidth * totalItems) {
+                // 當圖片完全滾動一圈後，重置 offset，達到無縫效果
+                offset = 0;
+            }
+            marquee.style.transform = `translateX(${offset}px)`; // 更新位置
+            requestAnimationFrame(slide); // 持續更新
+        }
 
-
-
+        slide(); // 啟動輪播
     </script>
 </body>
 
