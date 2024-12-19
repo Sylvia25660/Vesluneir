@@ -20,6 +20,13 @@
     <style>
         /* ------------------- 排版元素 ------------------*/
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            /* 確保所有元素的寬度包括邊框和內邊距 */
+        }
+
         body {
             background-color: #000000;
         }
@@ -64,7 +71,7 @@
             width: 15%;
             height: 50%;
             border-radius: 3px;
-            z-index: 999;
+            z-index: 50;
         }
 
         nav ul {
@@ -95,7 +102,7 @@
             right: 30px;
             /* 將按鈕容器對齊右側 */
             height: 20px;
-            z-index: 999;
+            z-index: 51;
         }
 
         .btn-trigger {
@@ -192,10 +199,11 @@
         /* ---------- 3. 星星區(S2)-------------------- */
         #s2 {
             display: flex;
-            height: auto;
+            /* height: auto; */
             justify-content: center;
             /* 在 Flexbox 中，應用 justify-content & align-items  */
             align-content: center;
+            position: relative;
         }
 
         #hbox {
@@ -214,6 +222,19 @@
             flex-direction: column;
             overflow: visible;
             /* 確保子元素不被裁剪 */
+            opacity: 0;
+            transition: opacity 1s ease, transform 1s ease;
+            ;
+            transform: translateY(200px);
+            /* 初始位置向下偏移 200px */
+            z-index: 49;
+        }
+
+        #hbox.visible {
+            opacity: 1;
+            transform: translateY(0);
+            /* 回到原位 */
+            /* 當加上 visible 類別時，改變透明度 */
         }
 
         #s2 h1 {
@@ -237,33 +258,34 @@
             bottom: 180px;
         }
 
-        #strbox {
+        #strbox1,
+        #strbox2 {
+            height: auto;
+            opacity: 0;
+            transition: opacity 2s ease, transform 2s ease;
+            z-index: 48;
+        }
+
+        #strbox1 {
             position: absolute;
-            top: 30px;
-            
+            left: 5%;
+            bottom: 5%;
+            transform: translateX(-100px) translateY(-50px);
         }
 
-        #str9 {
-            bottom: 60px;
-            z-index: 3;
+        #strbox2 {
+            transform: translateX(50px) translateY(100px);
         }
 
-        #str11 {
-            right: 10px;
-            bottom: 10px;
-            z-index: 3;
+        #strbox2 img {
+            transform: rotateY(180deg);
+            /* 水平翻轉 180 度 */
         }
 
-        #str51 {
-            bottom: 20px;
-            right: 85px;
-            z-index: 3;
-        }
-
-        #str52 {
-            top: 50px;
-            left: 50px;
-            z-index: 3;
+        #strbox1.visited,
+        #strbox2.visited {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* ------------4. 介紹網頁 (S6+img+介紹)----------------------- */
@@ -353,7 +375,7 @@
         </section>
 
         <section id="s1">
-            <div id="s1phobox"><img id="s1photo" src="/img/girl (3).jpg"></div>
+            <div id="s1phobox"><img id="s1photo" src="/img/girl (4).jpg"></div>
             <div id="logobox">
                 <a href="正.html">
                     <img src="/img/Vesluneir.png">
@@ -389,33 +411,19 @@
     <!--「每一幅畫面，都是沉默中流動的時光遺跡。」 -->
 
     <section id="s2">
-        <div>
-            <img src="/img/Star 8.png">
-        </div>
-        <div>
-            <img src="/img/Star 10.png">
-        </div>
-        <div>
-            <img src="/img/Star 5.png">
-        </div>
-        <div id="strbox">
-            <img id="str51" src="/img/Star 5.png">
+        <div id="strbox1">
+            <img id="str1" src="/img/Star 5.png">
+            <img id="str2" src="/img/Star 10.png">
+            <img id="str3" src="/img/Star 8.png">
         </div>
         <div id="hbox">
             <h1 id="h11">“ Every Moment</h1>
             <h1 id="h12">Carries an Endless Story. ”</h1>
         </div>
-        <div>
-            <img src="/img/Star 5.png">
-        </div>
-        <div id="strbox">
-            <img id="str52" src="/img/Star 5.png"> <!-- 修改 ID -->
-        </div>
-        <div id="strbox">
-            <img id="str9" src="/img/Star 9.png">
-        </div>
-        <div id="strbox">
-            <img id="str11" src="/img/Star 11.png">
+        <div id="strbox2">
+            <img id="str1" src="/img/Star 8.png">
+            <img id="str2" src="/img/Star 10.png">
+            <img id="str3" src="/img/Star 5.png">
         </div>
     </section>
 
@@ -473,16 +481,15 @@
                 return false;
             });
         });
-
-        // 
+        // 切換 active class
         const btn = document.getElementById('btn03');
         const nav = document.getElementById('nav');
 
         btn.addEventListener('click', () => {
-            // 切換 active class
             nav.classList.toggle('active');
         });
 
+        // 照片輪播
         // Optional JavaScript to control manual slide transitions (for example, adding buttons to navigate)
         const marquee = document.getElementById('marquee');
         const items = document.querySelectorAll('.marquee-item');
@@ -512,6 +519,33 @@
         }
 
         slide(); // 啟動輪播
+
+
+
+        // 星星出現
+        const S2 = document.getElementById("s2"); //s2
+        const hBox = document.getElementById("hbox"); //橢圓區
+        const starContainer = document.querySelector("#strbox1"); //星星區
+        const starContainer2 = document.querySelector("#strbox2"); //星星區
+
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    hBox.classList.add("visible");
+                    starContainer.classList.add("visited");
+                    starContainer2.classList.add("visited")
+                } else {
+                    hBox.classList.remove("visible");
+                    starContainer.classList.remove("visited");
+                    starContainer2.classList.remove("visited");
+                }
+            })
+        });
+
+        observer.observe(S2);
+
+
     </script>
 </body>
 
