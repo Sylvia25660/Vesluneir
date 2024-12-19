@@ -64,6 +64,13 @@
             font-size: 25px;
         }
 
+        nav .navbar-nav .nav-item .nav-link {
+            text-decoration: none;
+            color: aliceblue;
+            display: block;
+            padding: 5px 10px;
+        }
+
         nav li a {
             text-decoration: none;
             /* 移除連結下劃線 */
@@ -222,7 +229,7 @@
     <!--------------------- header ----------------------->
     <header>
         <div id="logobox">
-            <a href="正.html">
+            <a href="Home.html">
                 <img src="/img/Vesluneir.png">
             </a>
         </div>
@@ -245,28 +252,34 @@
 
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Photographer</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled">Article</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Photographer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="LookBook.html">LookBook</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Article.html">Article</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
-          </nav>
+        </nav>
+
 
 
     </header>

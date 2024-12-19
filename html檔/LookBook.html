@@ -12,6 +12,13 @@
     <style>
         /* ------------------- 排版元素 ------------------*/
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            /* 確保所有元素的寬度包括邊框和內邊距 */
+        }
+
         body {
             background-color: rgb(255, 250, 251);
             display: flex;
@@ -23,17 +30,89 @@
             min-height: 100vh;
         }
 
+        /* ------------------- header  ------------------*/
+
+        #s4 {
+            display: flex;
+            width: 100%;
+            height: auto;
+            justify-content: center;
+            /* 水平置中 */
+            align-items: center;
+            text-align: center;
+            /* 垂直置中 */
+            position: relative;
+        }
+
+        #s4photo img {
+            max-width: auto;
+            height: auto;
+            /* 保持圖片比例 */
+            margin: 0 auto;
+            /* 確保水平置中 */
+        }
+
         #logobox {
             max-width: 60%;
             position: absolute;
-            top: 30px;
-            left: 30px;
-            z-index: 3;
+            left: 20px;
+            top: 20px;
+            z-index: 5;
         }
 
         #logobox img {
-            max-width: 60%;
+            max-width: 70%;
         }
+
+        nav {
+            display: flex;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            /* 設定 flexbox 來並排顯示項目 */
+            justify-content: center;
+            /* 項目在水平方向上居中 */
+            padding: 0;
+            /* 移除內邊距 */
+            margin: 0;
+            /* 移除外邊距 */
+            background-color: rgba(90, 188, 222, 0.5);
+            width: 100%;
+            height: auto;
+        }
+
+        nav li {
+            margin: 0 20px;
+            /* 設置每個菜單項目的左右間距 */
+            font-family: "Alegreya", serif;
+            font-size: 25px;
+        }
+
+        nav .navbar-nav .nav-item .nav-link {
+            text-decoration: none;
+            color: aliceblue;
+            display: block;
+            padding: 5px 10px;
+        }
+
+        nav li a {
+            text-decoration: none;
+            /* 移除連結下劃線 */
+            color: aliceblue;
+            /* 設定文字顏色 */
+            display: block;
+            /* 使鏈接區域可以點擊 */
+            padding: 5px 10px;
+            /* 設置內邊距 */
+        }
+
+        nav form {
+            justify-content: flex-end;
+        }
+
+        /* ------------------- 2.相冊 ------------------*/
 
         main {
             padding-block: 2rem;
@@ -85,7 +164,7 @@
             /* 確保tag有間隔 */
         }
 
-        a {
+        .tag a {
             font-size: 0.8rem;
             color: var(--clr-black);
             font-weight: 400;
@@ -158,9 +237,10 @@
 </head>
 
 <body>
+    <!-------------------- 1. 頁首 ---------------------->
     <header>
         <div id="logobox">
-            <a href="正.html">
+            <a href="Home.html">
                 <img src="/img/Vesluneir.png">
             </a>
         </div>
@@ -180,7 +260,40 @@
                 </div>
             </div>
         </section>
+
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Photographer.html">Photographer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">LookBook</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Article.html">Article</a>
+                        </li>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
     </header>
+
+    <!-------------------- 2. 相冊 ---------------------->
 
     <main>
         <div class="container">
@@ -224,8 +337,9 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const albumImages = {
             1: ["/img/Lemon.jpg", "/img/book&camera.jpg", "/img/redhouse.jpg", "/img/girl.jpg", "/img/Paul's.jpg"],

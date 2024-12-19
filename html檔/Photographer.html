@@ -5,10 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css
-    ">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <style>
         /* ------------------- 排版元素 ------------------*/
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            /* 確保所有元素的寬度包括邊框和內邊距 */
+        }
 
         body {
             background-color: rgb(255, 250, 251);
@@ -23,7 +28,7 @@
 
         #s4 {
             display: flex;
-            width: 100vw;
+            width: 100%;
             height: auto;
             justify-content: center;
             /* 水平置中 */
@@ -33,7 +38,7 @@
         }
 
         #s4photo img {
-            max-width: 100%;
+            max-width: a;
             height: auto;
             /* 保持圖片比例 */
             margin: 0 auto;
@@ -51,7 +56,7 @@
             margin: 0;
             /* 移除外邊距 */
             background-color: rgba(90, 188, 222, 0.5);
-            width: 100vw;
+            width: 100%;
             height: auto;
         }
 
@@ -60,6 +65,13 @@
             /* 設置每個菜單項目的左右間距 */
             font-family: "Alegreya", serif;
             font-size: 25px;
+        }
+
+        nav .navbar-nav .nav-item .nav-link {
+            text-decoration: none;
+            color: aliceblue;
+            display: block;
+            padding: 5px 10px;
         }
 
         nav li a {
@@ -220,7 +232,7 @@
     <!--------------------- header ----------------------->
     <header>
         <div id="logobox">
-            <a href="正.html">
+            <a href="Home.html">
                 <img src="/img/Vesluneir.png">
             </a>
         </div>
@@ -243,29 +255,33 @@
 
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-              <!-- <a class="navbar-brand" href="#"><img src="/img/Vesluneir.png"></a> -->
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Photographer</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled">Article</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Photographer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="LookBook.html">LookBook</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Article.html">Article</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
-          </nav>
+        </nav>
 
 
     </header>
@@ -375,7 +391,6 @@
 
     <!-- 引入 Bootstrap JS (放在 body 結束前) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>

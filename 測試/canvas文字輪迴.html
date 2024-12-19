@@ -1,0 +1,16 @@
+<script>
+let textX = 0;
+
+function drawText() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '30px Arial';
+    ctx.fillStyle = 'white';
+    ctx.fillText('Hello Canvas!', textX, 100);
+
+    textX += 2; // 更新文字位置
+    if (textX > canvas.width) textX = -150; // 循環
+    requestAnimationFrame(drawText);
+}
+
+drawText();
+</script>
