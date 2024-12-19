@@ -28,7 +28,7 @@
         }
 
         body {
-            background-color: rgb(255, 250, 251);
+            background-color: #333333;
         }
 
         #box {
@@ -36,7 +36,7 @@
             height: 50px;
         }
 
-        
+
         .divider-advanced {
             display: flex;
             align-items: center;
@@ -58,6 +58,7 @@
             padding: 0 10px;
             border-radius: 5px;
             /* 圓角效果 */
+            color: rgb(255, 250, 251);
         }
 
 
@@ -103,7 +104,6 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            /* grid-auto-flow: column; */
             /* 水平方向排列 */
             gap: 5px;
             /* 設定項目之間的間距 */
@@ -313,31 +313,16 @@
         }
 
         /* ------------4. 介紹網頁 (S6+img+介紹)----------------------- */
-        #fs6 {
+        #main-content {
             background-color: #333;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: auto;
-        }
-
-        #s6 {
-            position: relative;
-            width: 180vmin;
-            /* 圓形的寬度，根據視口大小調整 */
-            height: 180vmin;
-            /* 圓形的高度 */
-            background-color: rgb(255, 250, 251);
-            /* 白色圓形背景 */
-            border-radius: 18%;
-            /* 圓形化 */
-            display: flex;
+            height: 150vh;
             flex-direction: column;
             /* 垂直排列 */
-            justify-content: space-around;
-            /* 均勻分佈內容 */
+            justify-content: center;
             align-items: center;
-            /* 垂直方向居中 */
+            gap: 200px;
+            position: relative;
         }
 
         /* 每組圖片與內容的設置 */
@@ -345,10 +330,12 @@
             border: 3px solid blue;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            /* 兩個子元素之間保持距離 */
-            width: 70%;
+            width: 75vw;
+            height: auto;
             /* 每組內容的寬度相對圓形 */
+            position: relative;
+            justify-content: flex-end;
+            /* 將圖片和canvas推向右邊 */
         }
 
         /* 圖片設置 */
@@ -363,9 +350,45 @@
             /* 確保圖片比例正常 */
         }
 
-        /* 文章設置 */
-        .s6box article {
+        #rightimg {
+            display: flex;
+            position: relative;
+            justify-content: flex-end;
+            /* 這樣會讓圖片推向右邊 */
+            align-items: center;
+            /* 確保容器內部的元素對齊 */
+        }
+
+        #leftimg {
+            position: relative;
+            /* 讓子元素能相對定位 */
+            display: flex;
+            /* 需要確保左側容器使用 flex 布局 */
+            justify-content: flex-start;
+            /* 這樣會讓圖片推向左邊 */
+            align-items: center;
+            /* 確保容器內部的元素對齊 */
+        }
+
+        #myCanvas,
+        #canvas1,
+        #canvas2,
+        #canvas3 {
             border: red 3px solid;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* 讓 canvas 和圖片大小相同 */
+            height: 100%;
+            /* 讓 canvas 和圖片大小相同 */
+            z-index: 1;
+            /* 設置 canvas 在 img 上方 */
+        }
+
+        /* 文章設置 */
+        #article {
+            background-color: rgb(255, 255, 255);
             width: auto;
             /* 固定文章區域 */
             font-size: 14px;
@@ -373,6 +396,28 @@
             /* 文字居中 */
             color: #333;
             /* 深色文字 */
+            z-index: 8;
+        }
+
+        .art1,
+        .art2,
+        .art3 {
+            position: absolute;
+        }
+
+        .art1 {
+            top: 10%;
+            right: 20%;
+        }
+
+        .art2 {
+            left: 15%;
+            top: 50%;
+        }
+
+        .art3 {
+            bottom: 10%;
+            right: 40%;
         }
 
         /* ------------5. footer 頁尾(S7)------------------------- */
@@ -402,7 +447,7 @@
         <section id="s1">
             <div id="s1phobox"><img id="s1photo" src="/img/girl (4).jpg"></div>
             <div id="logobox">
-                <a href="正.html">
+                <a href="#">
                     <img src="/img/Vesluneir.png">
                 </a>
             </div>
@@ -422,7 +467,7 @@
     </div>
 
     <div id="box"></div>
-    
+
     <!------------------- 2. 無限滑動照片(S2) ----------------->
 
     <div class="marquee-wrapper">
@@ -467,57 +512,54 @@
     <div id="box"></div>
     <div id="box"></div>
     <div id="box"></div>
+    <div id="box"></div>
+    <div id="box"></div>
 
 
     <!------------- 4. 介紹網頁(S6+img+介紹) --------------------->
 
     <main id="main-content">
-
-        <div id="box" style="background-color: #333; width: 100%; height: 50px;"></div>
-        <div id="box" style="background-color: #333; width: 100%; height: 50px;"></div>
-        <div id="box" style="background-color: #333; width: 100%; height: 50px;"></div>
-
-        <section id="fs6">
-            <section id="s6">
-                <!-- 第一組內容 -->
-                <div class="s6box">
-                    <img src="/img/goldenhair.jpg" alt="image1">
-                    <article>
-                        攝影師專區可以輕鬆展示您的作品集，分享您的拍攝風格和專業技能。<br>
-                        無論是時尚攝影、婚禮攝影、肖像攝影還是藝術創作，這裡是您展示才華的完美平台。
-                    </article>
-                </div>
-                <!-- 第二組內容 -->
-                <div class="s6box">
-                    <article>
-                        每一份作品集都是攝影師的名片。在這裡，您可以展示您的拍攝風格、專業領域與代表作，讓模特兒和客戶快速了解您的實力。
-                        無論是時尚大片、婚禮紀實，還是創意作品，這裡都是您展示才華的最佳平台，吸引更多合作機會！
-                    </article>
-                    <img src="/img/book&camera.jpg" alt="image2">
-                </div>
-                <!-- 第三組內容 -->
-                <div class="s6box">
-                    <img src="/img/womancar.jpg" alt="image3">
-                    <article>
-                        交流專區
-                    </article>
-                </div>
-            </section>
-        </section>
-        <div id="box" style="background-color: #333; width: 100%; height: 50px;"></div>
-        <div id="box" style="background-color: #333; width: 100%; height: 50px;"></div>
-        <div id="box" style="background-color: #333; width: 100%; height: 50px;"></div>
-
-        <div id="box"></div>
-        <div id="box"></div>
-
+        <!-- 第一組內容 -->
+        <div id="leftimg" class="s6box">
+            <img src="/img/goldenhair.jpg" alt="image1">
+            <canvas id="canvas1" width="450" height="450"></canvas>
+        </div>
+        <article id="article" class="art1">
+            攝影師專區可以輕鬆展示您的作品集，分享您的拍攝風格和專業技能。<br>
+            無論是時尚攝影、婚禮攝影、肖像攝影還是藝術創作，這裡是您展示才華的完美平台。
+        </article>
+    
+        <!-- 第二組內容 -->
+        <article id="article" class="art2">
+            每一份作品集都是攝影師的名片。在這裡，您可以展示您的拍攝風格、專業領域與代表作，讓模特兒和客戶快速了解您的實力。<br>
+            無論是時尚大片、婚禮紀實，還是創意作品，這裡都是您展示才華的最佳平台，吸引更多合作機會！
+        </article>
+    
+        <div id="rightimg" class="s6box">
+            <img src="/img/book&camera.jpg" alt="image2">
+            <canvas id="canvas2" width="450" height="450"></canvas>
+        </div>
+    
+        <!-- 第三組內容 -->
+        <div id="leftimg" class="s6box">
+            <img src="/img/womancar.jpg" alt="image3">
+            <canvas id="canvas3" width="450" height="450"></canvas>
+        </div>
+        <article id="article" class="art3">
+            交流專區
+        </article>
     </main>
+
+    <div id="box"></div>
+    <div id="box"></div>
+
+
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
 
-        // btn漢堡轉X
+        // 1. btn漢堡轉X
         $(function () {
             $('.btn-trigger').on('click', function () {
                 $(this).toggleClass('active');
@@ -532,7 +574,9 @@
             nav.classList.toggle('active');
         });
 
-        // 照片輪播
+
+
+        // 2. 照片輪播
         // Optional JavaScript to control manual slide transitions (for example, adding buttons to navigate)
         const marquee = document.getElementById('marquee');
         const items = document.querySelectorAll('.marquee-item');
@@ -565,7 +609,7 @@
 
 
 
-        // 星星出現
+        // 3. 星星出現
         const S2 = document.getElementById("s2"); //s2
         const hBox = document.getElementById("hbox"); //橢圓區
         const starContainer = document.querySelector("#strbox1"); //星星區
@@ -588,6 +632,16 @@
 
         observer.observe(S2);
 
+
+
+        // 4. 拍張照
+        // 獲取 canvas 元素並設定繪圖上下文
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+        // 這裡可以寫一些繪製代碼，像是畫圖、文字、或其他
+        ctx.fillStyle = "rgb(255, 250, 251)";
+        ctx.fillRect(50, 50, 200, 100);  // 繪製半透明的紅色矩形
 
     </script>
 </body>
