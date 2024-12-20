@@ -16,6 +16,12 @@
         href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500&family=Alegreya:ital,wght@0,483;1,483&family=Kaisei+Decol:wght@500&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500&family=Alegreya:ital,wght@0,483;1,483&family=DotGothic16&family=Kaisei+Decol:wght@500&family=Kaisei+HarunoUmi&display=swap"
+        rel="stylesheet">
+
 
     <style>
         /* ------------------- 排版元素 ------------------*/
@@ -28,6 +34,9 @@
         }
 
         body {
+            font-family: "Kaisei HarunoUmi", serif;
+            font-weight: 400;
+            font-style: normal;
             background-color: #333333;
         }
 
@@ -94,7 +103,7 @@
 
         #nav {
             display: none;
-            background-color: rgba(173, 179, 179, 0.7);
+            background-color: rgba(173, 179, 179, 0.9);
             border: 3px solid rgba(130, 134, 134, 0.9);
             position: fixed;
             top: 25px;
@@ -347,7 +356,6 @@
         #mainO,
         #mainS,
         #mainT {
-            border: 3px red solid;
             width: 85vw;
             height: auto;
             margin-bottom: 200px;
@@ -368,7 +376,6 @@
         .s6box1,
         .s6box2,
         .s6box3 {
-            border: 3px solid blue;
             display: flex;
             align-items: center;
             width: 50vw;
@@ -392,7 +399,6 @@
 
         /* ---------------- 4-1. 圖片設置 ----------------*/
         .s6box img {
-            border: yellow 3px solid;
             width: 40%;
             /* 固定圖片大小 */
             height: auto;
@@ -411,6 +417,8 @@
             align-items: center;
             /* 確保容器內部的元素對齊 */
             margin-left: auto;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5); /* 右下角陰影 */
+
         }
 
         #leftimg {
@@ -422,54 +430,101 @@
             /* 這樣會讓圖片推向左邊 */
             align-items: center;
             /* 確保容器內部的元素對齊 */
+            box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.5); /* 右下角陰影 */
         }
 
         /* ----------------- 4-2. 文章設置 ------------------ */
-        #article {
-            background-color: rgb(255, 255, 255);
+        main article {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* background-color: aliceblue; */
             border-radius: 10px;
-            width: 40%;
+            width: 500px;
             /* 固定文章區域 */
-            height: 90px;
+            height: auto;
             font-size: 10px;
             display: flex;
-            justify-content: center;
+            /* justify-content: center; */
             /* 水平置中 */
-            align-items: center;
+            /* align-items: center; */
             /* 垂直置中 */
-            text-align: center;
+            text-align: start;
             /* 文字居中 */
-            color: #333;
+            color: #f2f3f7;
             /* 深色文字 */
+            position: relative;
         }
+
+        .art1,
+        .art2,
+        .art3 {
+            position: absolute;
+            display: none;
+            /* 預設隱藏，避免一開始就顯示 */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            z-index: 23;
+            padding: 20px 30px;
+            font-size: 20px;
+        }
+
+        .art1.visible,
+        .art2.visible,
+        .art3.visible {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .art1 {
+            position: absolute;
+            right: 1%;
+            bottom: 30%;
+        }
+
+        .art2 {
+            left: 0;
+            bottom: 24%;
+        }
+
+        .art3 {
+            bottom: 25%;
+            right: 1%;
+        }
+
 
         /* -------------------- 4-3.標題 ------------------------ */
 
-        .h3O,
-        .h3T {
+        .h3O {
             position: absolute;
-            top: 20%;
-            right: 15%;
+            top: 16%;
+            right: 8%;
         }
 
         .h3S {
             position: absolute;
             left: 15%;
-            top: 20%;
+            top: 18%;
+        }
+
+        .h3T {
+            position: absolute;
+            top: 18%;
+            right: 20%;
         }
 
         .h3O,
         .h3S,
         .h3T {
-            background-color: rgba(206, 192, 196, 0.8);
-            border-radius: 5px;
-            color: rgb(61, 56, 58);
-            font-size: 50px;
+            /* background-color: rgba(219, 224, 231); */
+            border-radius: 10px;
+            color: #f2f3f7;
+            font-size: 45px;
             font-family: "Alegreya", serif;
             font-optical-sizing: auto;
             font-weight: 550;
             font-style: italic;
-            padding: 40px 80px;
+            padding: 35px 50px 60px 50px;
             transition: opacity 1s ease, transform 1s ease;
             opacity: 0;
             transform: translateY(100px);
@@ -490,44 +545,7 @@
             transform: translateY(0);
         }
 
-        /* ----------------------- 4-4.內容 --------------------- */
-        .art1,
-        .art2,
-        .art3 {
-            position: absolute;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease, transform 1s ease;
-            z-index: 15;
-        }
-
-        .art1.visible,
-        .art2.visible,
-        .art3.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .art1 {
-            top: 30%;
-            right: 10%;
-        }
-
-        .art2 {
-            left: 15%;
-            top: 50%;
-        }
-
-        .art3 {
-            bottom: 10%;
-            right: 40%;
-        }
-
-        .art1>#intro {
-            visibility: hidden;
-        }
-
-        /* ------------------- 4-5.詳情這裡走按鈕 -----------------*/
+        /* ------------------- 4-4.詳情這裡走按鈕 -----------------*/
         a.btn_02 {
             display: flex;
             justify-content: center;
@@ -535,7 +553,7 @@
             background: #858080;
             border: 1px solid #043450;
             box-sizing: border-box;
-            width: 20%;
+            width: 10%;
             height: 50px;
             padding: 0 6% 0 12%;
             color: #f4f7f8;
@@ -555,14 +573,14 @@
         #btn3 {
             position: absolute;
             right: 10px;
-            bottom: 10%;
+            bottom: 1%;
         }
 
         #btn2 {
             transform: translateY(100px);
             position: absolute;
             left: 10px;
-            bottom: 10%;
+            bottom: 1%;
         }
 
         #btn1.visible,
@@ -772,7 +790,7 @@
 
     <main id="main-content">
         <!-- 第一組內容 -->
-        <section id="mainO" style="border: red 3px solid;">
+        <section id="mainO">
             <div id="leftimg" class="s6box1">
                 <img src="/img/goldenhair.jpg" alt="image1">
             </div>
@@ -781,12 +799,12 @@
                 <h3>PHOTOGRAPHER</h3>
             </div>
 
-            <article id="article" class="art1">
-                攝影師專區可以輕鬆展示您的作品集，分享您的拍攝風格和專業技能。<br>
+            <article id="article1" class="art1">
+                攝影師專區可以輕鬆展示作品集，分享您的拍攝風格和專業技能。<br>
                 無論是時尚攝影、婚禮攝影、肖像攝影還是藝術創作，這裡是您展示才華的完美平台。
             </article>
 
-            <a href="#" id="btn3" class="btn_02">BUTTON</a>
+            <a href="Photographer.html" id="btn3" class="btn_02">GO</a>
         </section>
 
 
@@ -795,8 +813,8 @@
 
 
         <!-- 第二組內容 -->
-        <section id="mainS" style="border: red 3px solid;">
-            <article id="article" class="art2">
+        <section id="mainS">
+            <article id="article2" class="art2">
                 每一份作品集都是攝影師的名片。在這裡，您可以展示您的拍攝風格、專業領域與代表作，讓模特兒和客戶快速了解您的實力。<br>
                 無論是時尚大片、婚禮紀實，還是創意作品，這裡都是您展示才華的最佳平台，吸引更多合作機會！
             </article>
@@ -809,7 +827,7 @@
                 <h3>LOOKBOOK</h3>
             </div>
 
-            <a href="#" id="btn2" class="btn_02">BUTTON</a>
+            <a href="LookBook.html" id="btn2" class="btn_02">GO</a>
         </section>
 
 
@@ -818,7 +836,7 @@
 
 
         <!-- 第三組內容 -->
-        <section id="mainT" style="border: red 3px solid;">
+        <section id="mainT">
             <div id="leftimg" class="s6box3">
                 <img src="/img/womancar.jpg" alt="image3">
             </div>
@@ -827,12 +845,12 @@
                 <h3>ARTICLE</h3>
             </div>
 
-            <article id="article" class="art3">
+            <article id="article3" class="art3">
                 每一份作品集都是攝影師的名片。在這裡，您可以展示您的拍攝風格、專業領域與代表作，讓模特兒和客戶快速了解您的實力。<br>
                 無論是時尚大片、婚禮紀實，還是創意作品，這裡都是您展示才華的最佳平台，吸引更多合作機會！
             </article>
 
-            <a href="#" id="btn3" class="btn_02">BUTTON</a>
+            <a href="Article.html" id="btn3" class="btn_02">GO</a>
         </section>
 
 
@@ -840,8 +858,6 @@
         <div id="box"></div>
     </main>
 
-    <div id="box"></div>
-    <div id="box"></div>
     <div id="box"></div>
     <div id="box"></div>
     <div id="box"></div>
@@ -996,6 +1012,18 @@
         });
 
 
+        // 5.文章區塊    
+        const triggers = document.querySelectorAll('.h3O, .h3S, .h3T');
+        const popups = document.querySelectorAll('.art1, .art2, .art3');
+
+        triggers.forEach((trigger, index) => {
+            const popup = popups[index];
+
+            // 滑鼠移入時顯示
+            trigger.addEventListener('mouseenter', () => {
+                popup.classList.add('visible');
+            });
+        });
 
 
 
