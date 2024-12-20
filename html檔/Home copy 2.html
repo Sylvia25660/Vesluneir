@@ -66,7 +66,6 @@
             color: rgb(255, 250, 251);
         }
 
-
         /* ---------1. header (S1+封面+logo+nav)-------------------- */
         header {
             position: relative;
@@ -96,6 +95,7 @@
         #nav {
             display: none;
             background-color: rgba(173, 179, 179, 0.7);
+            border: 3px solid rgba(130, 134, 134, 0.9);
             position: fixed;
             top: 25px;
             right: 18px;
@@ -124,7 +124,15 @@
             font-optical-sizing: auto;
             font-weight: 483;
             font-style: normal;
-            font-size: 150%;
+            font-size: 120%;
+        }
+
+        nav li:hover {
+            color: aliceblue;
+        }
+
+        nav li a:hover {
+            color: inherit;
         }
 
         #nav.active {
@@ -323,17 +331,37 @@
             transform: translateY(0);
         }
 
-        /* ------------4. 介紹網頁 (S6+img+介紹)----------------------- */
+        /* ------------4. 介紹網頁 (版面)----------------------- */
         #main-content {
             background-color: #333;
             display: flex;
-            height: 150vh;
+            height: 200vh;
             flex-direction: column;
             /* 垂直排列 */
             justify-content: center;
             align-items: center;
             position: relative;
-            margin-top: 200px;
+            margin-top: 250px;
+        }
+
+        #mainO,
+        #mainS,
+        #mainT {
+            border: 3px red solid;
+            width: 85vw;
+            height: auto;
+            margin-bottom: 200px;
+            /* 每個 section 之間加上 200px 的間距 */
+            position: relative;
+        }
+
+        #mainS {
+            display: flex;
+            justify-content: space-between;
+            /* 左右對齊 */
+            align-items: center;
+            /* 垂直居中對齊 */
+            position: relative;
         }
 
         /* 每組圖片與內容的設置 */
@@ -346,13 +374,13 @@
             width: 50vw;
             height: auto;
             /* 每組內容的寬度相對圓形 */
-            position: relative;
             /* justify-content: flex-end; */
             /* 將圖片和canvas推向右邊 */
             transition: opacity 1s ease, transform 1s ease;
             opacity: 0;
-            transform: translateY(150px);
-            z-index: 20;
+            transform: translateY(100px);
+            z-index: 10;
+            /* 調整層級 */
         }
 
         .s6box1.visible,
@@ -362,7 +390,7 @@
             transform: translateY(0);
         }
 
-        /* 圖片設置 */
+        /* ---------------- 4-1. 圖片設置 ----------------*/
         .s6box img {
             border: yellow 3px solid;
             width: 40%;
@@ -377,11 +405,12 @@
 
         #rightimg {
             display: flex;
-            position: relative;
+            /* position: relative; */
             justify-content: flex-end;
             /* 這樣會讓圖片推向右邊 */
             align-items: center;
             /* 確保容器內部的元素對齊 */
+            margin-left: auto;
         }
 
         #leftimg {
@@ -395,26 +424,81 @@
             /* 確保容器內部的元素對齊 */
         }
 
-        /* 文章設置 */
+        /* ----------------- 4-2. 文章設置 ------------------ */
         #article {
             background-color: rgb(255, 255, 255);
-            width: auto;
+            border-radius: 10px;
+            width: 40%;
             /* 固定文章區域 */
-            font-size: 14px;
-            text-align: left;
+            height: 90px;
+            font-size: 10px;
+            display: flex;
+            justify-content: center;
+            /* 水平置中 */
+            align-items: center;
+            /* 垂直置中 */
+            text-align: center;
             /* 文字居中 */
             color: #333;
             /* 深色文字 */
-            z-index: 22;
         }
 
+        /* -------------------- 4-3.標題 ------------------------ */
+
+        .h3O,
+        .h3T {
+            position: absolute;
+            top: 20%;
+            right: 15%;
+        }
+
+        .h3S {
+            position: absolute;
+            left: 15%;
+            top: 20%;
+        }
+
+        .h3O,
+        .h3S,
+        .h3T {
+            background-color: rgba(206, 192, 196, 0.8);
+            border-radius: 5px;
+            color: rgb(61, 56, 58);
+            font-size: 50px;
+            font-family: "Alegreya", serif;
+            font-optical-sizing: auto;
+            font-weight: 550;
+            font-style: italic;
+            padding: 40px 80px;
+            transition: opacity 1s ease, transform 1s ease;
+            opacity: 0;
+            transform: translateY(100px);
+            z-index: 12;
+        }
+
+        .h3O:hover,
+        .h3S:hover,
+        .h3T:hover {
+            cursor: pointer;
+            /* 將鼠標變成手掌 */
+        }
+
+        .h3O.visible,
+        .h3S.visible,
+        .h3T.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ----------------------- 4-4.內容 --------------------- */
         .art1,
         .art2,
         .art3 {
             position: absolute;
             opacity: 0;
-            transform: translateY(100px);
+            transform: translateY(50px);
             transition: opacity 1s ease, transform 1s ease;
+            z-index: 15;
         }
 
         .art1.visible,
@@ -425,8 +509,8 @@
         }
 
         .art1 {
-            top: 10%;
-            right: 20%;
+            top: 30%;
+            right: 10%;
         }
 
         .art2 {
@@ -439,7 +523,127 @@
             right: 40%;
         }
 
+        .art1>#intro {
+            visibility: hidden;
+        }
+
+        /* ------------------- 4-5.詳情這裡走按鈕 -----------------*/
+        a.btn_02 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #858080;
+            border: 1px solid #043450;
+            box-sizing: border-box;
+            width: 20%;
+            height: 50px;
+            padding: 0 6% 0 12%;
+            color: #f4f7f8;
+            font-size: 16px;
+            text-align: left;
+            text-decoration: none;
+            position: absolute;
+            transition-duration: 0.2s;
+            margin-top: 50px;
+            transition: opacity 1s ease, transform 1s ease;
+            opacity: 0;
+            transform: translateY(100px);
+            z-index: 12;
+        }
+
+        #btn1,
+        #btn3 {
+            position: absolute;
+            right: 10px;
+            bottom: 10%;
+        }
+
+        #btn2 {
+            transform: translateY(100px);
+            position: absolute;
+            left: 10px;
+            bottom: 10%;
+        }
+
+        #btn1.visible,
+        #btn3.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #btn2.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        a.btn_02:hover {
+            background: #e9ecee;
+            color: #3f4246;
+        }
+
+        a.btn_02:before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 7px 0 7px 8px;
+            border-color: transparent transparent transparent #152935;
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            margin-top: -7px;
+        }
+
+        a.btn_02:hover:before {
+            border-color: transparent transparent transparent #fff;
+        }
+
+
         /* ------------5. footer 頁尾(S7)------------------------- */
+
+        #footer {
+            background-color: #202020;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            height: 250px;
+            margin-top: 100px;
+        }
+
+        .footer-section2 {
+            display: flex;
+            /* 使用 flexbox */
+            justify-content: center;
+            /* 水平居中排列 */
+            align-items: center;
+            /* 垂直居中 */
+            gap: 20px;
+            /* 設定元素之間的間距 */
+        }
+
+        .footer-social {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            /* 使用 flexbox 排列項目 */
+            gap: 15px;
+            /* 設定項目之間的間距 */
+        }
+
+        .footer-social li {
+            margin-bottom: 0;
+            /* 去掉垂直間距 */
+        }
+
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -493,6 +697,7 @@
     <div id="box"></div>
 
 
+
     <div class="divider-advanced">
         <hr>
         <div class="content">
@@ -503,6 +708,12 @@
     </div>
 
     <div id="box"></div>
+
+
+
+    <!-- test -->
+
+    
 
     <!------------------- 2. 無限滑動照片(S2) ----------------->
 
@@ -544,53 +755,91 @@
         </div>
     </section>
 
+    <div id="box"></div>
+    <div id="box"></div>
+
+    <div class="divider-advanced">
+        <hr>
+        <div class="content">
+            <!-- <img src="icon.png" alt="圖示" style="width: 20px; height: 20px;"> -->
+            <span>Time Catcher </span>
+        </div>
+        <hr>
+    </div>
+
 
     <div id="box"></div>
     <div id="box"></div>
     <div id="box"></div>
-    <div id="box"></div>
-    <div id="box"></div>
+
 
 
     <!------------- 4. 介紹網頁(S6+img+介紹) --------------------->
 
     <main id="main-content">
-
-            <!-- 第一組內容 -->
+        <!-- 第一組內容 -->
+        <section id="mainO" style="border: red 3px solid;">
             <div id="leftimg" class="s6box1">
                 <img src="/img/goldenhair.jpg" alt="image1">
             </div>
+
+            <div class="h3O" style="width: auto;">
+                <h3>PHOTOGRAPHER</h3>
+            </div>
+
             <article id="article" class="art1">
                 攝影師專區可以輕鬆展示您的作品集，分享您的拍攝風格和專業技能。<br>
                 無論是時尚攝影、婚禮攝影、肖像攝影還是藝術創作，這裡是您展示才華的完美平台。
             </article>
 
+            <a href="#" id="btn3" class="btn_02">BUTTON</a>
+        </section>
+
 
         <div id="box"></div>
         <div id="box"></div>
 
 
-            <!-- 第二組內容 -->
+        <!-- 第二組內容 -->
+        <section id="mainS" style="border: red 3px solid;">
             <article id="article" class="art2">
                 每一份作品集都是攝影師的名片。在這裡，您可以展示您的拍攝風格、專業領域與代表作，讓模特兒和客戶快速了解您的實力。<br>
                 無論是時尚大片、婚禮紀實，還是創意作品，這裡都是您展示才華的最佳平台，吸引更多合作機會！
             </article>
+
             <div id="rightimg" class="s6box2">
                 <img src="/img/book&camera.jpg" alt="image2">
             </div>
 
+            <div class="h3S">
+                <h3>LOOKBOOK</h3>
+            </div>
+
+            <a href="#" id="btn2" class="btn_02">BUTTON</a>
+        </section>
+
 
         <div id="box"></div>
         <div id="box"></div>
 
 
-            <!-- 第三組內容 -->
+        <!-- 第三組內容 -->
+        <section id="mainT" style="border: red 3px solid;">
             <div id="leftimg" class="s6box3">
                 <img src="/img/womancar.jpg" alt="image3">
             </div>
+
+            <div class="h3T">
+                <h3>ARTICLE</h3>
+            </div>
+
             <article id="article" class="art3">
-                交流專區
+                每一份作品集都是攝影師的名片。在這裡，您可以展示您的拍攝風格、專業領域與代表作，讓模特兒和客戶快速了解您的實力。<br>
+                無論是時尚大片、婚禮紀實，還是創意作品，這裡都是您展示才華的最佳平台，吸引更多合作機會！
             </article>
+
+            <a href="#" id="btn3" class="btn_02">BUTTON</a>
+        </section>
 
 
         <div id="box"></div>
@@ -599,9 +848,27 @@
 
     <div id="box"></div>
     <div id="box"></div>
+    <div id="box"></div>
+    <div id="box"></div>
+    <div id="box"></div>
+    <div id="box"></div>
 
-    <!------------- 5. 頁尾(footer) --------------------->
+    <!--------------------- 5. 頁尾(footer) --------------------->
 
+    <footer id="footer">
+        <div class="footer-section2">
+            <ul class="footer-social">
+                <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+
+    <!-------------------------- 6. (script專區) -------------------------->
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -685,12 +952,21 @@
 
         // 4. 介紹
         // 選取目標元素
+        const mainO = document.getElementById("mainO");//第一區塊
         const img1 = document.querySelector(".s6box1"); // 第一張圖片
+        const h3O = document.querySelector(".h3O"); // 第一段標題
+
+
+        const mainS = document.getElementById("mainS");//第二區塊
         const img2 = document.querySelector(".s6box2"); // 第二張圖片
+        const h3S = document.querySelector(".h3S"); // 第二段標題
+
+
+        const mainT = document.getElementById("mainT");//第三區塊
         const img3 = document.querySelector(".s6box3"); // 第三張圖片
-        const art1 = document.querySelector(".art1"); // 第一段文章
-        const art2 = document.querySelector(".art2"); // 第二段文章
-        const art3 = document.querySelector(".art3"); // 第三段文章
+        const h3T = document.querySelector(".h3T"); // 第三段標題
+
+        const btn_02 = document.querySelectorAll(".btn_02")//按鈕
 
         // Intersection Observer 回調函數
         const observer2 = new IntersectionObserver((entries) => {
@@ -706,12 +982,25 @@
         });
 
         // 設置觀察器監聽目標元素
+        observer2.observe(mainO);
         observer2.observe(img1);
+        observer2.observe(h3O);
+
+
+        observer2.observe(mainS);
         observer2.observe(img2);
+        observer2.observe(h3S);
+
+
+
+        observer2.observe(mainT);
         observer2.observe(img3);
-        observer2.observe(art1);
-        observer2.observe(art2);
-        observer2.observe(art3);
+        observer2.observe(h3T);
+
+        btn_02.forEach((btn_02) => {
+            observer2.observe(btn_02);
+        });
+
 
 
 
