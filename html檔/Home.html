@@ -98,6 +98,10 @@
             height: 50%;
             border-radius: 3px;
             z-index: 50;
+            justify-content: center;
+            /* 水平置中 */
+            align-items: center;
+            /* 垂直置中 */
         }
 
         nav ul {
@@ -105,7 +109,8 @@
             display: flex;
             flex-direction: column;
             /* 水平方向排列 */
-            gap: 5px;
+            text-align: right;
+            gap: 30px;
             /* 設定項目之間的間距 */
         }
 
@@ -114,11 +119,12 @@
             font-optical-sizing: auto;
             font-weight: 483;
             font-style: normal;
-            font-size: 15px;
+            font-size: 150%;
         }
 
         #nav.active {
             display: flex;
+            opacity: 1;
         }
 
         #btnbox {
@@ -432,9 +438,26 @@
     <header>
         <nav id="nav" class="container">
             <ul id="navbox">
-                <li><a href="Photographer.html">PHOTOGRAPHER</a></li>
-                <li><a href="LookBook.html">LOOK BOOK</a></li>
-                <li><a href="Article.html">ARTICLE</a></li>
+                <li>
+                    <a href="Photographer.html"> PHOTOGRAPHER</a>
+                    <hr>
+                    <p>攝影師一覽</p>
+                </li>
+                <li>
+                    <a href="LookBook.html">LOOK BOOK</a>
+                    <hr>
+                    <p>相簿</p>
+                </li>
+                <li>
+                    <a href="Article.html">ARTICLE</a>
+                    <hr>
+                    <p>文章專區</p>
+                </li>
+                <li>
+                    <a href="Login.html">LOGIN</a>
+                    <hr>
+                    <p>註冊／登入</p>
+                </li>
             </ul>
         </nav>
         <section id="btnbox">
@@ -573,6 +596,7 @@
         btn.addEventListener('click', () => {
             nav.classList.toggle('active');
         });
+
 
 
 
