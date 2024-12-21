@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淡入效果修正</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        /* 初始狀態，讓元素不可見 */
+        .fade-in {
+            opacity: 0;
+            transform: scale(0.95); /* 輕微縮放模擬進場效果 */
+            transition: opacity 1s ease, transform 1s ease; /* 動畫過渡 */
+        }
+
+        /* 啟動動畫 */
+        .fade-in.active {
+            opacity: 1;
+            transform: scale(1); /* 還原縮放 */
+        }
+
+        /* 模擬拍照閃光 */
+        .flash-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            opacity: 0;
+            z-index: 9999;
+            pointer-events: none; /* 不影響點擊 */
+            animation: flash 0.5s ease-in-out;
+        }
+
+        @keyframes flash {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* 區塊樣式 */
+        section {
+            margin: 50px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        article {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 快門效果 -->
+    <div class="flash-effect"></div>
+
+    <main id="main-content">
+        <!-- 第一組內容 -->
+        <section id="mainO" class="fade-in">
+            <div id="leftimg" class="s6box1">
+                <img src="https://via.placeholder.com/400" alt="image1">
+            </div>
+
+            <h3>PHOTOGRAPHER</h3>
+
+            <article id="article1" class="art1">
+                攝影師專區可以輕鬆展示作品集，分享您的拍攝風格和專業技能。<br>
+                無論是時尚攝影、婚禮攝影、肖像攝影還是藝術創作，這裡是您展示才華的完美平台。
+            </article>
+            <a href="Photographer.html" id="btn3" class="btn_02">GO</a>
+        </section>
+
+        <!-- 第二組內容 -->
+        <section id="mainS" class="fade-in">
+            <article id="article2" class="art2">
+                每一份作品集都是攝影師的名片。在這裡，您可以展示您的拍攝風格、專業領域與代表作，讓模特兒和客戶快速了解您的實力。<br>
+                無論是時尚大片、婚禮紀實，還是創意作品，這裡都是您展示才華的最佳平台，吸引更多合作機會！
+            </article>
+            <div id="rightimg" class="s6box2">
+                <img src="https://via.placeholder.com/400" alt="image2">
+            </div>
+            <h3>LOOKBOOK</h3>
+            <a href="LookBook.html" id="btn2" class="btn_02">GO</a>
+        </section>
+
+        <!-- 第三組內容 -->
+        <section id="mainT" class="fade-in">
+            <div id="leftimg" class="s6box3">
+                <img src="https://via.placeholder.com/400" alt="image3">
+            </div>
+            <h3>ARTICLE</h3>
+            <article id="article3" class="art3">
+                每一份作品集都是攝影師的名片。在這裡，您可以展示您的拍攝風格、專業領域與代表作，讓模特兒和客戶快速了解您的實力。<br>
+                無論是時尚大片、婚禮紀實，還是創意作品，這裡都是您展示才華的最佳平台，吸引更多合作機會！
+            </article>
+            <a href="Article.html" id="btn3" class="btn_02">GO</a>
+        </section>
+    </main>
+
+    <script>
+        // 淡入效果
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.fade-in').forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('active');
+                }, index * 500); // 每個元素間隔 500ms
+            });
+        });
+    </script>
+</body>
+
+</html>

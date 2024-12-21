@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +45,7 @@
             height: 50px;
         }
 
-
+        /* 分隔線 */
         .divider-advanced {
             display: flex;
             align-items: center;
@@ -84,10 +84,37 @@
             display: flex;
             width: 100%;
             height: auto;
+            justify-content: center;
+            /* 水平置中 */
+            align-items: center;
+            text-align: center;
+            /* 垂直置中 */
         }
 
-        #s1photo {
-            max-width: auto;
+        /* carousel 控制樣式  */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 80%;
+            /* 設定固定高度來控制圖片顯示範圍 */
+            overflow: hidden;
+            /* 確保圖片不會超出容器範圍 */
+        }
+
+        .carousel-inner {
+            /* display: flex; */
+            width: 100%;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+            /* 自定義過渡動畫 */
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* 保持圖片比例並且不會超出容器範圍 */
+            /* 確保圖片不會變形並覆蓋容器 */
         }
 
         #logobox {
@@ -95,12 +122,15 @@
             position: absolute;
             left: 20px;
             top: 20px;
+            z-index: 24;
         }
 
         #logobox img {
             max-width: 70%;
         }
 
+
+        /* 導航欄 */
         #nav {
             display: none;
             background-color: rgba(173, 179, 179, 0.9);
@@ -133,7 +163,7 @@
             font-optical-sizing: auto;
             font-weight: 483;
             font-style: normal;
-            font-size: 120%;
+            font-size: 110%;
         }
 
         nav li:hover {
@@ -226,9 +256,9 @@
             /* 垂直居中 */
             font-size: 8px;
             /* 設定圖示大小 */
-            color: #fff;
+            color: rgb(255, 255, 255);
             /* 圖示顏色 */
-            opacity: 0.7;
+            opacity: 0.9;
             /* 稍微透明 */
             animation: bounce 1.5s infinite;
             /* 動畫效果 */
@@ -239,9 +269,14 @@
         .scroll-icon span {
             font-family: "Alegreya", serif;
             font-size: 18px;
-            /* 設定箭頭大小 */
             display: inline-block;
         }
+
+        .scroll-icon span:hover {
+            cursor: pointer;
+            color: inherit;
+        }
+       
 
         @keyframes bounce {
             0% {
@@ -570,17 +605,12 @@
         /* ----------------- 4-2. 文章設置 ------------------ */
         main article {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            /* background-color: aliceblue; */
             border-radius: 10px;
             width: 500px;
             /* 固定文章區域 */
             height: auto;
             font-size: 10px;
             display: flex;
-            /* justify-content: center; */
-            /* 水平置中 */
-            /* align-items: center; */
-            /* 垂直置中 */
             text-align: start;
             /* 文字居中 */
             color: #f2f3f7;
@@ -595,8 +625,8 @@
             display: none;
             /* 預設隱藏，避免一開始就顯示 */
             opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 1s ease-in-out;
+            /* transform: translateY(50px); */
             z-index: 23;
             padding: 20px 30px;
             font-size: 20px;
@@ -607,6 +637,7 @@
         .art3.visible {
             display: block;
             opacity: 1;
+            /* 設置淡入淡出的過渡效果 */
             transform: translateY(0);
         }
 
@@ -650,7 +681,6 @@
         .h3O,
         .h3S,
         .h3T {
-            /* background-color: rgba(219, 224, 231); */
             border-radius: 10px;
             color: #f2f3f7;
             font-size: 45px;
@@ -837,11 +867,23 @@
         </section>
 
         <section id="s1">
-            <div id="s1phobox"><img id="s1photo" src="/img/girl.jpg"></div>
-            <div id="logobox">
-                <a href="#">
-                    <img src="/img/Vesluneir.png">
-                </a>
+            <div id="s1photo" class="carousel slide" data-bs-interval="1500" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/img/girl.jpg" class="d-block w-100" alt="Image 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/gh1.jpg" class="d-block w-100" alt="Image 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/li3.JPG" class="d-block w-100" alt="Image 3">
+                    </div>
+                </div>
+                <div id="logobox">
+                    <a href="#">
+                        <img src="/img/Vesluneir.png">
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -863,7 +905,7 @@
             <img class="s8p3" src="/img/塔櫻花.jpg" alt="圖片3">
         </div>
         <div class="text right">
-            <p>用鏡頭，捕捉瞬間的光輝</p>
+            <p>用鏡頭 捕捉瞬間的光輝</p>
         </div>
         <!-- 左邊的文字，改為 "每一簇火花" -->
         <div class="text left">
@@ -1028,7 +1070,7 @@
 
     <!-------------------------- 6. (script專區) -------------------------->
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
 
