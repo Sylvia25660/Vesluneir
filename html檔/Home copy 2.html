@@ -501,7 +501,7 @@
         }
 
         .marquee-wrapper {
-            margin-bottom: 75px;
+            margin-bottom: 25px;
         }
 
         .marquee-wrapper2 {
@@ -520,7 +520,7 @@
         .marquee-item2 {
             flex-shrink: 0;
             /* 圖片不縮小 */
-            width: 350px;
+            width: 300px;
             height: auto;
             /* 單張圖片寬度 */
             margin-right: 10px;
@@ -531,7 +531,9 @@
         .marquee2 img {
             width: 100%;
             /* 圖片填滿 */
-            height: auto;
+            height: 90%;
+            object-fit: cover;
+            /* 裁剪圖片，保持比例並填滿容器 */
         }
 
         #infinite>p {
@@ -561,7 +563,8 @@
 
         #mainO,
         #mainS,
-        #mainT {
+        #mainT,
+        #mainF {
             width: 85vw;
             height: auto;
             margin-top: 150px;
@@ -569,7 +572,8 @@
             position: relative;
         }
 
-        #mainS {
+        #mainS,
+        #mainF {
             display: flex;
             justify-content: space-between;
             /* 左右對齊 */
@@ -581,7 +585,8 @@
         /* 每組圖片與內容的設置 */
         .s6box1,
         .s6box2,
-        .s6box3 {
+        .s6box3,
+        .s6box4 {
             display: flex;
             align-items: center;
             width: 50vw;
@@ -600,7 +605,8 @@
 
         .s6box1.visible,
         .s6box2.visible,
-        .s6box3.visible {
+        .s6box3.visible,
+        .s6box4.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -611,7 +617,7 @@
             height: 2px;
             background-color: #f2f3f7;
             left: 0;
-            top: 4%;
+            top: 3%;
         }
 
         .hr2 {
@@ -620,7 +626,7 @@
             height: 2px;
             background-color: #f2f3f7;
             right: 0;
-            top: 39%;
+            top: 29%;
         }
 
         .hr3 {
@@ -629,7 +635,16 @@
             height: 2px;
             background-color: #f2f3f7;
             left: 0;
-            bottom: 26%;
+            bottom: 45%;
+        }
+
+        .hr4 {
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background-color: #f2f3f7;
+            right: 0;
+            bottom: 19%;
         }
 
         /* ---------------- 4-1. 圖片(s6box) ----------------*/
@@ -692,7 +707,8 @@
 
         .art1,
         .art2,
-        .art3 {
+        .art3,
+        .art4 {
             position: absolute;
             display: none;
             /* 預設隱藏，避免一開始就顯示 */
@@ -706,7 +722,8 @@
 
         .art1.visible,
         .art2.visible,
-        .art3.visible {
+        .art3.visible,
+        .art4.visible {
             display: block;
             opacity: 1;
             /* 設置淡入淡出的過渡效果 */
@@ -735,6 +752,12 @@
             text-align: justify;
         }
 
+        .art4 {
+            top: 40%;
+            left: 1%;
+            display: flex;
+            text-align: justify;
+        }
 
         /* -------------------- 4-3.標題(h3) ------------------------ */
 
@@ -756,9 +779,16 @@
             right: 20%;
         }
 
+        .h3F {
+            position: absolute;
+            top: 18%;
+            left: 13%;
+        }
+
         .h3O,
         .h3S,
-        .h3T {
+        .h3T,
+        .h3F {
             border-radius: 10px;
             color: #f2f3f7;
             font-size: 45px;
@@ -775,14 +805,16 @@
 
         .h3O:hover,
         .h3S:hover,
-        .h3T:hover {
+        .h3T:hover,
+        .h3F:hover {
             cursor: pointer;
             /* 將鼠標變成手掌 */
         }
 
         .h3O.visible,
         .h3S.visible,
-        .h3T.visible {
+        .h3T.visible,
+        .h3F.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -791,21 +823,26 @@
         a.btn_02 {
             display: flex;
             justify-content: center;
+            /* 文字從左開始排列 */
             align-items: center;
+            /* 垂直居中 */
+            gap: 30px;
+            /* 圖示與文字之間的間距 */
             background: #858080;
             border: 1px solid #043450;
             box-sizing: border-box;
-            width: 10%;
-            height: 50px;
-            padding: 0 6% 0 12%;
+            width: 18%;
+            /* 按內容自適應寬度 */
+            height: 55px;
+            /* 固定高度 */
+            padding: 0 18px;
+            /* 內邊距 */
             color: #f4f7f8;
             font-size: 16px;
-            text-align: left;
             text-decoration: none;
             position: absolute;
-            transition-duration: 0.2s;
-            margin-top: 50px;
             transition: opacity 1s ease, transform 1s ease;
+            margin-top: 50px;
             opacity: 0;
             transform: translateY(100px);
             z-index: 12;
@@ -825,13 +862,21 @@
             bottom: 1%;
         }
 
+        #btn4 {
+            transform: translateY(100px);
+            position: absolute;
+            left: 10px;
+            bottom: 1%;
+        }
+
         #btn1.visible,
         #btn3.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        #btn2.visible {
+        #btn2.visible,
+        #btn4.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -847,18 +892,18 @@
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 7px 0 7px 8px;
+            border-width: 10px 0 7px 8px;
             border-color: transparent transparent transparent #152935;
             position: absolute;
             top: 50%;
-            left: 5%;
-            margin-top: -7px;
+            left: 20px;
+            /* 調整箭頭位置 */
+            transform: translateY(-50%);
         }
 
         a.btn_02:hover:before {
             border-color: transparent transparent transparent #fff;
         }
-
 
         /* ------------5. footer 頁尾(S7)------------------------- */
 
@@ -867,7 +912,7 @@
             color: #fff;
             padding: 20px;
             text-align: center;
-            height: 150px;
+            height: 100px;
             /* margin-top: 100px; */
         }
 
@@ -1028,11 +1073,11 @@
     <section id="infinite">
         <div class="marquee-wrapper">
             <div class="marquee" id="marquee">
-                <div class="marquee-item"><img src="/img/photer1.jpg" alt="Image 1" /></div>
-                <div class="marquee-item"><img src="/img/photer2.jpg" alt="Image 2" /></div>
-                <div class="marquee-item"><img src="/img/photer3.jpg" alt="Image 3" /></div>
-                <div class="marquee-item"><img src="/img/苔癬.jpg" alt="Image 4" /></div>
-                <div class="marquee-item"><img src="/img/海灘兩人.jpg" alt="Image 5" /></div>
+                <div class="marquee-item"><img src="/img/photp2_yu/yu8.jpg" alt="Image 1" /></div>
+                <div class="marquee-item"><img src="/img/photo1_lily/lily4.jpg" alt="Image 2" /></div>
+                <div class="marquee-item"><img src="/img/photp2_yu/yu6.jpg" alt="Image 3" /></div>
+                <div class="marquee-item"><img src="/img/photo1_lily/lily10.jpg" alt="Image 4" /></div>
+                <div class="marquee-item"><img src="/img/photo3_sophia/so3.jpg" alt="Image 5" /></div>
             </div>
         </div>
 
@@ -1040,10 +1085,10 @@
 
         <div class="marquee-wrapper2">
             <div class="marquee2" id="marquee2">
-                <div class="marquee-item2"><img src="/img/海邊一人.jpg" alt="Image 1" /></div>
-                <div class="marquee-item2"><img src="/img/眼鏡趴著女.jpg" alt="Image 2" /></div>
-                <div class="marquee-item2"><img src="/img/海邊鳥.jpg" alt="Image 3" /></div>
-                <div class="marquee-item2"><img src="/img/苔癬.jpg" alt="Image 4" /></div>
+                <div class="marquee-item2"><img src="/img/photp2_yu/yu2.jpg" alt="Image 1" /></div>
+                <div class="marquee-item2"><img src="/img/photo1_lily/lily2.jpg" alt="Image 2" /></div>
+                <div class="marquee-item2"><img src="/img/photer2.jpg" alt="Image 3" /></div>
+                <div class="marquee-item2"><img src="/img/photp2_yu/yu3.jpg" alt="Image 4" /></div>
                 <div class="marquee-item2"><img src="/img/海灘兩人.jpg" alt="Image 5" /></div>
             </div>
         </div>
@@ -1074,7 +1119,7 @@
                 透過精選的作品與故事，讓觀眾感受到攝影師對光影與瞬間的詩意捕捉，並了解他們的藝術視野與服務特色。
             </article>
 
-            <a href="Photographer.html" id="btn3" class="btn_02">GO</a>
+            <a href="Photographer.html" id="btn3" class="btn_02">前往攝影師專區</a>
         </section>
 
 
@@ -1101,7 +1146,7 @@
                 <h3>LOOK BOOK</h3>
             </div>
 
-            <a href="LookBook.html" id="btn2" class="btn_02">GO</a>
+            <a href="LookBook.html" id="btn2" class="btn_02">前往相簿</a>
         </section>
 
 
@@ -1126,13 +1171,37 @@
                 在這裡，觀眾不僅能閱讀到關於攝影的深刻見解和創作經歷，還能通過投稿，將自己對光影與瞬間的詮釋傳遞出去，與他人共同分享攝影藝術的無限魅力與靈感。
             </article>
 
-            <a href="Article.html" id="btn3" class="btn_02">GO</a>
+            <a href="Article.html" id="btn3" class="btn_02">文章投稿</a>
+        </section>
+
+        <div id="box"></div>
+        <div id="box"></div>
+
+        <div class="hr4">
+            <hr>
+        </div>
+        <!-- 第四組內容 -->
+        <section id="mainF">
+
+            <article id="article4" class="art4">
+                你的故事值得被看見，加入我們，攜手創造屬於自己的影像世界。<br>
+                讓所有瞬間都成為永恆的記憶，傳遞無限的靈感與感動。
+            </article>
+
+            <div id="rightimg" class="s6box4">
+                <img src="/img/searockhouse.jpg" alt="image4">
+            </div>
+
+            <div class="h3F">
+                <h3>BE ONE OF US</h3>
+            </div>
+
+            <a href="Login.html" id="btn4" class="btn_02">成為攝影師一員</a>
         </section>
 
     </main>
 
-    <div id="box"></div>
-    <div id="box"></div>
+
     <div id="box"></div>
     <div id="box"></div>
 
@@ -1397,6 +1466,11 @@
         const img3 = document.querySelector(".s6box3"); // 第三張圖片
         const h3T = document.querySelector(".h3T"); // 第三段標題
 
+        const mainF = document.getElementById("mainF");//第四區塊
+        const img4 = document.querySelector(".s6box4"); // 第四張圖片
+        const h3F = document.querySelector(".h3F"); // 第四段標題
+
+
         const btn_02 = document.querySelectorAll(".btn_02")//按鈕
 
         // Intersection Observer 回調函數
@@ -1428,34 +1502,62 @@
         observer2.observe(img3);
         observer2.observe(h3T);
 
+        observer2.observe(mainF);
+        observer2.observe(img4);
+        observer2.observe(h3F);
+
         btn_02.forEach((btn_02) => {
             observer2.observe(btn_02);
         });
 
 
-        // ----------------- 6.文章區塊    
-        const triggers = document.querySelectorAll('.h3O, .h3S, .h3T');
-        const triggers2 = document.querySelectorAll('.s6box1, .s6box2, .s6box3');
-        const popups = document.querySelectorAll('.art1, .art2, .art3');
+        // ----------------- 6.文章區塊  
+        const triggers = document.querySelectorAll('.h3O, .h3S, .h3T, .h3F');
+        const triggers2 = document.querySelectorAll('.s6box1, .s6box2, .s6box3, .s6box4');
+        const popups = document.querySelectorAll('.art1, .art2, .art3, .art4');
 
+        // 遍歷 triggers
         triggers.forEach((trigger, index) => {
             const popup = popups[index];
-
-            // 滑鼠移入時顯示
-            trigger.addEventListener('mouseenter', () => {
-                popup.classList.add('visible');
-            });
+            if (popup) { // 確保 popup 存在
+                trigger.addEventListener('mouseenter', () => {
+                    popup.classList.add('visible');
+                });
+            }
         });
 
-        const popup8 = document.querySelectorAll('.art1, .art2, .art3');
-
+        // 遍歷 triggers2
         triggers2.forEach((trigger, index) => {
-            const popup6 = popup8[index];
-
-            trigger.addEventListener('mouseenter', () => {
-                popup6.classList.add('visible');
-            });
+            const popup6 = popups[index];
+            if (popup6) { // 確保 popup6 存在
+                trigger.addEventListener('mouseenter', () => {
+                    popup6.classList.add('visible');
+                });
+            }
         });
+
+        // const triggers = document.querySelectorAll('.h3O, .h3S, .h3T, .h3F');
+        // const triggers2 = document.querySelectorAll('.s6box1, .s6box2, .s6box3, .s6box4');
+        // const popups = document.querySelectorAll('.art1, .art2, .art3, .art4');
+
+        // triggers.forEach((trigger, index) => {
+        //     const popup = popups[index];
+
+        //     // 滑鼠移入時顯示
+        //     trigger.addEventListener('mouseenter', () => {
+        //         popup.classList.add('visible');
+        //     });
+        // });
+
+        // const popup8 = document.querySelectorAll('.art1, .art2, .art3, .art4');
+
+        // triggers2.forEach((trigger, index) => {
+        //     const popup6 = popup8[index];
+
+        //     trigger.addEventListener('mouseenter', () => {
+        //         popup6.classList.add('visible');
+        //     });
+        // });
 
 
 
