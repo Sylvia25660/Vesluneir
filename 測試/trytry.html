@@ -449,7 +449,6 @@
         #s2 {
             display: flex;
             justify-content: center;
-            /* 在 Flexbox 中，應用 justify-content & align-items  */
             align-content: center;
             position: relative;
             margin-bottom: 30px;
@@ -467,15 +466,12 @@
             opacity: 0;
             transition: opacity 1s ease, transform 1s ease;
             transform: translateY(200px);
-            /* 初始位置向下偏移 200px */
             z-index: 47;
         }
 
         #hbox.visible {
             opacity: 1;
             transform: translateY(0);
-            /* 回到原位 */
-            /* 當加上 visible 類別時，改變透明度 */
         }
 
         #s2 h1 {
@@ -490,7 +486,6 @@
         #h12 {
             text-align: center;
             line-height: 3;
-            /* 行高設定 */
             letter-spacing: 20px;
         }
 
@@ -508,7 +503,6 @@
 
         #strbox1,
         #strbox2 {
-            /* height: auto; */
             opacity: 0;
             transition: opacity 2s ease, transform 2s ease;
             z-index: 48;
@@ -529,7 +523,6 @@
 
         #strbox2 img {
             transform: rotateY(180deg);
-            /* 水平翻轉 180 度 */
         }
 
         #strbox1.visited,
@@ -700,7 +693,7 @@
             height: 2px;
             background-color: #f2f3f7;
             left: 0;
-            top: 5.5%;
+            top: 1%;
         }
 
         .hr2 {
@@ -775,6 +768,7 @@
             box-shadow: -10px 10px 15px rgba(235, 232, 232, 0.945);
             /* 右下角陰影 */
             border-radius: 10px;
+            margin-right: auto;
         }
 
         /* ----------------- 4-2. 文章(article) ------------------ */
@@ -1150,71 +1144,14 @@
         </div>
     </section>
 
+    <div id="box"></div>
+    <div id="box"></div>
 
     <!------------------- 3. 星星區(S2) --------------------------->
-    <!-- 視覺的記憶，在每一個瞬間中蔓延。-->
-    <!--「每一幅畫面，都是沉默中流動的時光遺跡。」 -->
-
-    <section id="s2">
-        <div id="strbox1">
-            <img id="str1" src="/img/Star 5.png">
-            <img id="str2" src="/img/Star 10.png">
-            <img id="str3" src="/img/Star 8.png">
-        </div>
-        <div id="hbox">
-            <h1 id="h11">“ 光影無語</h1>
-            <h1 id="h12">卻刻下流轉的時間痕跡 ”</h1>
-        </div>
-        <div id="strbox2">
-            <img id="str1" src="/img/Star 8.png">
-            <img id="str2" src="/img/Star 10.png">
-            <img id="str3" src="/img/Star 5.png">
-        </div>
-    </section>
-
-    <div id="box"></div>
-
-    <!------------------------- 4. 無限滑動照片(infinite) --------------------->
-
-    <section id="infinite">
-        <div class="marquee-wrapper">
-            <div class="marquee" id="marquee">
-                <div class="marquee-item"><img src="/img/photo2_yu/yu8.jpg" alt="Image 1" /></div>
-                <div class="marquee-item"><img src="/img/photo1_lily/lily4.jpg" alt="Image 2" /></div>
-                <div class="marquee-item"><img src="/img/photo2_yu/yu6.jpg" alt="Image 3" /></div>
-                <div class="marquee-item"><img src="/img/photo1_lily/lily10.jpg" alt="Image 4" /></div>
-                <div class="marquee-item"><img src="/img/photo3_sophia/so3.jpg" alt="Image 5" /></div>
-            </div>
-        </div>
-
-        <p>{ 穿行於時光深處，用鏡頭拾起所有無聲的故事 }</p>
-
-        <div class="marquee-wrapper2">
-            <div class="marquee2" id="marquee2">
-                <div class="marquee-item2"><img src="/img/photo2_yu/yu2.jpg" alt="Image 1" /></div>
-                <div class="marquee-item2"><img src="/img/photo1_lily/lily2.jpg" alt="Image 2" /></div>
-                <div class="marquee-item2"><img src="/img/photer2.jpg" alt="Image 3" /></div>
-                <div class="marquee-item2"><img src="/img/photo2_yu/yu3.jpg" alt="Image 4" /></div>
-                <div class="marquee-item2"><img src="/img/photo1_lily/lily14.jpg" alt="Image 5" /></div>
-            </div>
-        </div>
-    </section>
-
-    <div id="box"></div>
-
-
-    <!--------------------- 5. 介紹網頁(main) --------------------->
-
     <main id="main-content">
-
-        <section id="s3">
-            <h1>三大特色</h1>
-        </section>
-
         <div class="hr1">
             <hr>
         </div>
-        <!-- 第一組內容 -->
         <section id="mainO">
 
             <div id="leftimg" class="s6box1">
@@ -1236,9 +1173,38 @@
             <a href="Photographer copy.html" id="btn3" class="btn_02">前往攝影師專區</a>
         </section>
 
+        <div id="box"></div>
+        <div id="box"></div>
+
+
+        <!------------------------- 4. 無限滑動照片(infinite) --------------------->
+
+        <section id="infinite">
+            <div class="marquee-wrapper">
+                <div class="marquee" id="marquee">
+                    <div class="marquee-item"><img src="/img/photo2_yu/yu8.jpg" alt="Image 1" /></div>
+                    <div class="marquee-item"><img src="/img/photo1_lily/lily4.jpg" alt="Image 2" /></div>
+                    <div class="marquee-item"><img src="/img/photo2_yu/yu6.jpg" alt="Image 3" /></div>
+                    <div class="marquee-item"><img src="/img/photo1_lily/lily10.jpg" alt="Image 4" /></div>
+                    <div class="marquee-item"><img src="/img/photo3_sophia/so3.jpg" alt="Image 5" /></div>
+                </div>
+            </div>
+
+            <p>{ 穿行於時光深處，用鏡頭拾起所有無聲的故事 }</p>
+
+            <div class="marquee-wrapper2">
+                <div class="marquee2" id="marquee2">
+                    <div class="marquee-item2"><img src="/img/photo2_yu/yu2.jpg" alt="Image 1" /></div>
+                    <div class="marquee-item2"><img src="/img/photo1_lily/lily2.jpg" alt="Image 2" /></div>
+                    <div class="marquee-item2"><img src="/img/photer2.jpg" alt="Image 3" /></div>
+                    <div class="marquee-item2"><img src="/img/photo2_yu/yu3.jpg" alt="Image 4" /></div>
+                    <div class="marquee-item2"><img src="/img/photo1_lily/lily14.jpg" alt="Image 5" /></div>
+                </div>
+            </div>
+        </section>
 
         <div id="box"></div>
-        <div id="box"></div>
+
 
         <div class="hr2">
             <hr>
@@ -1265,13 +1231,30 @@
             <a href="LookBook.html" id="btn2" class="btn_02">前往相簿</a>
         </section>
 
+        <!--------------------- 5. 介紹網頁(main) --------------------->
 
         <div id="box"></div>
-        <div id="box"></div>
 
+        <section id="s2">
+            <div id="strbox1">
+                <img id="str1" src="/img/Star 5.png">
+                <img id="str2" src="/img/Star 10.png">
+                <img id="str3" src="/img/Star 8.png">
+            </div>
+            <div id="hbox">
+                <h1 id="h11">“ 光影無語</h1>
+                <h1 id="h12">卻刻下流轉的時間痕跡 ”</h1>
+            </div>
+            <div id="strbox2">
+                <img id="str1" src="/img/Star 8.png">
+                <img id="str2" src="/img/Star 10.png">
+                <img id="str3" src="/img/Star 5.png">
+            </div>
+        </section>
         <div class="hr3">
             <hr>
         </div>
+
         <!-- 第三組內容 -->
         <section id="mainT">
             <div id="leftimg" class="s6box3">
@@ -1295,6 +1278,9 @@
 
         <div id="box"></div>
         <div id="box"></div>
+
+        <!-- 星星 -->
+
 
 
         <!-- 第四組內容 -->
@@ -1327,7 +1313,8 @@
     <footer id="footer">
         <div class="footer-section2">
             <ul class="footer-social">
-                <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a></li>
+                <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+                </li>
                 <li><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
                 <li><a href="#contact"><i class="fa-regular fa-comment"></i></a></li>
             </ul>
@@ -1485,31 +1472,35 @@
         });
 
 
-        // ---------------- 3. 星星出現
-        const S2 = document.getElementById("s2"); //s2
-        const hBox = document.getElementById("hbox"); //橢圓區
-        const starContainer = document.querySelector("#strbox1"); //星星區
-        const starContainer2 = document.querySelector("#strbox2"); //星星區
+        // ---------------2. mainO
+        const mainO = document.getElementById("mainO");//第一區塊
+        const img1 = document.querySelector(".s6box1"); // 第一張圖片
+        const h3O = document.querySelector(".h3O"); // 第一段標題
+        const btn_02 = document.querySelectorAll(".btn_02")//按鈕
 
-
-        const observer = new IntersectionObserver((entries) => {
+        const observer2 = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    hBox.classList.add("visible");
-                    starContainer.classList.add("visited");
-                    starContainer2.classList.add("visited")
+                    entry.target.classList.add("visible"); // 當元素進入視口時，顯示動畫
                 } else {
-                    hBox.classList.remove("visible");
-                    starContainer.classList.remove("visited");
-                    starContainer2.classList.remove("visited");
+                    entry.target.classList.remove("visible"); // 當元素離開視口時，隱藏動畫
                 }
-            })
+            });
+        }, {
+            threshold: 0.2, // 當元素的 10% 進入視口時觸發
         });
 
-        observer.observe(S2);
+        // 設置觀察器監聽目標元素
+        observer2.observe(mainO);
+        observer2.observe(img1);
+        observer2.observe(h3O);
+
+        btn_02.forEach((btn_02) => {
+            observer2.observe(btn_02);
+        });
 
 
-        // -------------- 4. 照片輪播(1)
+        // -------------- 3. 照片輪播(1)
         // Optional JavaScript to control manual slide transitions (for example, adding buttons to navigate)
         // (1) 第一個輪播
         const marquee = document.getElementById('marquee');
@@ -1585,18 +1576,59 @@
         }, 100); // 確保圖片已加載後運行
 
 
-
-        // --------------- 5. 介紹
-        // 選取目標元素
-        const mainO = document.getElementById("mainO");//第一區塊
-        const img1 = document.querySelector(".s6box1"); // 第一張圖片
-        const h3O = document.querySelector(".h3O"); // 第一段標題
-
-
+        //---------------- 4. mainS
         const mainS = document.getElementById("mainS");//第二區塊
         const img2 = document.querySelector(".s6box2"); // 第二張圖片
         const h3S = document.querySelector(".h3S"); // 第二段標題
 
+        // const btn_02 = document.querySelectorAll(".btn_02")//按鈕
+
+        const observer3 = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible"); // 當元素進入視口時，顯示動畫
+                } else {
+                    entry.target.classList.remove("visible"); // 當元素離開視口時，隱藏動畫
+                }
+            });
+        }, {
+            threshold: 0.2, // 當元素的 10% 進入視口時觸發
+        });
+
+        observer2.observe(mainS);
+        observer2.observe(img2);
+        observer2.observe(h3S);
+
+        btn_02.forEach((btn_02) => {
+            observer2.observe(btn_02);
+        });
+
+
+        //---------------- 3. 星星出現
+        const S2 = document.getElementById("s2"); //s2
+        const hBox = document.getElementById("hbox"); //橢圓區
+        const starContainer = document.querySelector("#strbox1"); //星星區
+        const starContainer2 = document.querySelector("#strbox2"); //星星區
+
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    hBox.classList.add("visible");
+                    starContainer.classList.add("visited");
+                    starContainer2.classList.add("visited")
+                } else {
+                    hBox.classList.remove("visible");
+                    starContainer.classList.remove("visited");
+                    starContainer2.classList.remove("visited");
+                }
+            })
+        });
+
+        observer.observe(S2);
+
+        // --------------- 5. 介紹
+        // 選取目標元素
 
         const mainT = document.getElementById("mainT");//第三區塊
         const img3 = document.querySelector(".s6box3"); // 第三張圖片
@@ -1609,7 +1641,7 @@
         const btn_02 = document.querySelectorAll(".btn_02")//按鈕
 
         // Intersection Observer 回調函數
-        const observer2 = new IntersectionObserver((entries) => {
+        const observer4 = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("visible"); // 當元素進入視口時，顯示動畫
@@ -1622,14 +1654,10 @@
         });
 
         // 設置觀察器監聽目標元素
-        observer2.observe(mainO);
-        observer2.observe(img1);
-        observer2.observe(h3O);
+       
 
 
-        observer2.observe(mainS);
-        observer2.observe(img2);
-        observer2.observe(h3S);
+       
 
 
 
