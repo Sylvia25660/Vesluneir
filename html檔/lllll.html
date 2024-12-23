@@ -338,6 +338,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+
         }
 
         .search-button:hover {
@@ -757,7 +758,7 @@
     <!---------------- 1. 文字介紹(S2)---------------------->
 
     <div class="search-container">
-        <input type="text" id="search" name="search" placeholder="名稱、互惠攝影、婚禮攝影" class="search-box">
+        <input type="text" id="search" name="search" placeholder="#Nature、#People" class="search-box">
         <button type="submit" class="search-button">搜尋</button>
     </div>
 
@@ -1053,19 +1054,6 @@
             });
         });
 
-
-        // 搜尋框
-        document.getElementById('search').addEventListener('focus', function () {
-            if (this.value === '') { // 確保當值為空時清除placeholder文字
-                this.placeholder = ''; // 清空placeholder
-            }
-        });
-
-        document.getElementById('search').addEventListener('blur', function () {
-            if (this.value === '') { // 如果搜尋框仍然是空的，恢復placeholder文字
-                this.placeholder = '名稱、互惠攝影、婚禮攝影'; // 恢復預設文字
-            }
-        });
 
 
         // 關於攝影師 
