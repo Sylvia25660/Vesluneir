@@ -654,6 +654,17 @@
             position: relative;
         }
 
+        #mainF {
+            background: url(/img/photo1_lily/lily13.jpg);
+            width: 100%;
+            height: 600px;
+        }
+
+        #mainF img {
+            width: 80%;
+            height: auto;
+        }
+
         /* 每組圖片與內容的設置 */
         .s6box1,
         .s6box2,
@@ -711,12 +722,17 @@
         }
 
         .hr4 {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            /* 水平置中 */
+            align-items: center;
             position: absolute;
             width: 50%;
             height: 2px;
             background-color: #f2f3f7;
-            right: 0;
-            bottom: 21%;
+            right: 23%;
+            bottom: 19%;
         }
 
         /* ---------------- 4-1. 圖片(s6box) ----------------*/
@@ -826,8 +842,9 @@
         }
 
         .art4 {
-            top: 35%;
-            left: 3%;
+            color: #3f4246;
+            top: 19%;
+            left: 37%;
             display: flex;
             text-align: justify;
         }
@@ -854,8 +871,8 @@
 
         .h3F {
             position: absolute;
-            top: 18%;
-            left: 13%;
+            bottom: 18%;
+            left: 40%;
         }
 
         .h3O,
@@ -891,6 +908,8 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* 成為一員 */
 
         /* ------------------- 4-4.詳情這裡走按鈕(btn02) -----------------*/
         a.btn_02 {
@@ -938,8 +957,8 @@
         #btn4 {
             transform: translateY(100px);
             position: absolute;
-            left: 10px;
-            bottom: 1%;
+            left: 43%;
+            bottom: 5%;
         }
 
         #btn1.visible,
@@ -977,6 +996,8 @@
         a.btn_02:hover:before {
             border-color: transparent transparent transparent #fff;
         }
+
+
 
         /* ------------5. footer 頁尾(S7)------------------------- */
 
@@ -1267,10 +1288,15 @@
         <div id="box"></div>
         <div id="box"></div>
 
+
+        <!-- 第四組內容 -->
+        <div class="h3F">
+            <h3>BE ONE OF US</h3>
+        </div>
         <div class="hr4">
             <hr>
         </div>
-        <!-- 第四組內容 -->
+
         <section id="mainF">
 
             <article id="article4" class="art4">
@@ -1278,15 +1304,7 @@
                 讓所有瞬間都成為永恆的記憶，傳遞無限的靈感與感動。
             </article>
 
-            <div id="rightimg" class="s6box4">
-                <img src="/img/searockhouse.jpg" alt="image4">
-            </div>
-
-            <div class="h3F">
-                <h3>BE ONE OF US</h3>
-            </div>
-
-            <a href="Login.html" id="btn4" class="btn_02">成為攝影師一員</a>
+            <a href="Login.html" id="btn4" class="btn_02">展開你的故事</a>
         </section>
 
 
@@ -1577,7 +1595,6 @@
         const h3T = document.querySelector(".h3T"); // 第三段標題
 
         const mainF = document.getElementById("mainF");//第四區塊
-        const img4 = document.querySelector(".s6box4"); // 第四張圖片
         const h3F = document.querySelector(".h3F"); // 第四段標題
 
 
@@ -1613,7 +1630,6 @@
         observer2.observe(h3T);
 
         observer2.observe(mainF);
-        observer2.observe(img4);
         observer2.observe(h3F);
 
         btn_02.forEach((btn_02) => {
