@@ -447,8 +447,7 @@
 
 
         /* ----------maino-------------- */
-        #main-content {
-            /* background-color: #333; */
+        #one {
             display: flex;
             height: auto;
             flex-direction: column;
@@ -468,6 +467,7 @@
         }
 
         .s6box1 {
+            border: red 3px solid;
             display: flex;
             align-items: center;
             width: 50vw;
@@ -495,7 +495,7 @@
             height: 2px;
             background-color: #f2f3f7;
             left: 0;
-            top: 5.5%;
+            top: 29%;
         }
 
         .s6box img {
@@ -513,8 +513,6 @@
         }
 
         #leftimg {
-            position: relative;
-            /* 讓子元素能相對定位 */
             display: flex;
             /* 需要確保左側容器使用 flex 布局 */
             justify-content: flex-start;
@@ -526,56 +524,44 @@
             border-radius: 10px;
         }
 
-        main article {
+        #mainO article {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             width: 600px;
             /* 固定文章區域 */
             height: auto;
-            font-size: 10px;
+            font-size: 25px;
             display: flex;
             text-align: start;
             /* 文字居中 */
             color: #f2f3f7;
             /* 深色文字 */
-            position: relative;
         }
 
         .art1 {
             position: absolute;
             display: none;
-            /* 預設隱藏，避免一開始就顯示 */
             opacity: 0;
-            transition: opacity 1s ease-in-out;
-            /* transform: translateY(50px); */
+            transition: opacity 1s ease-in-out, transform 0.5s ease;
             z-index: 23;
             padding: 20px 30px;
-            font-size: 22px;
             line-height: 2;
+            top: 23%;
+            /* 調整垂直位置 */
+            left: 61%;
+            /* 調整水平位置 */
         }
 
         .art1.visible {
             display: block;
             opacity: 1;
-            /* 設置淡入淡出的過渡效果 */
             transform: translateY(0);
-        }
-
-        .art1 {
-            position: absolute;
-            right: 2%;
-            bottom: 13%;
-            display: flex;
-            text-align: justify;
         }
 
         .h3O {
             position: absolute;
             top: 10%;
-            right: 15%;
-        }
-
-        .h3O {
+            right: 16%;
             border-radius: 10px;
             color: #f2f3f7;
             font-size: 60px;
@@ -598,6 +584,69 @@
         .h3O.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        a.btn_02 {
+            display: flex;
+            justify-content: center;
+            /* 文字從左開始排列 */
+            align-items: center;
+            /* 垂直居中 */
+            gap: 30px;
+            /* 圖示與文字之間的間距 */
+            background: #858080;
+            border: 1px solid #043450;
+            box-sizing: border-box;
+            width: 18%;
+            /* 按內容自適應寬度 */
+            height: 55px;
+            /* 固定高度 */
+            padding: 0 18px;
+            /* 內邊距 */
+            color: #f4f7f8;
+            font-size: 16px;
+            text-decoration: none;
+            position: absolute;
+            transition: opacity 1s ease, transform 1s ease;
+            margin-top: 50px;
+            opacity: 0;
+            transform: translateY(100px);
+            z-index: 12;
+        }
+
+        #btn1 {
+            position: absolute;
+            right: 10px;
+            bottom: 1%;
+        }
+
+        #btn1.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        a.btn_02:hover {
+            background: #e9ecee;
+            color: #3f4246;
+        }
+
+        a.btn_02:before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 0 7px 8px;
+            border-color: transparent transparent transparent #152935;
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            /* 調整箭頭位置 */
+            transform: translateY(-50%);
+        }
+
+        a.btn_02:hover:before {
+            border-color: transparent transparent transparent #fff;
         }
 
         /* -------------- 4. 無限滑動照片(infinite) --------------*/
@@ -661,8 +710,7 @@
         }
 
         /* ------------mainS--------------- */
-        #main-content {
-            /* background-color: #333; */
+        #two {
             display: flex;
             height: auto;
             flex-direction: column;
@@ -720,7 +768,7 @@
             height: 2px;
             background-color: #f2f3f7;
             right: 0;
-            top: 30%;
+            bottom: 44.5%;
         }
 
         .s6box img {
@@ -749,19 +797,18 @@
             border-radius: 10px;
         }
 
-        main article {
+        #mainS article {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             width: 600px;
             /* 固定文章區域 */
             height: auto;
-            font-size: 10px;
+            font-size: 25px;
             display: flex;
             text-align: start;
             /* 文字居中 */
             color: #f2f3f7;
             /* 深色文字 */
-            position: relative;
         }
 
         .art2 {
@@ -770,11 +817,12 @@
             /* 預設隱藏，避免一開始就顯示 */
             opacity: 0;
             transition: opacity 1s ease-in-out;
-            /* transform: translateY(50px); */
             z-index: 23;
             padding: 20px 30px;
             font-size: 22px;
             line-height: 2;
+            left: 4%;
+            bottom: 11%;
         }
 
         .art2.visible {
@@ -784,19 +832,34 @@
             transform: translateY(0);
         }
 
-        .art2 {
-            left: 2%;
-            bottom: 13%;
-            display: flex;
-            text-align: justify;
-        }
-
-
         .h3S {
             position: absolute;
-            left: 14%;
-            top: 12%;
+            top: 5%;
+            left: 16%;
+            border-radius: 10px;
+            color: #f2f3f7;
+            font-size: 60px;
+            font-family: "Alegreya", "Kaisei HarunoUmi", serif;
+            font-optical-sizing: auto;
+            font-weight: 550;
+            font-style: italic;
+            padding: 35px 50px 60px 50px;
+            transition: opacity 1s ease, transform 1s ease;
+            opacity: 0;
+            transform: translateY(100px);
+            z-index: 12;
         }
+
+        .h3S:hover {
+            cursor: pointer;
+            /* 將鼠標變成手掌 */
+        }
+
+        .h3S.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
 
         /* ---------------- 3. 星星區(S2)-------------------- */
         #s2 {
@@ -892,9 +955,156 @@
         }
 
 
-        /* ---------------5. mainT&F----------------------- */
-        #main-content {
-            /* background-color: #333; */
+        /* ---------------5. mainT------------------------ */
+        #three-content {
+            display: flex;
+            height: auto;
+            flex-direction: column;
+            /* 垂直排列 */
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .s6box3 {
+            display: flex;
+            align-items: center;
+            width: 50vw;
+            height: auto;
+            /* 每組內容的寬度相對圓形 */
+            /* justify-content: flex-end; */
+            /* 將圖片和canvas推向右邊 */
+            transition: opacity 1s ease, transform 1s ease;
+            opacity: 0;
+            transform: translateY(100px);
+            z-index: 10;
+            /* 調整層級 */
+            border-radius: 10px;
+            /* 圖片圓角 */
+        }
+
+        .s6box3.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #mainT {
+            position: relative;
+        }
+
+        .hr3 {
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background-color: #f2f3f7;
+            left: 0;
+            top: 30%;
+        }
+
+        .h3T {
+            position: absolute;
+            bottom: 50%;
+            right: 20%;
+        }
+
+        .s6box img {
+            width: 40%;
+            /* 固定圖片大小 */
+            height: auto;
+            object-fit: cover;
+            /* 確保圖片比例正常 */
+            z-index: 21;
+        }
+
+        .s6box:hover {
+            cursor: pointer;
+            /* 將鼠標變成手掌 */
+        }
+
+        #leftimg {
+            position: relative;
+            /* 讓子元素能相對定位 */
+            display: flex;
+            /* 需要確保左側容器使用 flex 布局 */
+            justify-content: flex-start;
+            /* 這樣會讓圖片推向左邊 */
+            align-items: center;
+            /* 確保容器內部的元素對齊 */
+            box-shadow: -10px 10px 15px rgba(235, 232, 232, 0.945);
+            /* 右下角陰影 */
+            border-radius: 10px;
+        }
+
+        #mainT article {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 600px;
+            /* 固定文章區域 */
+            height: auto;
+            font-size: 10px;
+            display: flex;
+            text-align: start;
+            /* 文字居中 */
+            color: #f2f3f7;
+            /* 深色文字 */
+            position: relative;
+        }
+
+        .art3 {
+            position: absolute;
+            display: none;
+            /* 預設隱藏，避免一開始就顯示 */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            /* transform: translateY(50px); */
+            z-index: 23;
+            padding: 20px 30px;
+            font-size: 22px;
+            line-height: 2;
+        }
+
+        .art3.visible {
+            display: block;
+            opacity: 1;
+            /* 設置淡入淡出的過渡效果 */
+            transform: translateY(0);
+        }
+
+        .art3 {
+            bottom: 16%;
+            right: 2%;
+            display: flex;
+            text-align: justify;
+        }
+
+        .h3T {
+            border-radius: 10px;
+            color: #f2f3f7;
+            font-size: 60px;
+            font-family: "Alegreya", "Kaisei HarunoUmi", serif;
+            font-optical-sizing: auto;
+            font-weight: 550;
+            font-style: italic;
+            padding: 35px 50px 60px 50px;
+            transition: opacity 1s ease, transform 1s ease;
+            opacity: 0;
+            transform: translateY(100px);
+            z-index: 12;
+        }
+
+        .h3T:hover {
+            cursor: pointer;
+            /* 將鼠標變成手掌 */
+        }
+
+        .h3T.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ------------------ mainF ----------------- */
+
+        #four-content {
             display: flex;
             height: auto;
             flex-direction: column;
@@ -915,9 +1125,6 @@
             justify-content: space-between;
             /* 左右對齊 */
             align-items: center;
-        }
-
-        #mainF {
             background: url(/img/photo1_lily/lily13.jpg);
             width: 100%;
             height: 600px;
@@ -929,7 +1136,6 @@
         }
 
         /* 每組圖片與內容的設置 */
-        .s6box3,
         .s6box4 {
             display: flex;
             align-items: center;
@@ -947,19 +1153,9 @@
             /* 圖片圓角 */
         }
 
-        .s6box3.visible,
         .s6box4.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        .hr3 {
-            position: absolute;
-            width: 50%;
-            height: 2px;
-            background-color: #f2f3f7;
-            left: 0;
-            bottom: 45%;
         }
 
         .hr4 {
@@ -976,20 +1172,12 @@
             bottom: 19%;
         }
 
-        .h3T {
-            position: absolute;
-            top: 15%;
-            right: 20%;
-        }
-
         .h3F {
             position: absolute;
             bottom: 18%;
             left: 40%;
         }
 
-
-        /* ---------------- 4-1. mainT&F圖片(s6box) ----------------*/
         .s6box img {
             width: 40%;
             /* 固定圖片大小 */
@@ -1017,22 +1205,8 @@
 
         }
 
-        #leftimg {
-            position: relative;
-            /* 讓子元素能相對定位 */
-            display: flex;
-            /* 需要確保左側容器使用 flex 布局 */
-            justify-content: flex-start;
-            /* 這樣會讓圖片推向左邊 */
-            align-items: center;
-            /* 確保容器內部的元素對齊 */
-            box-shadow: -10px 10px 15px rgba(235, 232, 232, 0.945);
-            /* 右下角陰影 */
-            border-radius: 10px;
-        }
 
-        /* ----------------- 4-2. mainT&F文章(article) ------------------ */
-        main article {
+        #mainF article {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             width: 600px;
@@ -1047,7 +1221,6 @@
             position: relative;
         }
 
-        .art3,
         .art4 {
             position: absolute;
             display: none;
@@ -1061,19 +1234,11 @@
             line-height: 2;
         }
 
-        .art3.visible,
         .art4.visible {
             display: block;
             opacity: 1;
             /* 設置淡入淡出的過渡效果 */
             transform: translateY(0);
-        }
-
-        .art3 {
-            bottom: 16%;
-            right: 2%;
-            display: flex;
-            text-align: justify;
         }
 
         .art4 {
@@ -1101,13 +1266,11 @@
             z-index: 12;
         }
 
-        .h3T:hover,
         .h3F:hover {
             cursor: pointer;
             /* 將鼠標變成手掌 */
         }
 
-        .h3T.visible,
         .h3F.visible {
             opacity: 1;
             transform: translateY(0);
@@ -1199,7 +1362,6 @@
         a.btn_02:hover:before {
             border-color: transparent transparent transparent #fff;
         }
-
 
 
         /* ------------5. footer 頁尾(S7)------------------------- */
@@ -1355,34 +1517,40 @@
 
 
     <div id="box"></div>
+    <div id="box"></div>
+
 
     <!-- 主要內容 -->
-    <main id="main-content">
+    <main>
         <div class="hr1">
             <hr>
         </div>
-        <!-- 第一組內容 -->
-        <section id="mainO">
+        <section id="one">
+            <!-- 第一組內容 -->
+            <section id="mainO">
 
-            <div id="leftimg" class="s6box1">
-                <img src="/img/goldenhair.jpg" alt="image1">
-            </div>
+                <div id="leftimg" class="s6box1">
+                    <img src="/img/goldenhair.jpg" alt="image1">
+                </div>
 
-            <div class="h3O" style="width: auto;">
-                <h3>攝影師專區</h3>
-            </div>
+                <div class="h3O" style="width: auto;">
+                    <h3>攝影師專區</h3>
+                </div>
 
-            <article id="article1" class="art1">
-                我們為攝影師提供了一個展示自己作品的場所。攝影師可以輕鬆地創建和管理個人相冊，將自己的作品分享給更多人。無論是專業攝影師還是攝影愛好者，都可以在這裡展示創意和專業。<br>
-                主要功能：<br>
-                1. 上傳個人相冊<br>
-                2. 管理相冊<br>
-                3. 展示與分享<br>
-            </article>
+                <article id="article1" class="art1">
+                    我們為攝影師提供了一個展示自己作品的場所。攝影師可以輕鬆地創建和管理個人相冊，將自己的作品分享給更多人。無論是專業攝影師還是攝影愛好者，都可以在這裡展示創意和專業。<br>
+                    主要功能：<br>
+                    1. 上傳個人相冊<br>
+                    2. 管理相冊<br>
+                    3. 展示與分享<br>
+                </article>
 
-            <a href="Photographer copy.html" id="btn3" class="btn_02">前往攝影師專區</a>
+                <a href="Photographer copy.html" id="btn3" class="btn_02">前往攝影師專區</a>
+            </section>
         </section>
 
+        <div id="box"></div>
+        <div id="box"></div>
 
         <!------------------------- 4. 無限滑動照片(infinite) --------------------->
 
@@ -1412,7 +1580,7 @@
 
         <div id="box"></div>
         <div id="box"></div>
-        <div id="box"></div>
+
 
         <!--------------------- 5. 介紹網頁(main) --------------------->
 
@@ -1420,25 +1588,26 @@
             <hr>
         </div>
         <!-- 第二組內容 -->
-        <section id="mainS">
+        <section id="two">
+            <section id="mainS">
+                <article id="article2" class="art2">
+                    相簿區除了展示照片，還會根據不同的風格分類作品，為每位攝影師提供一個獨特的展示空間。無論是擅長拍攝婚禮、人像、風景還是其他類型的攝影，這裡都是展現攝影才華的最佳場所。<br>
+                    主要功能：<br>
+                    1. 風格分類<br>
+                    2. 分享與互動<br>
+                    3. 尋找靈感與合作<br>
+                </article>
 
-            <article id="article2" class="art2">
-                相簿區除了展示照片，還會根據不同的風格分類作品，為每位攝影師提供一個獨特的展示空間。無論是擅長拍攝婚禮、人像、風景還是其他類型的攝影，這裡都是展現攝影才華的最佳場所。<br>
-                主要功能：<br>
-                1. 風格分類<br>
-                2. 分享與互動<br>
-                3. 尋找靈感與合作<br>
-            </article>
+                <div id="rightimg" class="s6box2">
+                    <img src="/img/book&camera.jpg" alt="image2">
+                </div>
 
-            <div id="rightimg" class="s6box2">
-                <img src="/img/book&camera.jpg" alt="image2">
-            </div>
+                <div class="h3S">
+                    <h3>相簿展示區</h3>
+                </div>
 
-            <div class="h3S">
-                <h3>LOOK BOOK</h3>
-            </div>
-
-            <a href="LookBook.html" id="btn2" class="btn_02">前往相簿</a>
+                <a href="LookBook.html" id="btn2" class="btn_02">前往相簿</a>
+            </section>
         </section>
 
 
@@ -1466,409 +1635,417 @@
             </div>
         </section>
 
-        <div class="hr3">
-            <hr>
-        </div>
-        <!-- 第三組內容 -->
-        <section id="mainT">
-            <div id="leftimg" class="s6box3">
-                <img src="/img/womancar.jpg" alt="image3">
+        <div id="box"></div>
+        <div id="box"></div>
+        <div id="box"></div>
+
+        <!-- maint&F -->
+        <section id="three">
+            <div class="hr3">
+                <hr>
             </div>
+            <!-- 第三組內容 -->
+            <section id="mainT">
+                <div id="leftimg" class="s6box3">
+                    <img src="/img/womancar.jpg" alt="image3">
+                </div>
 
-            <div class="h3T">
-                <h3>文章投稿</h3>
-            </div>
+                <div class="h3T">
+                    <h3>文章投稿</h3>
+                </div>
 
-            <article id="article3" class="art3">
-                無論是想分享攝影經歷、技術心得、器材評測，還是想發表有關攝影的創意文章，這裡都能提供一個良好的展示空間，也能與其他攝影師一同學習、交流。<br>
-                主要功能：<br>
-                1. 自由發表<br>
-                2. 豐富的文章分類<br>
-                3. 互動與討論<br>
-            </article>
+                <article id="article3" class="art3">
+                    無論是想分享攝影經歷、技術心得、器材評測，還是想發表有關攝影的創意文章，這裡都能提供一個良好的展示空間，也能與其他攝影師一同學習、交流。<br>
+                    主要功能：<br>
+                    1. 自由發表<br>
+                    2. 豐富的文章分類<br>
+                    3. 互動與討論<br>
+                </article>
 
-            <a href="Article.html" id="btn3" class="btn_02">文章一覽</a>
+                <a href="Article.html" id="btn3" class="btn_02">文章一覽</a>
+            </section>
+
         </section>
 
         <div id="box"></div>
         <div id="box"></div>
 
+        <section id="four">
+            <!-- 第四組內容 -->
+            <div class="h3F">
+                <h3>BE ONE OF US</h3>
+            </div>
+            <div class="hr4">
+                <hr>
+            </div>
 
-        <!-- 第四組內容 -->
-        <div class="h3F">
-            <h3>BE ONE OF US</h3>
-        </div>
-        <div class="hr4">
-            <hr>
-        </div>
+            <section id="mainF">
 
-        <section id="mainF">
+                <article id="article4" class="art4">
+                    你的故事值得被看見，加入我們，攜手創造屬於自己的影像世界。<br>
+                    讓所有瞬間都成為永恆的記憶，傳遞無限的靈感與感動。
+                </article>
 
-            <article id="article4" class="art4">
-                你的故事值得被看見，加入我們，攜手創造屬於自己的影像世界。<br>
-                讓所有瞬間都成為永恆的記憶，傳遞無限的靈感與感動。
-            </article>
-
-            <a href="Login.html" id="btn4" class="btn_02">展開你的故事</a>
+                <a href="Login.html" id="btn4" class="btn_02">展開你的故事</a>
+            </section>
         </section>
 
 
-    </main>
 
+        <div id="box"></div>
+        <div id="box"></div>
 
-    <div id="box"></div>
-    <div id="box"></div>
+        <!--------------------- 5. 頁尾(footer) --------------------->
 
-    <!--------------------- 5. 頁尾(footer) --------------------->
-
-    <footer id="footer">
-        <div class="footer-section2">
-            <ul class="footer-social">
-                <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a></li>
-                <li><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="#contact"><i class="fa-regular fa-comment"></i></a></li>
-            </ul>
-        </div>
-    </footer>
-
-
-
-    <!-------------------------- 6. (script專區) -------------------------->
-    <script src="https://kit.fontawesome.com/1bf13e43a0.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/1bf13e43a0.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/1bf13e43a0.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-
-        // ---------- 1. btn漢堡轉X
-        $(function () {
-            $('.btn-trigger').on('click', function () {
-                $(this).toggleClass('active');
-                return false;
-            });
-        });
-        // 切換 active class
-        const btn = document.getElementById('btn03');
-        const nav = document.getElementById('nav');
-
-        btn.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-
-        //LOGIN下拉選單
-        document.addEventListener("DOMContentLoaded", function () {
-            const dropdownToggle = document.querySelector(".dropdown-toggle");
-            const dropdown = dropdownToggle.parentElement;
-
-            dropdownToggle.addEventListener("click", function (e) {
-                e.preventDefault(); // 防止點擊後跳轉
-                dropdown.classList.toggle("active");
-            });
-
-            // 點擊其他地方時關閉下拉選單
-            document.addEventListener("click", function (e) {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.classList.remove("active");
-                }
-            });
-        });
+        <footer id="footer">
+            <div class="footer-section2">
+                <ul class="footer-social">
+                    <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+                    </li>
+                    <li><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#contact"><i class="fa-regular fa-comment"></i></a></li>
+                </ul>
+            </div>
+        </footer>
 
 
 
-        //scroll-icon
-        document.addEventListener('DOMContentLoaded', function () {
-            const scrollIcon = document.querySelector('.scroll-icon');
+        <!-------------------------- 6. (script專區) -------------------------->
+        <script src="https://kit.fontawesome.com/1bf13e43a0.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/1bf13e43a0.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/1bf13e43a0.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
 
-            // 監聽滑鼠滾動事件
-            window.addEventListener('scroll', function () {
-                if (window.scrollY > 0) {
-                    // 當頁面滾動後，將圖示淡出
-                    scrollIcon.style.opacity = 0;
-                } else {
-                    // 若頁面未滾動，顯示圖示
-                    scrollIcon.style.opacity = 0.7;
-                }
-            });
-
-            // 點擊圖示，平滑滾動到頁面下方
-            scrollIcon.addEventListener('click', function () {
-                window.scrollTo({
-                    top: window.innerHeight, // 滾動到下一個區塊的位置（例如頁面的一個區域）
-                    behavior: 'smooth' // 平滑滾動
+            // ---------- 1. btn漢堡轉X
+            $(function () {
+                $('.btn-trigger').on('click', function () {
+                    $(this).toggleClass('active');
+                    return false;
                 });
             });
-        });
+            // 切換 active class
+            const btn = document.getElementById('btn03');
+            const nav = document.getElementById('nav');
 
+            btn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
 
-        // -------------- 2.S8    
-        document.addEventListener('DOMContentLoaded', function () {
-            const s8Section = document.querySelector('.s8');
-            const s8p1 = document.querySelector('.s8p1');
-            const s8p2 = document.querySelector('.s8p2');
-            const s8p3 = document.querySelector('.s8p3');
-            const textRight = document.querySelector('.text.right');
-            const textLeft = document.querySelector('.text.left');
+            //LOGIN下拉選單
+            document.addEventListener("DOMContentLoaded", function () {
+                const dropdownToggle = document.querySelector(".dropdown-toggle");
+                const dropdown = dropdownToggle.parentElement;
 
-            // 用於判斷動畫是否已經執行過
-            let isAnimated = false;
+                dropdownToggle.addEventListener("click", function (e) {
+                    e.preventDefault(); // 防止點擊後跳轉
+                    dropdown.classList.toggle("active");
+                });
 
-            // 動畫顯示函數
-            function showElements() {
-                s8p1.style.transform = 'translateY(0)';
-                s8p1.style.opacity = 1;
-
-                setTimeout(() => {
-                    textRight.style.transform = 'translateY(0)';
-                    textRight.style.opacity = 1;
-                }, 200);
-
-                setTimeout(() => {
-                    textLeft.style.transform = 'translateY(0)';
-                    textLeft.style.opacity = 1;
-                }, 400);
-
-                setTimeout(() => {
-                    s8p2.style.transform = 'translateY(0)';
-                    s8p2.style.opacity = 1;
-                }, 600);
-
-                setTimeout(() => {
-                    s8p3.style.transform = 'translateY(0)';
-                    s8p3.style.opacity = 1;
-                }, 800);
-            }
-
-            // 重置所有元素的樣式，準備下一次動畫
-            function resetElements() {
-                s8p1.style.transform = 'translateY(50px)';
-                s8p1.style.opacity = 0;
-                s8p2.style.transform = 'translateY(50px)';
-                s8p2.style.opacity = 0;
-                s8p3.style.transform = 'translateY(50px)';
-                s8p3.style.opacity = 0;
-                textRight.style.transform = 'translateY(50px)';
-                textRight.style.opacity = 0;
-                textLeft.style.transform = 'translateY(50px)';
-                textLeft.style.opacity = 0;
-            }
-
-            // 在頁面載入後延遲一秒執行動畫
-            setTimeout(() => {
-                if (!isAnimated) {
-                    isAnimated = true;
-                    showElements();
-                }
-            }, 1000); // 延遲1000毫秒（1秒）
-
-            // 使用 IntersectionObserver 來監聽 S8 區塊是否進入視口
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !isAnimated) {
-                        // 當區塊進入視口且尚未執行動畫，開始動畫
-                        isAnimated = true;
-                        showElements();
-                        // } else if (!entry.isIntersecting) {
-                        //     // 當區塊離開視口時，重置動畫狀態
-                        //     isAnimated = false;
-                        //     resetElements();
+                // 點擊其他地方時關閉下拉選單
+                document.addEventListener("click", function (e) {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove("active");
                     }
                 });
-            }, { threshold: 0.5 }); // 設定當區塊50%進入視口時觸發
-
-            // 監控 S8 區塊
-            observer.observe(s8Section);
-        });
+            });
 
 
 
-        // -------------- 4. 照片輪播(1)
-        // Optional JavaScript to control manual slide transitions (for example, adding buttons to navigate)
-        // (1) 第一個輪播
-        const marquee = document.getElementById('marquee');
-        const items = document.querySelectorAll('.marquee-item');
-        const totalItems = items.length;
-        const copyCount = 5; // 控制每組圖片的複製次數，確保圖片足夠以無縫輪播
+            //scroll-icon
+            document.addEventListener('DOMContentLoaded', function () {
+                const scrollIcon = document.querySelector('.scroll-icon');
 
-        // 複製圖片
-        for (let i = 0; i < copyCount; i++) {
-            for (let j = 0; j < totalItems; j++) {
-                const clone = items[j].cloneNode(true);
-                marquee.appendChild(clone);
-            }
-        }
+                // 監聽滑鼠滾動事件
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 0) {
+                        // 當頁面滾動後，將圖示淡出
+                        scrollIcon.style.opacity = 0;
+                    } else {
+                        // 若頁面未滾動，顯示圖示
+                        scrollIcon.style.opacity = 0.7;
+                    }
+                });
 
-        // 滾動圖片
-        let offset = 0;
-        const itemWidth = items[0].offsetWidth + 10; // 單張圖片的寬度（包含間距）
-
-        function slide() {
-            offset -= 1; // 每次向左移動 1px
-            if (Math.abs(offset) >= itemWidth * totalItems) {
-                offset = 0; // 重置 offset，達到無縫效果
-            }
-            marquee.style.transform = `translateX(${offset}px)`; // 更新位置
-            requestAnimationFrame(slide); // 持續更新
-        }
-
-        slide(); // 啟動輪播
+                // 點擊圖示，平滑滾動到頁面下方
+                scrollIcon.addEventListener('click', function () {
+                    window.scrollTo({
+                        top: window.innerHeight, // 滾動到下一個區塊的位置（例如頁面的一個區域）
+                        behavior: 'smooth' // 平滑滾動
+                    });
+                });
+            });
 
 
-        // (2) 第二個輪播，改為向右移動
-        const marquee2 = document.getElementById('marquee2');
-        const items2 = document.querySelectorAll('.marquee-item2');
-        const totalItems2 = items2.length;
+            // -------------- 2.S8    
+            document.addEventListener('DOMContentLoaded', function () {
+                const s8Section = document.querySelector('.s8');
+                const s8p1 = document.querySelector('.s8p1');
+                const s8p2 = document.querySelector('.s8p2');
+                const s8p3 = document.querySelector('.s8p3');
+                const textRight = document.querySelector('.text.right');
+                const textLeft = document.querySelector('.text.left');
 
-        // 計算單張圖片的寬度（第一張圖片）
-        setTimeout(() => {
-            const itemWidth2 = items2[0].offsetWidth + 10; // 單張圖片的寬度（包含間距）
+                // 用於判斷動畫是否已經執行過
+                let isAnimated = false;
 
-            // 確保無縫：將圖片內容複製到起點與末尾
-            const totalWidth2 = itemWidth2 * totalItems2; // 原始圖片的總寬度
-            marquee2.style.width = `${totalWidth2 * 2}px`; // 設置寬度為兩倍，為了無縫滾動
+                // 動畫顯示函數
+                function showElements() {
+                    s8p1.style.transform = 'translateY(0)';
+                    s8p1.style.opacity = 1;
 
-            // 複製一組到起點
-            for (let i = totalItems2 - 1; i >= 0; i--) {
-                const cloneStart = items2[i].cloneNode(true); // 向開頭複製
-                marquee2.insertBefore(cloneStart, marquee2.firstChild);
-            }
+                    setTimeout(() => {
+                        textRight.style.transform = 'translateY(0)';
+                        textRight.style.opacity = 1;
+                    }, 200);
 
-            // 複製一組到結尾
-            for (let i = 0; i < totalItems2; i++) {
-                const cloneEnd = items2[i].cloneNode(true); // 向末尾複製
-                marquee2.appendChild(cloneEnd);
-            }
+                    setTimeout(() => {
+                        textLeft.style.transform = 'translateY(0)';
+                        textLeft.style.opacity = 1;
+                    }, 400);
 
-            // 更新滾動邏輯
-            let offset2 = -totalWidth2; // 初始位置：滾動到中間的第一組圖片
+                    setTimeout(() => {
+                        s8p2.style.transform = 'translateY(0)';
+                        s8p2.style.opacity = 1;
+                    }, 600);
 
-            function slide2() {
-                offset2 += 1; // 向右移動
-                if (offset2 >= 0) {
-                    // 當到達第一組起點時，跳回中間
-                    offset2 = -totalWidth2;
+                    setTimeout(() => {
+                        s8p3.style.transform = 'translateY(0)';
+                        s8p3.style.opacity = 1;
+                    }, 800);
                 }
-                marquee2.style.transform = `translateX(${offset2}px)`; // 更新位置
-                requestAnimationFrame(slide2); // 持續更新
+
+                // 重置所有元素的樣式，準備下一次動畫
+                function resetElements() {
+                    s8p1.style.transform = 'translateY(50px)';
+                    s8p1.style.opacity = 0;
+                    s8p2.style.transform = 'translateY(50px)';
+                    s8p2.style.opacity = 0;
+                    s8p3.style.transform = 'translateY(50px)';
+                    s8p3.style.opacity = 0;
+                    textRight.style.transform = 'translateY(50px)';
+                    textRight.style.opacity = 0;
+                    textLeft.style.transform = 'translateY(50px)';
+                    textLeft.style.opacity = 0;
+                }
+
+                // 在頁面載入後延遲一秒執行動畫
+                setTimeout(() => {
+                    if (!isAnimated) {
+                        isAnimated = true;
+                        showElements();
+                    }
+                }, 1000); // 延遲1000毫秒（1秒）
+
+                // 使用 IntersectionObserver 來監聽 S8 區塊是否進入視口
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !isAnimated) {
+                            // 當區塊進入視口且尚未執行動畫，開始動畫
+                            isAnimated = true;
+                            showElements();
+                            // } else if (!entry.isIntersecting) {
+                            //     // 當區塊離開視口時，重置動畫狀態
+                            //     isAnimated = false;
+                            //     resetElements();
+                        }
+                    });
+                }, { threshold: 0.5 }); // 設定當區塊50%進入視口時觸發
+
+                // 監控 S8 區塊
+                observer.observe(s8Section);
+            });
+
+
+
+            // -------------- 4. 照片輪播(1)
+            // Optional JavaScript to control manual slide transitions (for example, adding buttons to navigate)
+            // (1) 第一個輪播
+            const marquee = document.getElementById('marquee');
+            const items = document.querySelectorAll('.marquee-item');
+            const totalItems = items.length;
+            const copyCount = 5; // 控制每組圖片的複製次數，確保圖片足夠以無縫輪播
+
+            // 複製圖片
+            for (let i = 0; i < copyCount; i++) {
+                for (let j = 0; j < totalItems; j++) {
+                    const clone = items[j].cloneNode(true);
+                    marquee.appendChild(clone);
+                }
             }
 
-            // 啟動滾動
-            marquee2.style.transform = `translateX(${offset2}px)`; // 設置初始位置
-            slide2();
-        }, 100); // 確保圖片已加載後運行
+            // 滾動圖片
+            let offset = 0;
+            const itemWidth = items[0].offsetWidth + 10; // 單張圖片的寬度（包含間距）
+
+            function slide() {
+                offset -= 1; // 每次向左移動 1px
+                if (Math.abs(offset) >= itemWidth * totalItems) {
+                    offset = 0; // 重置 offset，達到無縫效果
+                }
+                marquee.style.transform = `translateX(${offset}px)`; // 更新位置
+                requestAnimationFrame(slide); // 持續更新
+            }
+
+            slide(); // 啟動輪播
+
+
+            // (2) 第二個輪播，改為向右移動
+            const marquee2 = document.getElementById('marquee2');
+            const items2 = document.querySelectorAll('.marquee-item2');
+            const totalItems2 = items2.length;
+
+            // 計算單張圖片的寬度（第一張圖片）
+            setTimeout(() => {
+                const itemWidth2 = items2[0].offsetWidth + 10; // 單張圖片的寬度（包含間距）
+
+                // 確保無縫：將圖片內容複製到起點與末尾
+                const totalWidth2 = itemWidth2 * totalItems2; // 原始圖片的總寬度
+                marquee2.style.width = `${totalWidth2 * 2}px`; // 設置寬度為兩倍，為了無縫滾動
+
+                // 複製一組到起點
+                for (let i = totalItems2 - 1; i >= 0; i--) {
+                    const cloneStart = items2[i].cloneNode(true); // 向開頭複製
+                    marquee2.insertBefore(cloneStart, marquee2.firstChild);
+                }
+
+                // 複製一組到結尾
+                for (let i = 0; i < totalItems2; i++) {
+                    const cloneEnd = items2[i].cloneNode(true); // 向末尾複製
+                    marquee2.appendChild(cloneEnd);
+                }
+
+                // 更新滾動邏輯
+                let offset2 = -totalWidth2; // 初始位置：滾動到中間的第一組圖片
+
+                function slide2() {
+                    offset2 += 1; // 向右移動
+                    if (offset2 >= 0) {
+                        // 當到達第一組起點時，跳回中間
+                        offset2 = -totalWidth2;
+                    }
+                    marquee2.style.transform = `translateX(${offset2}px)`; // 更新位置
+                    requestAnimationFrame(slide2); // 持續更新
+                }
+
+                // 啟動滾動
+                marquee2.style.transform = `translateX(${offset2}px)`; // 設置初始位置
+                slide2();
+            }, 100); // 確保圖片已加載後運行
 
 
 
-        // --------------- 5. 介紹
-        // 選取目標元素
-        const mainO = document.getElementById("mainO");//第一區塊
-        const img1 = document.querySelector(".s6box1"); // 第一張圖片
-        const h3O = document.querySelector(".h3O"); // 第一段標題
+            // --------------- 5. 介紹
+            // 選取目標元素
+            const mainO = document.getElementById("mainO");//第一區塊
+            const img1 = document.querySelector(".s6box1"); // 第一張圖片
+            const h3O = document.querySelector(".h3O"); // 第一段標題
 
 
-        const mainS = document.getElementById("mainS");//第二區塊
-        const img2 = document.querySelector(".s6box2"); // 第二張圖片
-        const h3S = document.querySelector(".h3S"); // 第二段標題
+            const mainS = document.getElementById("mainS");//第二區塊
+            const img2 = document.querySelector(".s6box2"); // 第二張圖片
+            const h3S = document.querySelector(".h3S"); // 第二段標題
 
 
-        const mainT = document.getElementById("mainT");//第三區塊
-        const img3 = document.querySelector(".s6box3"); // 第三張圖片
-        const h3T = document.querySelector(".h3T"); // 第三段標題
+            const mainT = document.getElementById("mainT");//第三區塊
+            const img3 = document.querySelector(".s6box3"); // 第三張圖片
+            const h3T = document.querySelector(".h3T"); // 第三段標題
 
-        const mainF = document.getElementById("mainF");//第四區塊
-        const h3F = document.querySelector(".h3F"); // 第四段標題
+            const mainF = document.getElementById("mainF");//第四區塊
+            const h3F = document.querySelector(".h3F"); // 第四段標題
 
 
-        const btn_02 = document.querySelectorAll(".btn_02")//按鈕
+            const btn_02 = document.querySelectorAll(".btn_02")//按鈕
 
-        // Intersection Observer 回調函數
-        const observer2 = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible"); // 當元素進入視口時，顯示動畫
-                } else {
-                    entry.target.classList.remove("visible"); // 當元素離開視口時，隱藏動畫
+            // Intersection Observer 回調函數
+            const observer2 = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible"); // 當元素進入視口時，顯示動畫
+                    } else {
+                        entry.target.classList.remove("visible"); // 當元素離開視口時，隱藏動畫
+                    }
+                });
+            }, {
+                threshold: 0.2, // 當元素的 10% 進入視口時觸發
+            });
+
+            // 設置觀察器監聽目標元素
+            observer2.observe(mainO);
+            observer2.observe(img1);
+            observer2.observe(h3O);
+
+
+            observer2.observe(mainS);
+            observer2.observe(img2);
+            observer2.observe(h3S);
+
+
+
+            observer2.observe(mainT);
+            observer2.observe(img3);
+            observer2.observe(h3T);
+
+            observer2.observe(mainF);
+            observer2.observe(h3F);
+
+            btn_02.forEach((btn_02) => {
+                observer2.observe(btn_02);
+            });
+
+
+            // ---------------- 3. 星星出現
+            const S2 = document.getElementById("s2"); //s2
+            const hBox = document.getElementById("hbox"); //橢圓區
+            const starContainer = document.querySelector("#strbox1"); //星星區
+            const starContainer2 = document.querySelector("#strbox2"); //星星區
+
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        hBox.classList.add("visible");
+                        starContainer.classList.add("visited");
+                        starContainer2.classList.add("visited")
+                    } else {
+                        hBox.classList.remove("visible");
+                        starContainer.classList.remove("visited");
+                        starContainer2.classList.remove("visited");
+                    }
+                })
+            });
+
+            observer.observe(S2);
+
+            // ----------------- 6.文章區塊  
+            const triggers = document.querySelectorAll('.h3O, .h3S, .h3T, .h3F');
+            const triggers2 = document.querySelectorAll('.s6box1, .s6box2, .s6box3, .s6box4');
+            const popups = document.querySelectorAll('.art1, .art2, .art3, .art4');
+
+            // 遍歷 triggers
+            triggers.forEach((trigger, index) => {
+                const popup = popups[index];
+                if (popup) { // 確保 popup 存在
+                    trigger.addEventListener('mouseenter', () => {
+                        popup.classList.add('visible');
+                    });
                 }
             });
-        }, {
-            threshold: 0.2, // 當元素的 10% 進入視口時觸發
-        });
 
-        // 設置觀察器監聽目標元素
-        observer2.observe(mainO);
-        observer2.observe(img1);
-        observer2.observe(h3O);
-
-
-        observer2.observe(mainS);
-        observer2.observe(img2);
-        observer2.observe(h3S);
-
-
-
-        observer2.observe(mainT);
-        observer2.observe(img3);
-        observer2.observe(h3T);
-
-        observer2.observe(mainF);
-        observer2.observe(h3F);
-
-        btn_02.forEach((btn_02) => {
-            observer2.observe(btn_02);
-        });
-
-
-        // ---------------- 3. 星星出現
-        const S2 = document.getElementById("s2"); //s2
-        const hBox = document.getElementById("hbox"); //橢圓區
-        const starContainer = document.querySelector("#strbox1"); //星星區
-        const starContainer2 = document.querySelector("#strbox2"); //星星區
-
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    hBox.classList.add("visible");
-                    starContainer.classList.add("visited");
-                    starContainer2.classList.add("visited")
-                } else {
-                    hBox.classList.remove("visible");
-                    starContainer.classList.remove("visited");
-                    starContainer2.classList.remove("visited");
+            // 遍歷 triggers2
+            triggers2.forEach((trigger, index) => {
+                const popup6 = popups[index];
+                if (popup6) { // 確保 popup6 存在
+                    trigger.addEventListener('mouseenter', () => {
+                        popup6.classList.add('visible');
+                    });
                 }
-            })
-        });
-
-        observer.observe(S2);
-
-        // ----------------- 6.文章區塊  
-        const triggers = document.querySelectorAll('.h3O, .h3S, .h3T, .h3F');
-        const triggers2 = document.querySelectorAll('.s6box1, .s6box2, .s6box3, .s6box4');
-        const popups = document.querySelectorAll('.art1, .art2, .art3, .art4');
-
-        // 遍歷 triggers
-        triggers.forEach((trigger, index) => {
-            const popup = popups[index];
-            if (popup) { // 確保 popup 存在
-                trigger.addEventListener('mouseenter', () => {
-                    popup.classList.add('visible');
-                });
-            }
-        });
-
-        // 遍歷 triggers2
-        triggers2.forEach((trigger, index) => {
-            const popup6 = popups[index];
-            if (popup6) { // 確保 popup6 存在
-                trigger.addEventListener('mouseenter', () => {
-                    popup6.classList.add('visible');
-                });
-            }
-        });
+            });
 
 
-    </script>
+        </script>
 </body>
 
 </html>
