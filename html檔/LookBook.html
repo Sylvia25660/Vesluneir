@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>相冊頁面</title>
+    <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <style>
         /* ------------------- 排版元素 ------------------*/
 
@@ -45,6 +47,13 @@
             padding: 0;
             min-height: 100vh;
         }
+
+        body a {
+            text-decoration: none;
+            /* 去掉下劃線 */
+            color: inherit;
+        }
+
 
         /* ------------------- header  ------------------*/
 
@@ -103,8 +112,8 @@
             flex-direction: column;
             /* 水平方向排列 */
             text-align: right;
-            gap: 30px;
-            /* 設定項目之間的間距 */
+            margin-top: 10px;
+
         }
 
         nav li {
@@ -112,7 +121,11 @@
             font-optical-sizing: auto;
             font-weight: 483;
             font-style: normal;
-            font-size: 120%;
+            font-size: 110%;
+            margin-top: 6px;
+            margin-bottom: 4px;
+            /* 調小 margin-bottom，使項目更緊湊 */
+            /* 減少內邊距，讓文字更靠近 */
         }
 
         nav li:hover {
@@ -123,9 +136,17 @@
             color: inherit;
         }
 
+
         #nav.active {
             display: flex;
             opacity: 1;
+        }
+
+        nav hr {
+            margin: 2px 0;
+            /* 減少上下的 margin，使分隔線不過於占空間 */
+            border: 1px solid #ccc;
+            /* 調整分隔線顏色 */
         }
 
         /* 下拉選單基礎樣式 */
@@ -436,6 +457,46 @@
             cursor: pointer;
         }
 
+        /* 頁碼 */
+        .mt-5 {
+            width: 20%;
+            display: flex;
+            justify-items: end;
+            align-items: end;
+            text-align: center;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            /* 確保頁碼居中顯示 */
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+            /* 加入一些上、下間距 */
+        }
+
+        .pagination a {
+            padding: 8px 16px;
+            margin: 0 4px;
+            /* 頁碼間距 */
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            text-decoration: none;
+            color: #555;
+            border-radius: 5px;
+            /* 加入圓角 */
+        }
+
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+
+        .pagination .active {
+            background-color: #007bff;
+            color: white;
+        }
+
         /* ---------------------- footer --------------------- */
 
         #footer {
@@ -496,12 +557,12 @@
         <nav id="nav" class="container">
             <ul id="navbox">
                 <li>
-                    <a href="Home copy 3.html">VESLUNEIR</a>
+                    <a href="Home copy 4.html">VESLUNEIR</a>
                     <hr>
                     <p>首頁</p>
                 </li>
                 <li>
-                    <a href="Photographer copy.html">PHOTOGRAPHER</a>
+                    <a href="Photographer copy 2.html">PHOTOGRAPHER</a>
                     <hr>
                     <p>攝影師一覽</p>
                 </li>
@@ -583,31 +644,31 @@
         <div class="container">
             <div class="card" data-album="1">
                 <div class="imgBox">
-                    <img src="https://images.unsplash.com/photo-1598601065215-751bf8798a2c?q=80&w=1883&auto=format&fit=crop"
-                        alt="Awesome views">
+                    <img src="/img/photo1_lily/lily3.jpg" alt="Awesome views">
                 </div>
                 <div class="tag">
-                    <a href="#">#Awesome views</a>
+                    <a href="#">#Anamal</a>
+                    <a href="#">#Nature</a>
                 </div>
             </div>
 
             <div class="card" data-album="2">
                 <div class="imgBox">
-                    <img src="https://images.unsplash.com/photo-1598601065215-751bf8798a2c?q=80&w=1883&auto=format&fit=crop"
-                        alt="Awesome views">
+                    <img src="/img/photo1_lily/lily11.jpg" alt="Awesome views">
                 </div>
                 <div class="tag">
-                    <a href="#">#Awesome views</a>
+                    <a href="#">#People</a>
+                    <a href="#">#Classical Style</a>
                 </div>
             </div>
 
             <div class="card" data-album="3">
                 <div class="imgBox">
-                    <img src="https://images.unsplash.com/photo-1501554728187-ce583db33af7?q=80&w=1887&auto=format&fit=crop"
-                        alt="Hiking">
+                    <img src="/img/photo2_yu/yu6.jpg" alt="Hiking">
                 </div>
                 <div class="tag">
-                    <a href="#">#Hiking</a>
+                    <a href="#">#people</a>
+                    <a href="#">#Nature</a>
                 </div>
             </div>
         </div>
@@ -619,6 +680,14 @@
             <span id="closeModal" class="close">&times;</span>
             <div id="modalGallery" class="modal-gallery"></div>
         </div>
+    </div>
+
+    <!-- 頁碼 -->
+    <div class="container mt-5">
+        <div id="content"></div>
+        <ul class="pagination justify-content-center" id="pagination">
+            <!-- 分頁按鈕會在這裡渲染 -->
+        </ul>
     </div>
 
 
@@ -649,7 +718,6 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         // ---------- 1. btn漢堡轉X
@@ -688,9 +756,9 @@
 
         //相冊
         const albumImages = {
-            1: ["/img/Lemon.jpg", "/img/book&camera.jpg", "/img/redhouse.jpg", "/img/girl.jpg", "/img/Paul's.jpg"],
-            2: ["/img/Lemon.jpg", "/img/book&camera.jpg", "/img/Lemon.jpg", "/img/tower2.jpeg", "/img/searock.jpg"],
-            3: ["/img/redhouse.jpg", "/img/book&camera.jpg", "/img/redhouse.jpg", "/img/goldenhair.jpg", "/img/sketch.jpg"]
+            1: ["/img/photo1_lily/lily12.jpg", "/img/photo1_lily/lily13.jpg", "/img/photo1_lily/lily14.jpg", "/img/photo1_lily/lily15.jpg", "/img/photo1_lily/lily19.jpg", "/img/photo1_lily/lily7.jpg", "/img/photo1_lily/lily3.jpg","/img/photo1_lily/lily21.jpg"],
+            2: ["/img/photo3_sophia/so3.jpg", "/img/book&camera.jpg", "/img/Lemon.jpg", "/img/tower2.jpeg", "/img/searock.jpg", "/img/moon.JPG"],
+            3: ["/img/photo2_yu/yu1.jpg", "/img/photo2_yu/yu2.jpg", "/img/photo2_yu/yu3.jpg", "/img/photo2_yu/yu4.jpg", "/img/photo2_yu/yu5.jpg","/img/photo2_yu/yu6.jpg"]
         };
 
         const cards = document.querySelectorAll(".card");
@@ -742,6 +810,51 @@
             if (event.target === modal) {
                 modal.style.display = "none";
             }
+        });
+
+        // 頁碼
+        $(document).ready(function () {
+            var totalPages = 5; // 假設有 10 頁
+            var currentPage = 1;
+
+            function renderPagination() {
+                var paginationHtml = '';
+                paginationHtml += '<li class="page-item ' + (currentPage === 1 ? 'disabled' : '') + '">';
+                paginationHtml += '<a class="page-link" href="#" id="prev">Previous</a>';
+                paginationHtml += '</li>';
+
+                for (var i = 1; i <= totalPages; i++) {
+                    paginationHtml += '<li class="page-item ' + (i === currentPage ? 'active' : '') + '">';
+                    paginationHtml += '<a class="page-link" href="#" class="page">' + i + '</a>';
+                    paginationHtml += '</li>';
+                }
+
+                paginationHtml += '<li class="page-item ' + (currentPage === totalPages ? 'disabled' : '') + '">';
+                paginationHtml += '<a class="page-link" href="#" id="next">Next</a>';
+                paginationHtml += '</li>';
+
+                $('#pagination').html(paginationHtml);
+            }
+
+            // 點擊頁碼時
+            $('#pagination').on('click', '.page-link', function (event) {
+                event.preventDefault();
+
+                if ($(this).attr('id') === 'prev' && currentPage > 1) {
+                    currentPage--;
+                } else if ($(this).attr('id') === 'next' && currentPage < totalPages) {
+                    currentPage++;
+                } else if ($(this).hasClass('page')) {
+                    currentPage = parseInt($(this).text());
+                }
+
+                renderPagination();
+                renderContent();
+            });
+
+            // 初始渲染
+            renderPagination();
+            renderContent();
         });
     </script>
 </body>

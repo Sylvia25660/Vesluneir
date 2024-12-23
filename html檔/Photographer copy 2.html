@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
     <style>
         /* ------------------- 排版元素 ------------------*/
@@ -38,6 +41,13 @@
             background-color: rgb(255, 250, 251);
             font-family: "Alegreya", "Kaisei HarunoUmi", serif;
         }
+
+        body a {
+            text-decoration: none;
+            /* 去掉下劃線 */
+            color: inherit;
+        }
+
 
         #box {
             width: 100px;
@@ -109,8 +119,7 @@
             flex-direction: column;
             /* 水平方向排列 */
             text-align: right;
-            gap: 30px;
-            /* 設定項目之間的間距 */
+
         }
 
         nav li {
@@ -118,7 +127,12 @@
             font-optical-sizing: auto;
             font-weight: 483;
             font-style: normal;
-            font-size: 120%;
+            font-size: 110%;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            /* 調小 margin-bottom，使項目更緊湊 */
+            /* padding: 2px 0; */
+            /* 減少內邊距，讓文字更靠近 */
         }
 
         nav li:hover {
@@ -129,9 +143,17 @@
             color: inherit;
         }
 
+
         #nav.active {
             display: flex;
             opacity: 1;
+        }
+
+        nav hr {
+            margin: 4px 0;
+            /* 減少上下的 margin，使分隔線不過於占空間 */
+            border: 1px solid #ccc;
+            /* 調整分隔線顏色 */
         }
 
         /* 下拉選單基礎樣式 */
@@ -171,6 +193,7 @@
         }
 
         .dropdown-menu li a {
+            list-style: none;
             text-decoration: none;
             /* 移除下劃線 */
             color: inherit;
@@ -197,7 +220,7 @@
             width: 30px;
             height: 44px;
             cursor: pointer;
-            background-color: rgba(240, 248, 255, 0.7);
+            background-color: rgba(120, 175, 223, 0.438);
             background-size: auto;
             border-radius: 3px;
         }
@@ -401,7 +424,8 @@
             margin-bottom: 10px;
         }
 
-        .view-portfolio-btn {
+        .view-portfolio-btn,
+        .view-portfolio-btn2 {
             background-color: #ccdacc;
             color: rgb(65, 61, 61);
             border: none;
@@ -415,9 +439,144 @@
             /* 讓按鈕有間距 */
         }
 
-        .view-portfolio-btn:hover {
+        .view-portfolio-btn:hover,
+        .view-portfolio-btn2:hover {
             background-color: #324233;
         }
+
+        .view-portfolio-btn2 a:hover {
+            color: inherit;
+        }
+
+        /* 彈出框容器 */
+        /* 彈出框的總容器 */
+        #about {
+            display: none;
+            /* 默認隱藏 */
+            position: fixed;
+            /* 固定定位 */
+            top: 50%;
+            /* 垂直方向居中 */
+            left: 50%;
+            /* 水平方向居中 */
+            transform: translate(-50%, -50%);
+            /* 調整位置，讓彈出框完全居中 */
+            background-color: white;
+            /* 設置背景顏色 */
+            border-radius: 10px;
+            /* 可選，設置圓角 */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            /* 增加陰影效果 */
+            z-index: 100;
+            /* 確保彈出框在頁面上方 */
+            width: 65%;
+            height: 80%;
+            /* 可以根據需求調整寬度 */
+            /* max-width: 1000px; */
+            /*最大寬度 */
+            padding: 10px 30px 20px 30px;
+        }
+
+        /* 彈出框內的每一個內容區塊 */
+        #about .intro div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            /* 每個區塊的下邊框 */
+            min-height: 50px;
+            /* 統一每個區塊的最小高度 */
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        #name,
+        #age,
+        #usetool,
+        #introself,
+        #service {
+            border-bottom: 1px solid #f1f1f1;
+
+        }
+
+        /* 對於圖片的特殊樣式 */
+        #syasin img {
+            width: 250px;
+            /* 保證圖片的寬度填滿父容器 */
+            height: 250px;
+            /* 設置固定的高度，這樣圖片會有一致的高度 */
+            object-fit: cover;
+            /* 確保圖片自動調整以填滿容器，並保持比例 */
+            border-radius: 50%;
+            /* 圓形 */
+            margin-left: 40%;
+
+        }
+
+        .lookbook-photo {
+            width: 200px;
+            /* 調整圖片寬度 */
+            height: 200px;
+            /* 調整圖片高度 */
+            object-fit: cover;
+            /* 保持比例並填滿容器 */
+            /* margin: 5px; */
+            /* 設定圖片之間的間距 */
+            border-radius: 8px;
+            /* 圓角效果 */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .lookbook-photo:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            /* 放大 1.1 倍，可以根據需求調整 */
+        }
+
+
+        /* 關閉按鈕樣式 */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+        /* 頁碼 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            /* 確保頁碼居中顯示 */
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+            /* 加入一些上、下間距 */
+        }
+
+        .pagination a {
+            padding: 8px 16px;
+            margin: 0 4px;
+            /* 頁碼間距 */
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            text-decoration: none;
+            color: #555;
+            border-radius: 5px;
+            /* 加入圓角 */
+        }
+
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+
+        .pagination .active {
+            background-color: #007bff;
+            color: white;
+        }
+
 
         /* ---------------------- footer --------------------- */
 
@@ -479,12 +638,12 @@
         <nav id="nav" class="container">
             <ul id="navbox">
                 <li>
-                    <a href="Home copy 3.html">VESLUNEIR</a>
+                    <a href="Home copy 4.html">VESLUNEIR</a>
                     <hr>
                     <p>首頁</p>
                 </li>
                 <li>
-                    <a href="Photographer copy.html">PHOTOGRAPHER</a>
+                    <a href="Photographer copy 2.html">PHOTOGRAPHER</a>
                     <hr>
                     <p>攝影師一覽</p>
                 </li>
@@ -561,19 +720,17 @@
             <hr>
         </div>
 
-
-
         <!-- 2. 攝影師專區 -->
         <section class="photographer-list">
 
             <div class="photographer-card">
-                <img src="/img/手.jpg" alt="攝影師2" class="photographer-image">
+                <img src="/img/hand.jpg" alt="攝影師2" class="photographer-image">
                 <div class="photographer-info">
                     <h3 class="photographer-name">Peter LU</h3>
                     <p class="photographer-specialty">歲月靜好，現世安穩</p>
                     <div class="buttons">
                         <button class="view-portfolio-btn">About</button>
-                        <button class="view-portfolio-btn">View</button>
+                        <button class="view-portfolio-btn2"><a href="Booking.html">Booking</a></button>
                     </div>
                 </div>
             </div>
@@ -585,7 +742,7 @@
                     <p class="photographer-specialty">來世我要變有錢人的貓</p>
                     <div class="buttons">
                         <button class="view-portfolio-btn">About</button>
-                        <button class="view-portfolio-btn">View</button>
+                        <button class="view-portfolio-btn2"><a href="Booking.html">Booking</a></button>
                     </div>
                 </div>
             </div>
@@ -597,32 +754,32 @@
                     <p class="photographer-specialty">無法抵抗毛絨絨患者</p>
                     <div class="buttons">
                         <button class="view-portfolio-btn">About</button>
-                        <button class="view-portfolio-btn">View</button>
+                        <button class="view-portfolio-btn2"><a href="Booking.html">Booking</a></button>
                     </div>
                 </div>
             </div>
 
             <div class="photographer-card">
-                <img id="yu" src="/img/photp2_yu/yu7.jpg" alt="攝影師1" class="photographer-image">
+                <img id="yu" src="/img/photo2_yu/yu7.jpg" alt="攝影師1" class="photographer-image">
                 <div class="photographer-info">
                     <h3 class="photographer-name">悠人</h3>
                     <p class="photographer-specialty">枯藤 老樹 昏鴨<br>
                         7-11 OK 全家</p>
                     <div class="buttons">
                         <button class="view-portfolio-btn">About</button>
-                        <button class="view-portfolio-btn">View</button>
+                        <button class="view-portfolio-btn2"><a href="Booking.html">Booking</a></button>
                     </div>
                 </div>
             </div>
 
             <div class="photographer-card">
-                <img src="/img/photp2_yu/yu4.jpg" alt="攝影師2" class="photographer-image">
+                <img src="/img/photo2_yu/yu4.jpg" alt="攝影師2" class="photographer-image">
                 <div class="photographer-info">
                     <h3 class="photographer-name">Terick_2000</h3>
                     <p class="photographer-specialty">好宅好快樂</p>
                     <div class="buttons">
                         <button class="view-portfolio-btn">About</button>
-                        <button class="view-portfolio-btn">View</button>
+                        <button class="view-portfolio-btn2"><a href="Booking.html">Booking</a></button>
                     </div>
                 </div>
             </div>
@@ -634,7 +791,7 @@
                     <p class="photographer-specialty">Love Yourself</p>
                     <div class="buttons">
                         <button class="view-portfolio-btn">About</button>
-                        <button class="view-portfolio-btn">View</button>
+                        <button class="view-portfolio-btn2"><a href="Booking.html">Booking</a></button>
                     </div>
                 </div>
             </div>
@@ -646,11 +803,35 @@
                     <p class="photographer-specialty">.</p>
                     <div class="buttons">
                         <button class="view-portfolio-btn">About</button>
-                        <button class="view-portfolio-btn">View</button>
+                        <button class="view-portfolio-btn2"><a href="Booking.html">Booking</a></button>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- 彈出框 -->
+        <div id="about" class="about" style="display: none;">
+            <div class="intro">
+                <span id="closeModal" class="close">&times;</span>
+                <div id="syasin" class="syasin"></div>
+                <div id="name" class="mane"></div>
+                <div id="age" class="age"></div>
+                <div id="usetool" class="usetool"></div>
+                <div id="introself" class="introself"></div>
+                <div id="service" class="service"></div>
+                <div id="lookbook" class="lookbook"></div>
+            </div>
+        </div>
+
+
+        <!-- 頁碼 -->
+        <div class="container mt-5">
+            <div id="content"></div>
+            <ul class="pagination justify-content-center" id="pagination">
+                <!-- 分頁按鈕會在這裡渲染 -->
+            </ul>
+        </div>
+
 
         <!--------------------- 5. 頁尾(footer) --------------------->
 
@@ -719,7 +900,99 @@
             });
         });
 
-        // 篩選器
+        // 關於攝影師 
+        const syasin = ['/img/hand.jpg', '/img/photo3_sophia/so1.JPG', '/img/photo1_lily/lili1.jpg', '/img/photo2_yu/yu7.jpg', '/img/photo2_yu/yu4.jpg', '/img/catbook.jpg', '/img/photer2.jpg'];
+        const name = ['Peter LU', 'Sylvia', 'Sherlock', '悠人', 'Terick_2000', 'ゆき', 'Mick'];
+        const Age = ['28', '24', '24', '26', '32', '26', '36'];
+        const useTool = ['Canon EOS R8', 'Nicon zfc', 'Canan EOS RP', 'Nicon z30', 'SONY α1 II', 'FUJIFILM X-T5', 'EOS 5D Mark IV'];
+        const intro = ['', '好餓', '', '', '', 'Cool', ''];
+        const service = ['商業攝影', '', '', '', '', '自然', '', '婚禮攝影、商業攝影'];
+        const lookbook = ['/img/goldenhair.jpg', '/img/photo3_sophia/so3.JPG', '/img/photo1_lily/lili15.jpg', '/img/photo2_yu/yu6.jpg', '/img/blacksea.jpg', '/img/sakurayoko.jpg', '/img/posi.jpg'];
+
+        // 取得所有 "About" 按鈕
+        const aboutButtons = document.querySelectorAll('.view-portfolio-btn');
+
+        // 當按下 "About" 按鈕時
+        aboutButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                // 讓彈出框顯示
+                document.getElementById('about').style.display = 'block';
+
+                // 填充彈出框內的內容
+                document.getElementById('name').innerText = name[index];
+                document.getElementById('age').innerText = `Age: ${Age[index]}`;
+                document.getElementById('usetool').innerText = `Camera: ${useTool[index]}`;
+                document.getElementById('introself').innerText = `Introduction: ${intro[index]}`;
+                document.getElementById('service').innerText = `Service: ${service[index]}`;
+
+                // 設定主照片
+                document.getElementById('syasin').innerHTML = `<img src="${syasin[index]}" alt="Photographer Photo" class="photographer-photo">`;
+
+                // 設定對應的 Lookbook 圖片
+                const lookbookContainer = document.getElementById('lookbook');
+                lookbookContainer.innerHTML = '';  // 清空現有的內容
+
+                // 顯示對應索引的圖片
+                const imgSrc = lookbook[index];  // 根據索引選擇對應的圖片
+                const imgElement = document.createElement('img');
+                imgElement.src = imgSrc;
+                imgElement.alt = 'Lookbook Photo';
+                imgElement.classList.add('lookbook-photo');  // 可以為圖片添加 CSS 類別以便樣式化
+                lookbookContainer.appendChild(imgElement);
+            });
+        });
+
+        // 當點擊關閉按鈕時，隱藏彈出框
+        document.getElementById('closeModal').addEventListener('click', () => {
+            document.getElementById('about').style.display = 'none';
+        });
+
+
+        // 頁碼
+        $(document).ready(function () {
+            var totalPages = 5; // 假設有 10 頁
+            var currentPage = 1;
+
+            function renderPagination() {
+                var paginationHtml = '';
+                paginationHtml += '<li class="page-item ' + (currentPage === 1 ? 'disabled' : '') + '">';
+                paginationHtml += '<a class="page-link" href="#" id="prev">Previous</a>';
+                paginationHtml += '</li>';
+
+                for (var i = 1; i <= totalPages; i++) {
+                    paginationHtml += '<li class="page-item ' + (i === currentPage ? 'active' : '') + '">';
+                    paginationHtml += '<a class="page-link" href="#" class="page">' + i + '</a>';
+                    paginationHtml += '</li>';
+                }
+
+                paginationHtml += '<li class="page-item ' + (currentPage === totalPages ? 'disabled' : '') + '">';
+                paginationHtml += '<a class="page-link" href="#" id="next">Next</a>';
+                paginationHtml += '</li>';
+
+                $('#pagination').html(paginationHtml);
+            }
+
+            // 點擊頁碼時
+            $('#pagination').on('click', '.page-link', function (event) {
+                event.preventDefault();
+
+                if ($(this).attr('id') === 'prev' && currentPage > 1) {
+                    currentPage--;
+                } else if ($(this).attr('id') === 'next' && currentPage < totalPages) {
+                    currentPage++;
+                } else if ($(this).hasClass('page')) {
+                    currentPage = parseInt($(this).text());
+                }
+
+                renderPagination();
+                renderContent();
+            });
+
+            // 初始渲染
+            renderPagination();
+            renderContent();
+        });
+
 
 
     </script>
