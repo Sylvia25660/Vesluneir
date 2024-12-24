@@ -357,6 +357,93 @@
             }
         }
 
+
+        /* ---------------- 1. 開頭 ----------------------*/
+        #s10 {
+            border: 3px solid orange;
+            width: 100%;
+            height: auto;
+            /* 滾動區域的高度 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #svg1 path {
+            stroke-dasharray: 300;
+            /* 線條的長度 */
+            stroke-dashoffset: 300;
+            /* 起始點隱藏 */
+            animation: draw 3s forwards;
+            /* 動畫效果 */
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+                /* 讓線條顯示出來 */
+            }
+        }
+
+        h1 {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        svg {
+            border: red 3px solid;
+            width: 100%;
+        }
+
+        /* #svg2 {
+            border: red 3px solid;
+            width: 100%;
+            transform: rotateY(180deg);
+        } */
+
+        #atama {
+            border: blue 3px solid;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* 垂直排列 */
+            align-items: center;
+            /* 使所有子元素默認居中 */
+            padding: 30px 50px;
+        }
+
+        #V {
+            border: yellow 3px solid;
+            display: flex;
+            align-self: flex-start;
+            /* 使 #V 向左對齊 */
+            text-align: left;
+            /* 文字靠左 */
+            margin-left: 18%;
+        }
+
+        #E {
+            border: yellow 3px solid;
+            display: flex;
+            align-self: flex-end;
+            /* 使 #E 和 #S 靠右 */
+            text-align: right;
+            margin-right: 36%;
+            margin-top: 5px;
+        }
+
+        #S {
+            border: yellow 3px solid;
+            display: flex;
+            align-self: flex-end;
+            /* 使 #E 和 #S 靠右 */
+            text-align: right;
+            margin-right: 28%;
+            margin-top: 5px;
+        }
+
         /* ---------------- 2. 垂直照片(S8) -----------------*/
 
         .s8 {
@@ -370,6 +457,7 @@
             height: auto;
             overflow: hidden;
             /* 防止圖片溢出 */
+            border: bisque 3px solid;
         }
 
         .s8photo {
@@ -446,16 +534,19 @@
         }
 
         /* ---------------- 3. 星星區(S2)-------------------- */
-        #s2 {
+        /* #s2 {
+            border: 3px solid red;
+            width: 100%;
+            height: auto;
             display: flex;
             justify-content: center;
-            /* 在 Flexbox 中，應用 justify-content & align-items  */
             align-content: center;
             position: relative;
             margin-bottom: 30px;
-        }
+        } */
 
-        #hbox {
+        /* #hbox {
+            border: 3px solid yellow;
             margin-left: 10%;
             position: relative;
             width: 100%;
@@ -465,36 +556,36 @@
             overflow: visible;
             gap: 50px;
             opacity: 0;
-            transition: opacity 1s ease, transform 1s ease;
+            visibility: hidden;
             transform: translateY(200px);
-            /* 初始位置向下偏移 200px */
-            z-index: 47;
-        }
+            transition: opacity 1s ease, transform 1s ease, visibility 0s ease 1s;
+            z-index: 35;
+        } */
 
-        #hbox.visible {
+        /* #hbox.visible {
             opacity: 1;
+            visibility: visible;
             transform: translateY(0);
-            /* 回到原位 */
-            /* 當加上 visible 類別時，改變透明度 */
-        }
+        } */
 
-        #s2 h1 {
+        /* #s2 h1 {
+            border: 3px solid blue;
             color: rgb(255, 250, 251);
             font-size: 36px;
             font-optical-sizing: auto;
             font-weight: 550;
             font-style: italic;
-        }
-
+            z-index: 120;
+        } */
+/* 
         #h11,
         #h12 {
             text-align: center;
             line-height: 3;
-            /* 行高設定 */
             letter-spacing: 20px;
-        }
+        } */
 
-        #h11 {
+        /* #h11 {
             position: absolute;
             left: 28%;
             bottom: 56%;
@@ -508,7 +599,6 @@
 
         #strbox1,
         #strbox2 {
-            /* height: auto; */
             opacity: 0;
             transition: opacity 2s ease, transform 2s ease;
             z-index: 48;
@@ -525,18 +615,18 @@
             position: absolute;
             right: 19%;
             transform: translateX(50px) translateY(100px);
-        }
+        } */
 
-        #strbox2 img {
+        /* #strbox2 img {
             transform: rotateY(180deg);
-            /* 水平翻轉 180 度 */
         }
 
         #strbox1.visited,
         #strbox2.visited {
             opacity: 1;
             transform: translateY(0);
-        }
+        } */
+
 
         /* -------------- 4. 無限滑動照片(infinite) --------------*/
 
@@ -1133,6 +1223,29 @@
     </div>
 
     <div id="box"></div>
+
+    <!------------------------ 1. 開頭 ------------------------------>
+
+    <section id="s10">
+        <svg id="svg1" width="1000" height="250" xmlns="http://www.w3.org/2000/svg">
+            <!-- 第一條曲線 -->
+            <path d="M 10, 20
+                         C 50,10 70,60 110,40" stroke="white" fill="none" stroke-width="2" transform="scale(2)" />
+            <!-- 第二條曲線 -->
+            <path d="M 110,40 
+                         C 140,30 180,90 270,100" stroke="white" fill="none" stroke-width="2" transform="scale(2)" />
+        </svg>
+
+        <div id="atama">
+            <h1 id="V">Vesluneir 找攝影</h1>
+            <h1 id="E">風格無限</h1>
+            <h1 id="S">隨心選擇</h1>
+        </div>
+    </section>
+
+    <div id="box"></div>
+    <div id="box"></div>
+
     <!------------------------ 2. 垂直照片(S8) ------------------------------->
 
     <section class="s8">
@@ -1150,27 +1263,29 @@
         </div>
     </section>
 
-
     <!------------------- 3. 星星區(S2) --------------------------->
     <!-- 視覺的記憶，在每一個瞬間中蔓延。-->
     <!--「每一幅畫面，都是沉默中流動的時光遺跡。」 -->
+    <div id="box"></div>
+    <div id="box"></div>
+    <div id="box"></div>
 
-    <section id="s2">
+    <!-- <section id="s2">
         <div id="strbox1">
             <img id="str1" src="/img/Star 5.png">
             <img id="str2" src="/img/Star 10.png">
             <img id="str3" src="/img/Star 8.png">
         </div>
         <div id="hbox">
-            <h1 id="h11">“ 光影無語</h1>
-            <h1 id="h12">卻刻下流轉的時間痕跡 ”</h1>
+            <h1 id="h11"> 專為尋求攝影師的你</h1>
+            <h1 id="h12">打造的專屬平台</h1>
         </div>
         <div id="strbox2">
             <img id="str1" src="/img/Star 8.png">
             <img id="str2" src="/img/Star 10.png">
             <img id="str3" src="/img/Star 5.png">
         </div>
-    </section>
+    </section> -->
 
     <div id="box"></div>
 
@@ -1405,6 +1520,40 @@
         });
 
 
+        // ----------------- 1.開頭
+        document.addEventListener('DOMContentLoaded', function () {
+            // 偵測 #s10 進入視窗
+            const section = document.querySelector('#s10');
+            const svg = document.querySelector('#svg1');
+            const v = document.querySelector('#V');
+            const e = document.querySelector('#E');
+            const s = document.querySelector('#S');
+
+            // 使用 IntersectionObserver 監控 #s10 是否進入視窗
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // 當 #s10 進入視窗時，開始顯示動畫
+                        svg.style.visibility = 'visible';
+                        animateText(v, 0);
+                        animateText(e, 500);  // 延遲1秒顯示 E
+                        animateText(s, 1000);  // 延遲2秒顯示 S
+                    }
+                });
+            }, { threshold: 0.5 });  // 50%區域進入視窗
+
+            observer.observe(section);
+
+            // 動畫顯示文字
+            function animateText(element, delay) {
+                setTimeout(() => {
+                    element.style.display = 'block';  // 顯示該元素
+                    element.style.opacity = 1;        // 設置透明度，觸發顯示
+                }, delay);
+            }
+        });
+
+
         // -------------- 2.S8    
         document.addEventListener('DOMContentLoaded', function () {
             const s8Section = document.querySelector('.s8');
@@ -1425,22 +1574,22 @@
                 setTimeout(() => {
                     textRight.style.transform = 'translateY(0)';
                     textRight.style.opacity = 1;
-                }, 200);
+                }, 600);
 
                 setTimeout(() => {
                     textLeft.style.transform = 'translateY(0)';
                     textLeft.style.opacity = 1;
-                }, 400);
+                }, 800);
 
                 setTimeout(() => {
                     s8p2.style.transform = 'translateY(0)';
                     s8p2.style.opacity = 1;
-                }, 600);
+                }, 1000);
 
                 setTimeout(() => {
                     s8p3.style.transform = 'translateY(0)';
                     s8p3.style.opacity = 1;
-                }, 800);
+                }, 1200);
             }
 
             // 重置所有元素的樣式，準備下一次動畫
@@ -1486,27 +1635,28 @@
 
 
         // ---------------- 3. 星星出現
-        const S2 = document.getElementById("s2"); //s2
-        const hBox = document.getElementById("hbox"); //橢圓區
-        const starContainer = document.querySelector("#strbox1"); //星星區
-        const starContainer2 = document.querySelector("#strbox2"); //星星區
+        // const S2 = document.getElementById("s2"); // s2
+        // const hBox = document.getElementById("hbox"); // 橢圓區
+        // const starContainer = document.querySelector("#strbox1"); // 星星區
+        // const starContainer2 = document.querySelector("#strbox2"); // 星星區
 
+        // const observer = new IntersectionObserver((entries) => {
+        //     entries.forEach((entry) => {
+        //         if (entry.isIntersecting) {
+        //             // 當#s2區域進入視窗，添加visible類別
+        //             hBox.classList.add("visible");
+        //             starContainer.classList.add("visited");
+        //             starContainer2.classList.add("visited");
+        //         } else {
+        //             // 滾動離開#s2區域，移除visible類別
+        //             hBox.classList.remove("visible");
+        //             starContainer.classList.remove("visited");
+        //             starContainer2.classList.remove("visited");
+        //         }
+        //     });
+        // }, { threshold: 0.5 });  // 監控的閾值，50%區域進入視窗
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    hBox.classList.add("visible");
-                    starContainer.classList.add("visited");
-                    starContainer2.classList.add("visited")
-                } else {
-                    hBox.classList.remove("visible");
-                    starContainer.classList.remove("visited");
-                    starContainer2.classList.remove("visited");
-                }
-            })
-        });
-
-        observer.observe(S2);
+        // observer.observe(S2);
 
 
         // -------------- 4. 照片輪播(1)
