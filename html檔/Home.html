@@ -38,7 +38,7 @@
             font-family: "Kaisei HarunoUmi", serif;
             font-weight: 400;
             font-style: normal;
-            background-color: #202020;
+            background-color: #181717;
             position: relative;
         }
 
@@ -359,7 +359,8 @@
 
 
         /* ---------------- 2. 開頭 ----------------------*/
-        #s10 {
+        #s10,
+        #s13 {
             width: 100%;
             height: auto;
             /* 滾動區域的高度 */
@@ -369,6 +370,7 @@
             align-items: center;
             position: relative;
         }
+        
 
         #svg1 path {
             stroke-dasharray: 300;
@@ -405,13 +407,22 @@
             padding: 30px 50px;
         }
 
+        #atama2 {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* 垂直排列 */
+            align-items: center;
+            /* 使所有子元素默認居中 */
+        }
+
         #V {
             display: flex;
             align-self: flex-start;
             /* 使 #V 向左對齊 */
             text-align: left;
             /* 文字靠左 */
-            margin-left: 15%;
+            margin-left: 35%;
             color: #e3e4a9;
         }
 
@@ -420,8 +431,7 @@
             align-self: flex-end;
             /* 使 #E 和 #S 靠右 */
             text-align: right;
-            margin-right: 32%;
-            margin-top: 20px;
+            margin-right: 16%;
         }
 
         #S {
@@ -429,25 +439,10 @@
             align-self: flex-end;
             /* 使 #E 和 #S 靠右 */
             text-align: right;
-            margin-right: 24%;
-            margin-top: 20px;
+            margin-right: 11%;
         }
 
         /* -------------- 3. 無限滑動照片1(infinite) --------------*/
-
-        #infinite,
-        #infinite2 {
-            opacity: 0;
-            /* 初始透明 */
-            transition: opacity 1s ease-in-out;
-            /* 淡入效果 */
-        }
-
-        #infinite.visible,
-        #infinite2.visible {
-            opacity: 1;
-            /* 當 visible 類名被加上時顯示 */
-        }
 
         .marquee-wrapper,
         .marquee-wrapper2 {
@@ -458,14 +453,6 @@
             /* 隱藏溢出的內容 */
         }
 
-        .marquee-wrapper {
-            margin-bottom: 25px;
-        }
-
-        .marquee-wrapper2 {
-            margin-top: 75px;
-        }
-
         .marquee,
         .marquee2 {
             display: flex;
@@ -474,20 +461,11 @@
             /* 優化動畫性能 */
         }
 
-        .marquee-item {
-            flex-shrink: 0;
-            /* 圖片不縮小 */
-            width: 350px;
-            height: auto;
-            /* 單張圖片寬度 */
-            margin-right: 10px;
-            /* 間距 */
-        }
-
+        .marquee-item,
         .marquee-item2 {
             flex-shrink: 0;
             /* 圖片不縮小 */
-            width: 500px;
+            width: 350px;
             height: auto;
             /* 單張圖片寬度 */
             margin-right: 10px;
@@ -502,6 +480,7 @@
             object-fit: cover;
             /* 裁剪圖片，保持比例並填滿容器 */
         }
+
 
         /* ---------------- 4. 垂直照片 -----------------*/
         #s11 {
@@ -1146,7 +1125,7 @@
         <nav id="nav" class="container">
             <ul id="navbox">
                 <li>
-                    <a href="Home">Vesluneir，找攝影</a>
+                    <a href="Home">Vesluneir 找攝影</a>
                     <hr>
                     <p>首頁</p>
                 </li>
@@ -1231,26 +1210,36 @@
             <path d="M 110,40 
                          C 140,30 180,90 270,100" stroke="white" fill="none" stroke-width="2" transform="scale(2)" />
         </svg>
+    </section>
 
+    <section id="s10">
         <div id="atama">
             <h1 id="V">Vesluneir 找攝影</h1>
-            <h1 id="E">無限風格</h1>
-            <h1 id="S">隨心選擇</h1>
         </div>
     </section>
 
     <div id="box"></div>
 
-    <!------------------------- 3. 無限滑動照片1(infinite) --------------------->
 
+
+    <!------------------------- 3. 無限滑動照片1(infinite) --------------------->
     <section id="infinite">
         <div class="marquee-wrapper">
             <div class="marquee" id="marquee">
-                <div class="marquee-item"><img src="/img/photo2_yu/yu8.jpg" alt="Image 1" /></div>
-                <div class="marquee-item"><img src="/img/photo1_lily/lily4.jpg" alt="Image 2" /></div>
-                <div class="marquee-item"><img src="/img/photo2_yu/yu6.jpg" alt="Image 3" /></div>
-                <div class="marquee-item"><img src="/img/photo1_lily/lily10.jpg" alt="Image 4" /></div>
-                <div class="marquee-item"><img src="/img/photo3_sophia/so3.jpg" alt="Image 5" /></div>
+                <div class="marquee-item"><img src="/img/pepomt.jpg" alt="Image 1" /></div>
+                <div class="marquee-item"><img src="/img/photo1_lily/lily14.jpg" alt="Image 2" /></div>
+                <div class="marquee-item"><img src="/img/grassstay.jpg" alt="Image 3" /></div>
+                <div class="marquee-item"><img src="/img/photo2_yu/yu2.jpg" alt="Image 4" /></div>
+                <div class="marquee-item"><img src="/img/beach.jpg" alt="Image 5" /></div>
+            </div>
+        </div>
+        <div class="marquee-wrapper2">
+            <div class="marquee2" id="marquee2">
+                <div class="marquee-item2"><img src="/img/photo1_lily/redhat.jpg" alt="Image 1" /></div>
+                <div class="marquee-item2"><img src="/img/photo1_lily/lily2.jpg" alt="Image 2" /></div>
+                <div class="marquee-item2"><img src="/img/photo1_lily/together.jpg" alt="Image 3" /></div>
+                <div class="marquee-item2"><img src="/img/photo2_yu/yu3.jpg" alt="Image 4" /></div>
+                <div class="marquee-item2"><img src="/img/sakurayoko.jpg" alt="Image 5" /></div>
             </div>
         </div>
     </section>
@@ -1270,9 +1259,9 @@
 
     <section class="s8">
         <div class="s8photo">
-            <img class="s8p1" src="/img/seifw.jpg" alt="圖片1">
-            <img class="s8p2" src="/img/searedflower.jpg" alt="圖片2">
-            <img class="s8p3" src="/img/towersakura.jpg" alt="圖片3">
+            <img class="s8p1" src="/img/photo1_lily/lily24.jpg" alt="圖片1">
+            <img class="s8p2" src="/img/mt.jpg" alt="圖片2">
+            <img class="s8p3" src="/img/photo1_lily/lily7.jpg" alt="圖片3">
         </div>
         <div class="text left">
             <p>滿足對攝影的所有需求</p>
@@ -1286,18 +1275,6 @@
     <!------------------------- 5. 無限滑動照片2(infinite) --------------------->
     <div id="box"></div>
     <div id="box"></div>
-
-    <section id="infinite2">
-        <div class="marquee-wrapper2">
-            <div class="marquee2" id="marquee2">
-                <div class="marquee-item2"><img src="/img/photo2_yu/yu2.jpg" alt="Image 1" /></div>
-                <div class="marquee-item2"><img src="/img/photo1_lily/lily2.jpg" alt="Image 2" /></div>
-                <div class="marquee-item2"><img src="/img/photer2.jpg" alt="Image 3" /></div>
-                <div class="marquee-item2"><img src="/img/photo2_yu/yu3.jpg" alt="Image 4" /></div>
-                <div class="marquee-item2"><img src="/img/photo1_lily/lily14.jpg" alt="Image 5" /></div>
-            </div>
-        </div>
-    </section>
 
     <section id="s12">
         <svg id="svg3" width="1000" height="250" xmlns="http://www.w3.org/2000/svg">
@@ -1314,6 +1291,14 @@
                 三大特區
             </p>
         </div>
+        <section id="s13">
+            <div id="atama2">
+                <h1 id="E">無限風格</h1>
+                <h1 id="S">隨心選擇</h1>
+            </div>
+        </section>
+
+
     </section>
 
     <!--------------------- 6. 介紹網頁(main) --------------------->
@@ -1538,112 +1523,81 @@
             }
         });
 
+
+
         // -------------- 3. 照片輪播(1)
-        // Optional JavaScript to control manual slide transitions (for example, adding buttons to navigate)
-        document.addEventListener('DOMContentLoaded', function () {
-            // 監聽 <section id="infinite"> 進入視窗
-            const infiniteSection = document.getElementById('infinite');
-            const infiniteSection2 = document.getElementById('infinite2');
+        // (1) 第一個輪播
+        const marquee = document.getElementById('marquee');
+        const items = document.querySelectorAll('.marquee-item');
+        const totalItems = items.length;
+        const copyCount = 5; // 控制每組圖片的複製次數，確保圖片足夠以無縫輪播
 
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // 當區塊進入視窗時，添加 'visible' 類名，觸發淡入效果
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.3 });  // 當 50% 區域進入視窗時觸發
+        // 複製圖片
+        for (let i = 0; i < copyCount; i++) {
+            for (let j = 0; j < totalItems; j++) {
+                const clone = items[j].cloneNode(true);
+                marquee.appendChild(clone);
+            }
+        }
 
-            // 監聽兩個區塊
-            observer.observe(infiniteSection);
-            observer.observe(infiniteSection2);
+        // 滾動圖片
+        let offset = 0;
+        const itemWidth = items[0].offsetWidth + 10; // 單張圖片的寬度（包含間距）
 
-            // 原本的輪播邏輯 (for #infinite)
-            const marquee = document.getElementById('marquee');
-            const items = document.querySelectorAll('.marquee-item');
-            const totalItems = items.length;
-            const copyCount = 5; // 控制每組圖片的複製次數，確保圖片足夠以無縫輪播
+        function slide() {
+            offset -= 1; // 每次向左移動 1px
+            if (Math.abs(offset) >= itemWidth * totalItems) {
+                offset = 0; // 重置 offset，達到無縫效果
+            }
+            marquee.style.transform = `translateX(${offset}px)`; // 更新位置
+            requestAnimationFrame(slide); // 持續更新
+        }
 
-            // 計算單張圖片的寬度（第一張圖片）
-            setTimeout(() => {
-                const itemWidth = items[0].offsetWidth + 10; // 單張圖片的寬度（包含間距）
+        slide(); // 啟動輪播
 
-                // 確保無縫：將圖片內容複製到起點與末尾
-                const totalWidth = itemWidth * totalItems; // 原始圖片的總寬度
-                marquee.style.width = `${totalWidth * 2}px`; // 設置寬度為兩倍，為了無縫滾動
 
-                // 複製一組到起點
-                for (let i = totalItems - 1; i >= 0; i--) {
-                    const cloneStart = items[i].cloneNode(true); // 向開頭複製
-                    marquee.insertBefore(cloneStart, marquee.firstChild);
+        // (2) 第二個輪播，改為向右移動
+        const marquee2 = document.getElementById('marquee2');
+        const items2 = document.querySelectorAll('.marquee-item2');
+        const totalItems2 = items2.length;
+
+        // 計算單張圖片的寬度（第一張圖片）
+        setTimeout(() => {
+            const itemWidth2 = items2[0].offsetWidth + 10; // 單張圖片的寬度（包含間距）
+
+            // 確保無縫：將圖片內容複製到起點與末尾
+            const totalWidth2 = itemWidth2 * totalItems2; // 原始圖片的總寬度
+            marquee2.style.width = `${totalWidth2 * 2}px`; // 設置寬度為兩倍，為了無縫滾動
+
+            // 複製一組到起點
+            for (let i = totalItems2 - 1; i >= 0; i--) {
+                const cloneStart = items2[i].cloneNode(true); // 向開頭複製
+                marquee2.insertBefore(cloneStart, marquee2.firstChild);
+            }
+
+            // 複製一組到結尾
+            for (let i = 0; i < totalItems2; i++) {
+                const cloneEnd = items2[i].cloneNode(true); // 向末尾複製
+                marquee2.appendChild(cloneEnd);
+            }
+
+            // 更新滾動邏輯
+            let offset2 = -totalWidth2; // 初始位置：滾動到中間的第一組圖片
+
+            function slide2() {
+                offset2 += 1; // 向右移動
+                if (offset2 >= 0) {
+                    // 當到達第一組起點時，跳回中間
+                    offset2 = -totalWidth2;
                 }
+                marquee2.style.transform = `translateX(${offset2}px)`; // 更新位置
+                requestAnimationFrame(slide2); // 持續更新
+            }
 
-                // 複製一組到結尾
-                for (let i = 0; i < totalItems; i++) {
-                    const cloneEnd = items[i].cloneNode(true); // 向末尾複製
-                    marquee.appendChild(cloneEnd);
-                }
-
-                // 更新滾動邏輯
-                let offset = -totalWidth; // 初始位置：滾動到中間的第一組圖片
-
-                function slide() {
-                    offset += 1; // 向右移動
-                    if (offset >= 0) {
-                        // 當到達第一組起點時，跳回中間
-                        offset = -totalWidth;
-                    }
-                    marquee.style.transform = `translateX(${offset}px)`; // 更新位置
-                    requestAnimationFrame(slide); // 持續更新
-                }
-
-                // 啟動滾動
-                marquee.style.transform = `translateX(${offset}px)`; // 設置初始位置
-                slide();
-            }, 100); // 確保圖片已加載後運行
-
-            // 原本的輪播邏輯 (for #infinite2)
-            const marquee2 = document.getElementById('marquee2');
-            const items2 = document.querySelectorAll('.marquee-item2');
-            const totalItems2 = items2.length;
-
-            setTimeout(() => {
-                const itemWidth2 = items2[0].offsetWidth + 10; // 單張圖片的寬度（包含間距）
-
-                // 確保無縫：將圖片內容複製到起點與末尾
-                const totalWidth2 = itemWidth2 * totalItems2; // 原始圖片的總寬度
-                marquee2.style.width = `${totalWidth2 * 2}px`; // 設置寬度為兩倍，為了無縫滾動
-
-                // 複製一組到起點
-                for (let i = totalItems2 - 1; i >= 0; i--) {
-                    const cloneStart2 = items2[i].cloneNode(true); // 向開頭複製
-                    marquee2.insertBefore(cloneStart2, marquee2.firstChild);
-                }
-
-                // 複製一組到結尾
-                for (let i = 0; i < totalItems2; i++) {
-                    const cloneEnd2 = items2[i].cloneNode(true); // 向末尾複製
-                    marquee2.appendChild(cloneEnd2);
-                }
-
-                // 更新滾動邏輯
-                let offset2 = -totalWidth2; // 初始位置：滾動到中間的第一組圖片
-
-                function slide2() {
-                    offset2 += 1; // 向右移動
-                    if (offset2 >= 0) {
-                        // 當到達第一組起點時，跳回中間
-                        offset2 = -totalWidth2;
-                    }
-                    marquee2.style.transform = `translateX(${offset2}px)`; // 更新位置
-                    requestAnimationFrame(slide2); // 持續更新
-                }
-
-                // 啟動滾動
-                marquee2.style.transform = `translateX(${offset2}px)`; // 設置初始位置
-                slide2();
-            }, 100); // 確保圖片已加載後運行
-        });
+            // 啟動滾動
+            marquee2.style.transform = `translateX(${offset2}px)`; // 設置初始位置
+            slide2();
+        }, 100); // 確保圖片已加載後運行
 
 
 
