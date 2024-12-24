@@ -359,8 +359,8 @@
 
 
         /* ---------------- 2. 開頭 ----------------------*/
-        #s10,
-        #s13 {
+        #s10-1,
+        #s10-2 {
             width: 100%;
             height: auto;
             /* 滾動區域的高度 */
@@ -370,7 +370,6 @@
             align-items: center;
             position: relative;
         }
-        
 
         #svg1 path {
             stroke-dasharray: 300;
@@ -407,13 +406,34 @@
             padding: 30px 50px;
         }
 
-        #atama2 {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            /* 垂直排列 */
-            align-items: center;
-            /* 使所有子元素默認居中 */
+        #strbox1 {
+            position: absolute;
+            bottom: 45%;
+            /* 距離下方 */
+            right: 13%;
+            /* 靠右側 */
+            transform: scale(0.8);
+            /* 初始縮放 */
+            width: auto;
+            z-index: 48;
+            opacity: 0;
+            /* 初始透明 */
+            transition: opacity 2s ease, transform 2s ease;
+            transform: translateX(-100px) translateY(-50px);
+        }
+
+        /* 可見時觸發動畫 */
+        #strbox1.visible {
+            opacity: 1;
+            /* transform: scale(1); */
+            transform: translateY(0);
+            /* 恢復縮放 */
+        }
+
+
+        #strbox1 img {
+            transform: rotateY(180deg);
+            /* 水平翻轉 180 度 */
         }
 
         #V {
@@ -424,22 +444,6 @@
             /* 文字靠左 */
             margin-left: 35%;
             color: #e3e4a9;
-        }
-
-        #E {
-            display: flex;
-            align-self: flex-end;
-            /* 使 #E 和 #S 靠右 */
-            text-align: right;
-            margin-right: 16%;
-        }
-
-        #S {
-            display: flex;
-            align-self: flex-end;
-            /* 使 #E 和 #S 靠右 */
-            text-align: right;
-            margin-right: 11%;
         }
 
         /* -------------- 3. 無限滑動照片1(infinite) --------------*/
@@ -554,6 +558,13 @@
             /* 初始隱藏 */
             transition: transform 1s ease, opacity 1s ease;
             /* 淡入及上下移動效果 */
+            cursor: pointer;
+            /* 鼠標懸停顯示手指 */
+        }
+
+        .s8photo img:hover {
+            opacity: 0.5;
+            /* 反黑效果 */
         }
 
         .s8p1 {
@@ -572,6 +583,24 @@
             margin-top: 270px;
             /*距離父容器頂部 0 */
             margin-left: 100px;
+        }
+
+        #strbox2 {
+            position: absolute;
+            top: 0;
+            left: 15%;
+            transform: scale(0.8) translateX(-100px) translateY(-50px);
+            width: auto;
+            z-index: 48;
+            opacity: 0;
+            transition: opacity 2s ease, transform 2s ease;
+            transform: rotateY(180deg);
+        }
+
+        #strbox2.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            /* 恢復位置並放大 */
         }
 
         .text {
@@ -669,6 +698,83 @@
                 stroke-dashoffset: 0;
             }
         }
+
+        #s13 {
+            opacity: 0;
+            /* 初始隱藏 */
+            transition: opacity 2s ease;
+            /* 淡入效果 */
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* 使所有內容居中 */
+            position: relative;
+            text-align: center;
+            /* 讓文字對齊中 */
+        }
+
+        #s13.visible {
+            opacity: 1;
+            /* 顯示 */
+        }
+
+        /* 動畫效果 */
+        #atama2 h2 {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        #s13.visible #atama2 h2 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 改變文字位置的設定 */
+        #atama2 {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            /* 垂直排列 */
+            align-items: flex-end;
+            /* 使文字對齊右邊 */
+            font-size: 3rem;
+            color: #e9ecee;
+            margin-bottom: 8px;
+            margin-right: 50px;
+        }
+
+        #strbox3 {
+            position: absolute;
+            bottom: 40%;
+            right: 10%;
+            transform: scale(0.8) translateX(100px) translateY(50px);
+            /* 初始位置 */
+            width: auto;
+            z-index: 48;
+            opacity: 0;
+            transition: opacity 2s ease, transform 2s ease;
+        }
+
+        #strbox3.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            /* 顯示並恢復正常位置 */
+        }
+
+        #strbox3.exit {
+            opacity: 0;
+            /* 出場時隱藏 */
+            transform: translateX(100px) translateY(50px) scale(0.8);
+            /* 出場動畫 */
+            transition: opacity 2s ease, transform 2s ease;
+            /* 出場過渡 */
+        }
+
 
         /* ---------------6. 介紹網頁 (main+s6+article)----------------------- */
         #main-content {
@@ -852,7 +958,7 @@
         main article {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            width: 600px;
+            width: 650px;
             /* 固定文章區域 */
             height: auto;
             font-size: 10px;
@@ -892,30 +998,31 @@
 
         .art1 {
             position: absolute;
-            left: 2%;
+            right: 60%;
             bottom: 13%;
             display: flex;
             text-align: justify;
         }
 
         .art2 {
-            right: 2%;
-            bottom: 13%;
+            left: 61%;
+            bottom: 20%;
             display: flex;
             text-align: justify;
         }
 
         .art3 {
             bottom: 16%;
-            left: 2%;
+            right: 61%;
             display: flex;
             text-align: justify;
         }
 
         .art4 {
             color: #3f4246;
+            background-color: rgba(233, 236, 238, 0.6);
             top: 19%;
-            left: 37%;
+            left: 33%;
             display: flex;
             text-align: justify;
         }
@@ -924,8 +1031,8 @@
 
         .h3O {
             position: absolute;
-            top: 11%;
-            left: 11%;
+            top: 10%;
+            left: 12%;
         }
 
         .h3S {
@@ -988,7 +1095,7 @@
             /* 垂直居中 */
             gap: 30px;
             /* 圖示與文字之間的間距 */
-            background: #858080;
+            background: #d8d0d0;
             border: 1px solid #043450;
             box-sizing: border-box;
             width: 18%;
@@ -997,7 +1104,7 @@
             /* 固定高度 */
             padding: 0 18px;
             /* 內邊距 */
-            color: #f4f7f8;
+            color: #5d6364;
             font-size: 16px;
             text-decoration: none;
             position: absolute;
@@ -1025,7 +1132,7 @@
         #btn4 {
             transform: translateY(100px);
             position: absolute;
-            left: 43%;
+            left: 41%;
             bottom: 5%;
         }
 
@@ -1137,7 +1244,7 @@
                 <li>
                     <a href="LookBook.html">PHOTO ALBUM</a>
                     <hr>
-                    <p>相冊</p>
+                    <p>相簿</p>
                 </li>
                 <li>
                     <a href="#">ARTICLE</a>
@@ -1201,20 +1308,22 @@
 
     <!------------------------ 2. 開頭 ------------------------------>
 
-    <section id="s10">
+    <section id="s10-1">
         <svg id="svg1" width="1000" height="250" xmlns="http://www.w3.org/2000/svg">
-            <!-- 第一條曲線 -->
-            <path d="M 10, 20
-                         C 50,10 70,60 110,40" stroke="white" fill="none" stroke-width="2" transform="scale(2)" />
-            <!-- 第二條曲線 -->
-            <path d="M 110,40 
-                         C 140,30 180,90 270,100" stroke="white" fill="none" stroke-width="2" transform="scale(2)" />
+            <path d="M 10, 20 C 50,10 70,60 110,40" stroke="white" fill="none" stroke-width="2" transform="scale(2)" />
+            <path d="M 110,40 C 140,30 180,90 270,100" stroke="white" fill="none" stroke-width="2"
+                transform="scale(2)" />
         </svg>
     </section>
 
-    <section id="s10">
+    <section id="s10-2">
         <div id="atama">
             <h1 id="V">Vesluneir 找攝影</h1>
+        </div>
+        <div id="strbox1">
+            <img id="str1" src="/img/Star 5.png" alt="Star 5">
+            <img id="str2" src="/img/Star 10.png" alt="Star 10">
+            <img id="str3" src="/img/Star 8.png" alt="Star 8">
         </div>
     </section>
 
@@ -1258,6 +1367,11 @@
     </section>
 
     <section class="s8">
+        <div id="strbox2">
+            <img id="str1" src="/img/Star 8.png">
+            <img id="str2" src="/img/Star 10.png">
+            <img id="str3" src="/img/Star 5.png">
+        </div>
         <div class="s8photo">
             <img class="s8p1" src="/img/photo1_lily/lily24.jpg" alt="圖片1">
             <img class="s8p2" src="/img/mt.jpg" alt="圖片2">
@@ -1286,15 +1400,20 @@
                          C 140,30 180,90 270,100" stroke="white" fill="none" stroke-width="2" transform="scale(2)" />
         </svg>
 
-        <div id="nologinbox">
+        <section id="nologinbox">
             <p id="nologin">
                 三大特區
             </p>
+        </section>
+        <div id="strbox3">
+            <img id="str1" src="/img/Star 5.png" alt="Star 5">
+            <img id="str2" src="/img/Star 10.png" alt="Star 10">
+            <img id="str3" src="/img/Star 8.png" alt="Star 8">
         </div>
         <section id="s13">
             <div id="atama2">
-                <h1 id="E">無限風格</h1>
-                <h1 id="S">隨心選擇</h1>
+                <h2 id="E">無限風格 隨心選擇</h2>
+                <!-- <h2 id="S"></h2> -->
             </div>
         </section>
 
@@ -1319,11 +1438,11 @@
             </div>
 
             <article id="article1" class="art1">
-                我們為攝影師提供了一個展示自己作品的場所。攝影師可以輕鬆地創建和管理個人相冊，將自己的作品分享給更多人。無論是專業攝影師還是攝影愛好者，都可以在這裡展示創意和專業。<br>
-                主要功能：<br>
-                1. 上傳個人相冊<br>
-                2. 管理相冊<br>
-                3. 展示與分享<br>
+                無論是拍攝婚禮、家庭照、商業活動，還是任何特殊場合，我們的攝影師平台提供一站式的服務。<br>
+                這裡集合了來自各地的專業攝影師，可以輕鬆地找到適合的攝影師。<br>
+                1. 多樣化選擇：平台擁有多位風格獨特的攝影師，應有盡有<br>
+                2. 精挑細選：每位攝影師都會先經過平台審核，讓使用者能安心預約<br>
+                3. 即時預約：只要填寫表單就能輕鬆預約！<br>
             </article>
 
             <a href="Photographer copy.html" id="btn3" class="btn_02">前往攝影師專區</a>
@@ -1340,10 +1459,10 @@
         </div>
         <section id="mainS" style="color: #fdff6e;">
             <article id="article2" class="art2">
-                相簿區除了展示照片，還會根據不同的風格分類作品，為每位攝影師提供一個獨特的展示空間。無論是擅長拍攝婚禮、人像、風景還是其他類型的攝影，這裡都是展現攝影才華的最佳場所。<br>
-                主要功能：<br>
-                1. 風格分類<br>
-                2. 分享與互動<br>
+                無論是婚禮、個人寫真還是活動攝影，這裡都能找到喜愛的風格。<br>
+                每個攝影師的相簿都是他們最佳作品的展示，能夠快速了解他們的拍攝風格及技術。<br>
+                1. 精選相簿展示<br>
+                2. 快速瀏覽<br>
                 3. 尋找靈感與合作<br>
             </article>
 
@@ -1352,7 +1471,7 @@
             </div>
 
             <div class="h3S" style="color: #fdff6e;">
-                <h3>相冊區</h3>
+                <h3>相簿區</h3>
             </div>
 
             <a href="LookBook.html" id="btn2" class="btn_02">前往相冊</a>
@@ -1393,18 +1512,19 @@
 
         <!-- 第四組內容 -->
         <div class="h3F" style="color: #fdff6e;">
-            <h3>立即探索</h3>
+            <h3>成為攝影師</h3>
         </div>
         <div class="hr4">
             <hr>
         </div>
         <section id="mainF">
             <article id="article4" class="art4">
-                你的故事值得被看見，加入我們，攜手創造屬於自己的影像世界。<br>
-                讓所有瞬間都成為永恆的記憶，傳遞無限的靈感與感動。
+                無論是新手攝影，還是擁有多年經驗的專業攝影師，這裡都是分享作品和提升技術的理想平台。<br>
+                ★ 新手攝影也沒問題！<br>
+                ★ 自由展示作品，與全球攝影師交流<br>
             </article>
 
-            <a href="Login.html" id="btn4" class="btn_02">尋找專屬於你的攝影師</a>
+            <a href="Login.html" id="btn4" class="btn_02">\加入我們/</a>
         </section>
 
     </main>
@@ -1492,37 +1612,54 @@
 
         // ----------------- 2.開頭
         document.addEventListener('DOMContentLoaded', function () {
-            // 偵測 #s10 進入視窗
-            const section = document.querySelector('#s10');
+            const section1 = document.querySelector('#s10-1');
+            const section2 = document.querySelector('#s10-2');
             const svg = document.querySelector('#svg1');
+            const strbox1 = document.querySelector('#strbox1');
             const v = document.querySelector('#V');
-            const e = document.querySelector('#E');
-            const s = document.querySelector('#S');
 
-            // 使用 IntersectionObserver 監控 #s10 是否進入視窗
-            const observer = new IntersectionObserver(entries => {
+            let isSection1Done = false; // 第一部分動畫是否完成
+            let isSection2Done = false; // 第二部分動畫是否完成
+
+            // 偵測第一部分進入視窗
+            const observer1 = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // 當 #s10 進入視窗時，開始顯示動畫
+                    if (entry.isIntersecting && !isSection1Done) {
                         svg.style.visibility = 'visible';
-                        animateText(v, 0);
-                        animateText(e, 500);  // 延遲1秒顯示 E
-                        animateText(s, 1000);  // 延遲2秒顯示 S
+                        isSection1Done = true;
+                        console.log('第一部分動畫觸發');
+                        // 啟動第二部分動畫的觀察
+                        observer2.observe(section2);
                     }
                 });
-            }, { threshold: 1 });  // 50%區域進入視窗
+            }, { threshold: 0.5 });
 
-            observer.observe(section);
+            // 偵測第二部分進入視窗
+            const observer2 = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && isSection1Done && !isSection2Done) {
+                        isSection2Done = true;
+                        console.log('第二部分動畫觸發');
+                        animateText(v, 100); // 顯示文字
+                        // 啟動星星的動畫
+                        setTimeout(() => {
+                            strbox1.classList.add('visible');
+                            console.log('第三部分動畫觸發');
+                        }, 600); // 延遲星星動畫，確保文字完成後才出現
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            // 啟動第一部分動畫的觀察
+            observer1.observe(section1);
 
             // 動畫顯示文字
             function animateText(element, delay) {
                 setTimeout(() => {
-                    element.style.display = 'block';  // 顯示該元素
-                    element.style.opacity = 1;        // 設置透明度，觸發顯示
+                    element.style.opacity = 1;
                 }, delay);
             }
         });
-
 
 
         // -------------- 3. 照片輪播(1)
@@ -1597,7 +1734,7 @@
             // 啟動滾動
             marquee2.style.transform = `translateX(${offset2}px)`; // 設置初始位置
             slide2();
-        }, 100); // 確保圖片已加載後運行
+        },); // 確保圖片已加載後運行
 
 
 
@@ -1617,9 +1754,23 @@
             observer.observe(section); // 監控 s11 區塊
         });
 
+        document.addEventListener('DOMContentLoaded', () => {
+            const strbox2 = document.getElementById('strbox2');
+
+            // 觀察器檢測 strbox2 是否進入視窗
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        strbox2.classList.add('visible'); // 當進入視窗時觸發動畫
+                    }
+                });
+            }, { threshold: 0.5 }); // 50% 可見觸發
+
+            observer.observe(strbox2); // 監控 #strbox2 區塊
+        });
 
 
-        // -------------- 5.S8垂直    
+        // -------------- 5.S8垂直照片  
         document.addEventListener('DOMContentLoaded', function () {
             const s8Section = document.querySelector('.s8');
             const s8p1 = document.querySelector('.s8p1');
@@ -1639,22 +1790,22 @@
                 setTimeout(() => {
                     textRight.style.transform = 'translateY(0)';
                     textRight.style.opacity = 1;
-                }, 600);
+                }, 0);
 
                 setTimeout(() => {
                     textLeft.style.transform = 'translateY(0)';
                     textLeft.style.opacity = 1;
-                }, 800);
+                }, 200);
 
                 setTimeout(() => {
                     s8p2.style.transform = 'translateY(0)';
                     s8p2.style.opacity = 1;
-                }, 1000);
+                }, 400);
 
                 setTimeout(() => {
                     s8p3.style.transform = 'translateY(0)';
                     s8p3.style.opacity = 1;
-                }, 1200);
+                }, 600);
             }
 
             // 重置所有元素的樣式，準備下一次動畫
@@ -1677,7 +1828,7 @@
                     isAnimated = true;
                     showElements();
                 }
-            }, 3000); // 延遲1000毫秒（1秒）
+            }, 1000); // 延遲1000毫秒（1秒）
 
             // 使用 IntersectionObserver 來監聽 S8 區塊是否進入視口
             const observer = new IntersectionObserver(entries => {
@@ -1692,56 +1843,11 @@
                         //     resetElements();
                     }
                 });
-            }, { threshold: 0.5 }); // 設定當區塊50%進入視口時觸發
+            }, { threshold: 0.2 }); // 設定當區塊50%進入視口時觸發
 
             // 監控 S8 區塊
             observer.observe(s8Section);
         });
-
-
-        //-------------6. 無限輪播2
-        // const marquee2 = document.getElementById('marquee2');
-        // const items2 = document.querySelectorAll('.marquee-item2');
-        // const totalItems2 = items2.length;
-
-        // // 計算單張圖片的寬度（第一張圖片）
-        // setTimeout(() => {
-        //     const itemWidth2 = items2[0].offsetWidth + 10; // 單張圖片的寬度（包含間距）
-
-        //     // 確保無縫：將圖片內容複製到起點與末尾
-        //     const totalWidth2 = itemWidth2 * totalItems2; // 原始圖片的總寬度
-        //     marquee2.style.width = `${totalWidth2 * 2}px`; // 設置寬度為兩倍，為了無縫滾動
-
-        //     // 複製一組到起點
-        //     for (let i = totalItems2 - 1; i >= 0; i--) {
-        //         const cloneStart = items2[i].cloneNode(true); // 向開頭複製
-        //         marquee2.insertBefore(cloneStart, marquee2.firstChild);
-        //     }
-
-        //     // 複製一組到結尾
-        //     for (let i = 0; i < totalItems2; i++) {
-        //         const cloneEnd = items2[i].cloneNode(true); // 向末尾複製
-        //         marquee2.appendChild(cloneEnd);
-        //     }
-
-        //     // 更新滾動邏輯
-        //     let offset2 = -totalWidth2; // 初始位置：滾動到中間的第一組圖片
-
-        //     function slide2() {
-        //         offset2 += 1; // 向右移動
-        //         if (offset2 >= 0) {
-        //             // 當到達第一組起點時，跳回中間
-        //             offset2 = -totalWidth2;
-        //         }
-        //         marquee2.style.transform = `translateX(${offset2}px)`; // 更新位置
-        //         requestAnimationFrame(slide2); // 持續更新
-        //     }
-
-        //     // 啟動滾動
-        //     marquee2.style.transform = `translateX(${offset2}px)`; // 設置初始位置
-        //     slide2();
-        // }, 100); // 確保圖片已加載後運行
-
 
 
         // ------------------7. svg3三大特區
@@ -1770,6 +1876,44 @@
             }, { threshold: 0.5 });  // 50%區域進入視窗
 
             observer.observe(section);
+        });
+
+        // -------------第三顆星星
+        document.addEventListener('DOMContentLoaded', () => {
+            const strbox3 = document.getElementById('strbox3');
+            const observerEnter = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        strbox3.classList.add('visible'); // 進入視窗時顯示
+                        strbox3.classList.remove('exit'); // 確保出場動畫被移除
+                    } else {
+                        strbox3.classList.add('exit'); // 離開視窗時觸發出場動畫
+                        strbox3.classList.remove('visible'); // 移除進場效果
+                    }
+                });
+            }, { threshold: 0.5 }); // 50% 可見觸發
+
+            observerEnter.observe(strbox3); // 監控 #strbox1 區塊
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const section = document.getElementById('s13');
+            const h1s = document.querySelectorAll('#atama2 h2');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        section.classList.add('visible'); // 當進入視窗時觸發淡入動畫
+                        h1s.forEach(h1 => {
+                            h1.style.opacity = 1; // 顯示每個 h1 標題
+                            h1.style.transform = 'translateY(0)'; // 恢復位置
+                        });
+                    }
+                });
+            }, { threshold: 0.5 }); // 當 50% 可見時觸發
+
+            observer.observe(section); // 監控 s13 區塊
         });
 
 
