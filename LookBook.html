@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesluneir，相冊</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500&family=Alegreya:ital,wght@0,483;1,483&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500&family=Alegreya:ital,wght@0,483;1,483&family=Kaisei+Decol:wght@500&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500&family=Alegreya:ital,wght@0,483;1,483&family=DotGothic16&family=Kaisei+Decol:wght@500&family=Kaisei+HarunoUmi&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* ------------------- 排版元素 ------------------*/
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            /* 確保所有元素的寬度包括邊框和內邊距 */
+        }
+
+        body {
+            background-color: rgb(255, 250, 251);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: "Alegreya", "Kaisei HarunoUmi", serif;
+        }
+
+        body a {
+            text-decoration: none;
+            /* 去掉下劃線 */
+            color: inherit;
+        }
+
+
+        /* ------------------- header  ------------------*/
+
+        #s4 {
+            display: flex;
+            width: 100%;
+            height: auto;
+            justify-content: center;
+            /* 水平置中 */
+            align-items: center;
+            text-align: center;
+            /* 垂直置中 */
+            position: relative;
+        }
+
+        #s4photo img {
+            max-width: auto;
+            height: auto;
+            /* 保持圖片比例 */
+            margin: 0 auto;
+            /* 確保水平置中 */
+        }
+
+        #logobox {
+            max-width: 60%;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            z-index: 5;
+        }
+
+        #logobox img {
+            max-width: 70%;
+        }
+
+        #nav {
+            display: none;
+            background-color: rgba(204, 231, 231, 0.781);
+            border: 3px solid rgba(171, 201, 201, 0.815);
+            position: fixed;
+            top: 25px;
+            right: 18px;
+            width: 15%;
+            height: 50%;
+            border-radius: 3px;
+            z-index: 50;
+            justify-content: center;
+            /* 水平置中 */
+            align-items: center;
+            /* 垂直置中 */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            /* 水平方向排列 */
+            text-align: right;
+            margin-top: 10px;
+
+        }
+
+        nav li {
+            font-family: "Alegreya", "Kaisei HarunoUmi", serif;
+            font-optical-sizing: auto;
+            font-weight: 483;
+            font-style: normal;
+            font-size: 110%;
+            margin-top: 6px;
+            margin-bottom: 4px;
+            /* 調小 margin-bottom，使項目更緊湊 */
+            /* 減少內邊距，讓文字更靠近 */
+        }
+
+        nav li:hover {
+            color: aliceblue;
+        }
+
+        nav li a:hover {
+            color: inherit;
+        }
+
+
+        #nav.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        nav hr {
+            margin: 2px 0;
+            /* 減少上下的 margin，使分隔線不過於占空間 */
+            border: 1px solid #ccc;
+            /* 調整分隔線顏色 */
+        }
+
+        /* 下拉選單基礎樣式 */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            /* 預設隱藏 */
+            position: absolute;
+            top: 100%;
+            /* 放在母項目下方 */
+            right: 0;
+            /* 與母項目右對齊 */
+            background-color: rgba(128, 165, 165, 0.8);
+            border: 1px solid rgba(149, 199, 199, 0.9);
+            border-radius: 3px;
+            list-style: none;
+            padding: 10px 0;
+            margin: 0;
+            width: 200px;
+            /* 下拉選單寬度 */
+            z-index: 60;
+        }
+
+        .dropdown-menu li {
+            text-align: right;
+            padding: 10px 20px;
+            font-size: 100%;
+        }
+
+        .dropdown-menu li:hover {
+            background-color: #ccc;
+            /* 懸停效果 */
+            color: #000;
+        }
+
+        .dropdown-menu li a {
+            text-decoration: none;
+            /* 移除下劃線 */
+            color: inherit;
+            /* 繼承文字顏色 */
+            display: block;
+        }
+
+        /* 顯示下拉選單 */
+        .dropdown.active .dropdown-menu {
+            display: block;
+        }
+
+        #btnbox {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            /* 將按鈕容器對齊右側 */
+            height: 20px;
+            z-index: 51;
+        }
+
+        .btn-trigger {
+            position: relative;
+            width: 30px;
+            height: 44px;
+            cursor: pointer;
+            background-color: rgba(240, 248, 255, 0.7);
+            background-size: auto;
+            border-radius: 3px;
+        }
+
+        .btn-trigger span {
+            position: absolute;
+            right: 10px;
+            width: 100%;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+
+        .btn-trigger,
+        .btn-trigger span {
+            display: inline-block;
+            transition: all .4s;
+            box-sizing: border-box;
+        }
+
+        .btn-trigger span:nth-of-type(1) {
+            top: 0;
+        }
+
+        .btn-trigger span:nth-of-type(2) {
+            top: 12px;
+        }
+
+        .btn-trigger span:nth-of-type(3) {
+            top: 24px;
+        }
+
+        #btn03.active {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+
+        #btn03.active span:nth-of-type(1) {
+            -webkit-transform: translateY(12px) rotate(-45deg);
+            transform: translateY(12px) rotate(-45deg);
+        }
+
+        #btn03.active span:nth-of-type(2) {
+            -webkit-transform: translateY(0) rotate(45deg);
+            transform: translateY(0) rotate(45deg);
+        }
+
+        #btn03.active span:nth-of-type(3) {
+            opacity: 0;
+        }
+
+        .arrow {
+            position: fixed;
+            bottom: 38px;
+            right: 30px;
+            z-index: 50;
+        }
+
+        .arrow_r_b {
+            position: relative;
+            display: inline-block;
+            padding-left: 22px;
+        }
+
+        .arrow_r_b:before {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background: #addae7;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .arrow_r_b:after {
+            content: '';
+            width: 13px;
+            height: 13px;
+            border: 0;
+            border-top: solid 2px #fff;
+            border-right: solid 2px #fff;
+            transform: rotate(315deg);
+            position: absolute;
+            top: 2px;
+            left: 9px;
+            bottom: 0;
+            margin: auto;
+        }
+
+        /* ------------------- 1.文字 ------------------*/
+
+        .search-container {
+            display: flex;
+            align-items: end;
+            justify-self: end;
+            text-align: end;
+            margin-top: 6px;
+            margin-right: 5px;
+            margin-left: auto;
+            /* 讓整個容器靠右 */
+        }
+
+        .search-box {
+            padding: 8px;
+            width: 200px;
+            margin-right: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+
+        #s3 {
+            width: 100%;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            /* 水平置中 */
+            align-items: center;
+            /* 垂直置中 */
+            margin: 10px 0 12px 15px;
+        }
+
+
+        h1 {
+            font-family: "Alegreya", "Kaisei HarunoUmi", serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 3rem;
+            color: #458c8f;
+        }
+
+        #hr1 {
+            width: 100%;
+            height: 1px;
+            background-color: #c2c4c7;
+            display: flex;
+            justify-self: center;
+        }
+
+        /* ------------------- 2.相冊 ------------------*/
+
+        main {
+            padding-block: 2rem;
+            width: 90%;
+            max-width: 70rem;
+            margin: auto;
+            color: var(--clr-black);
+        }
+
+        .container {
+            margin-top: 2em;
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .card {
+            background: var(--clr-white);
+            border-radius: 1.2rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card .imgBox img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .imgBox {
+            width: 100%;
+            height: auto;
+        }
+
+        .tag {
+            padding: 0.625rem;
+            background: var(--clr-white);
+            text-align: center;
+            margin-top: 1rem;
+            /* 確保tag有間隔 */
+        }
+
+        .tag a {
+            font-size: 0.8rem;
+            color: var(--clr-black);
+            font-weight: 400;
+            border: 0.125rem solid #c8c8c8;
+            border-radius: 3.125rem;
+            padding: 0.313rem 0.625rem;
+            display: inline-block;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            /* 半透明背景 */
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 65%;
+            max-height: 80%;
+            overflow-y: auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            /* 調整每行圖片寬度 */
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .modal-gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            max-width: 100%;
+            /* 設定圖片最大寬度 */
+            max-height: auto;
+            /* 設定圖片最大高度 */
+        }
+
+        .modal-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* 頁碼 */
+        .mt-5 {
+            width: 20%;
+            display: flex;
+            justify-items: end;
+            align-items: end;
+            text-align: center;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            /* 確保頁碼居中顯示 */
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+            /* 加入一些上、下間距 */
+        }
+
+        .pagination a {
+            padding: 8px 16px;
+            margin: 0 4px;
+            /* 頁碼間距 */
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            text-decoration: none;
+            color: #555;
+            border-radius: 5px;
+            /* 加入圓角 */
+        }
+
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+
+        .pagination .active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* ---------------------- footer --------------------- */
+
+        #footer {
+            background-color: rgba(204, 231, 231, 0.781);
+            ;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            height: 100px;
+            /* margin-top: 100px; */
+        }
+
+        .footer-section2 {
+            display: flex;
+            /* 使用 flexbox */
+            justify-content: center;
+            /* 水平居中排列 */
+            align-items: center;
+            /* 垂直居中 */
+            gap: 20px;
+            /* 設定元素之間的間距 */
+        }
+
+        .footer-social {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            /* 使用 flexbox 排列項目 */
+            gap: 15px;
+            /* 設定項目之間的間距 */
+        }
+
+        .footer-social li {
+            margin-bottom: 0;
+            /* 去掉垂直間距 */
+        }
+
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 25px;
+            font-family: "Alegreya", "Kaisei HarunoUmi", serif;
+            letter-spacing: 20px;
+        }
+
+        .footer-social a:hover {
+            text-decoration: underline;
+            cursor: pointer;
+            /* 將鼠標變成手掌 */
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-------------------- 1. 頁首 ---------------------->
+    <header>
+        <nav id="nav" class="container">
+            <ul id="navbox">
+                <li>
+                    <a href="Home.html">VESLUNEIR 找攝影</a>
+                    <hr>
+                    <p>首頁</p>
+                </li>
+                <li>
+                    <a href="Photographer.html">PHOTOGRAPHER</a>
+                    <hr>
+                    <p>攝影師一覽</p>
+                </li>
+                <li>
+                    <a href="LookBook.html">PHOTO ALBUM</a>
+                    <hr>
+                    <p>相簿</p>
+                </li>
+                <li>
+                    <a href="#">ARTICLE</a>
+                    <hr>
+                    <p>文章專區</p>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="arrow_r_b2 dropdown-toggle">LOGIN</a>
+                    <hr>
+                    <p>註冊／登入</p>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">登入</a></li>
+                        <li><a href="#">註冊</a></li>
+                        <li><a href="#">忘記密碼</a></li>
+                        <li><a href="#">帳戶設定</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <section id="btnbox">
+            <div class="btn-trigger" id="btn03">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+
+
+        <section id="s4">
+            <div id="s4photo" class="carousel slide carousel-fade" data-bs-interval="2000" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/img/sarura_mt.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/rocksea.jpg" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/img/seawoman.jpg" class="d-block w-100">
+                    </div>
+                </div>
+            </div>
+            <div id="logobox">
+                <a href="Home.html">
+                    <img src="/img/Vesluneir.png">
+                </a>
+            </div>
+        </section>
+
+    </header>
+
+    <div class="arrow">
+        <a href="#" class="arrow_r_b"></a>
+    </div>
+
+    <!-------------------- 1. 文字介紹 ---------------------->
+
+    <div class="search-container">
+        <input type="text" id="search" name="search" placeholder="#Nature、#People" class="search-box">
+        <button type="submit" class="search-button">搜尋</button>
+    </div>
+
+
+    <main>
+
+        <section id="s3">
+            <h1>相簿一覽</h1>
+        </section>
+
+
+        <div id="hr1">
+            <hr>
+        </div>
+
+        <!-------------------- 2. 相冊 ---------------------->
+
+        <div class="container">
+            <div class="card" data-album="1">
+                <div class="imgBox">
+                    <img src="/img/photo1_lily/lily3.jpg" alt="Awesome views">
+                </div>
+                <div class="tag">
+                    <a href="#" id="tagpp">#Anamal</a>
+                </div>
+            </div>
+
+            <div class="card" data-album="2">
+                <div class="imgBox">
+                    <img src="/img/photo1_lily/lily26.jpg" alt="Awesome views">
+                </div>
+                <div class="tag">
+                    <a href="#" id="tagpp">#People</a>
+                    <a href="#" id="tagpp">#Classical Style</a>
+                </div>
+            </div>
+
+            <div class="card" data-album="3">
+                <div class="imgBox">
+                    <img src="/img/photo2_yu/yu6.jpg" alt="Hiking">
+                </div>
+                <div class="tag">
+                    <a href="#" id="tagpp">#People</a>
+                    <a href="#" id="tagpp">#Nature</a>
+                </div>
+            </div>
+
+            <div class="card" data-album="3">
+                <div class="imgBox">
+                    <img src="/img/Lemon.jpg" alt="Hiking">
+                </div>
+                <div class="tag">
+                    <a href="#" id="tagpp">#Nature</a>
+                </div>
+            </div>
+            <div class="card" data-album="3">
+                <div class="imgBox">
+                    <img src="/img/digice.JPG" alt="Hiking">
+                </div>
+                <div class="tag">
+                    <a href="#" id="tagpp">#Street</a>
+                </div>
+            </div>
+            <div class="card" data-album="3">
+                <div class="imgBox">
+                    <img src="/img/sakurasss.jpg" alt="Hiking">
+                </div>
+                <div class="tag">
+                    <a href="#" id="tagpp">#Street</a>
+                    <a href="#" id="tagpp">#Nature</a>
+                </div>
+            </div>
+            <div class="card" data-album="3">
+                <div class="imgBox">
+                    <img src="/img/coffee.jpg" alt="Hiking">
+                </div>
+                <div class="tag">
+                    <a href="#" id="tagpp">#View</a>
+                </div>
+            </div>
+            <div class="card" data-album="3">
+                <div class="imgBox">
+                    <img src="/img/river.jpeg" alt="Hiking">
+                </div>
+                <div class="tag">
+                    <a href="#" id="tagpp">#Street</a>
+                    <a href="#" id="tagpp">#Nature</a>
+                </div>
+            </div>
+            <div class="card" data-album="3">
+                <div class="imgBox">
+                    <img src="/img/towersakura.jpg" alt="Hiking">
+                </div>
+                <div class="tag">
+                    <a href="#" id="tagpp">#Street</a>
+                    <a href="#" id="tagpp">#Nature</a>
+                </div>
+            </div>
+            <div class="card" data-album="3">
+                <div class="imgBox">
+                    <img src="/img/euma.jpg" alt="Hiking">
+                </div>
+                <div class="tag">
+                    <a href="#" id="tagpp">#Street</a>
+                </div>
+            </div>
+            <div class="card" data-album="3">
+                <div class="imgBox">
+                    <img src="/img/bouennkyou.jpg" alt="Hiking">
+                </div>
+                <div class="tag">
+                    <a href="#" id="tagpp">#Street</a>
+                </div>
+            </div>
+            <div class="card" data-album="3">
+                <div class="imgBox">
+                    <img src="/img/jpmati.jpg" alt="Hiking">
+                </div>
+                <div class="tag">
+                    <a href="#" id="tagpp">#Street</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 彈出框 -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <div id="modalGallery" class="modal-gallery"></div>
+        </div>
+    </div>
+
+    <!-- 頁碼 -->
+    <div class="container mt-5">
+        <div id="content"></div>
+        <ul class="pagination justify-content-center" id="pagination">
+            <!-- 分頁按鈕會在這裡渲染 -->
+        </ul>
+    </div>
+
+
+    <!--------------------- 5. 頁尾(footer) --------------------->
+
+    <footer id="footer">
+        <div class="footer-section2">
+            <ul class="footer-social">
+                <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+                </li>
+                <li><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="#contact"><i class="fa-regular fa-comment"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/1bf13e43a0.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/1bf13e43a0.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/1bf13e43a0.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 引入 jQuery 和 Select2 的 JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+    <script>
+        // ---------- 1. btn漢堡轉X
+        $(function () {
+            $('.btn-trigger').on('click', function () {
+                $(this).toggleClass('active');
+                return false;
+            });
+        });
+        // 切換 active class
+        const btn = document.getElementById('btn03');
+        const nav = document.getElementById('nav');
+
+        btn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+
+        //LOGIN下拉選單
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdownToggle = document.querySelector(".dropdown-toggle");
+            const dropdown = dropdownToggle.parentElement;
+
+            dropdownToggle.addEventListener("click", function (e) {
+                e.preventDefault(); // 防止點擊後跳轉
+                dropdown.classList.toggle("active");
+            });
+
+            // 點擊其他地方時關閉下拉選單
+            document.addEventListener("click", function (e) {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove("active");
+                }
+            });
+        });
+
+        // 搜尋框
+        document.getElementById('search').addEventListener('focus', function () {
+            if (this.value === '') { // 確保當值為空時清除placeholder文字
+                this.placeholder = ''; // 清空placeholder
+            }
+        });
+
+        document.getElementById('search').addEventListener('blur', function () {
+            if (this.value === '') { // 如果搜尋框仍然是空的，恢復placeholder文字
+                this.placeholder = '#Nature、#People'; // 恢復預設文字
+            }
+        });
+
+        //相冊
+        const albumImages = {
+            1: ["/img/photo1_lily/lily12.jpg", "/img/photo1_lily/lily13.jpg", "/img/photo1_lily/lily14.jpg", "/img/photo1_lily/lily15.jpg", "/img/photo1_lily/lily19.jpg", "/img/photo1_lily/lily7.jpg", "/img/photo1_lily/lily3.jpg", "/img/photo1_lily/lily21.jpg","/img/photo1_lily/lily8.jpg", "/img/photo1_lily/lily6.jpg"],
+            2: ["/img/photo1_lily/lily25.jpg", "/img/photo1_lily/lily23.jpg", "/img/photo1_lily/lily24.jpg", "/img/photo1_lily/lily22.jpg", "/img/photo1_lily/lily26.jpg"],
+            3: ["/img/photo2_yu/yu1.jpg", "/img/photo2_yu/yu2.jpg", "/img/photo2_yu/yu3.jpg", "/img/photo2_yu/yu4.jpg", "/img/photo2_yu/yu5.jpg", "/img/photo2_yu/yu6.jpg"]
+        };
+
+        const cards = document.querySelectorAll(".card");
+        const modal = document.getElementById("modal");
+        const modalGallery = document.getElementById("modalGallery");
+        const closeModal = document.getElementById("closeModal");
+
+        function adjustImageSizes() {
+            const images = document.querySelectorAll(".modal-gallery img");
+
+            modalGallery.style.display = "grid";
+            modalGallery.style.gridTemplateColumns = "repeat(auto-fill, minmax(200px, 1fr))";
+            modalGallery.style.gridAutoRows = "auto";
+            modalGallery.style.gap = "10px";
+
+            images.forEach((img) => {
+                img.onload = () => {
+                    const rowSpan = Math.ceil(img.naturalHeight / 350); // 使用圖片的高度來調整每行跨度
+                    img.style.gridRowEnd = `span ${rowSpan}`;
+                };
+            });
+        }
+
+        cards.forEach(card => {
+            card.addEventListener("click", () => {
+                const albumId = card.getAttribute("data-album");
+                const images = albumImages[albumId];
+
+                modalGallery.innerHTML = "";
+
+                images.forEach(src => {
+                    const img = document.createElement("img");
+                    img.src = src;
+                    img.alt = "相片";
+                    modalGallery.appendChild(img);
+                });
+
+                adjustImageSizes();
+
+                modal.style.display = "flex";
+            });
+        });
+
+        closeModal.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // 頁碼
+        $(document).ready(function () {
+            var totalPages = 5; // 假設有 10 頁
+            var currentPage = 1;
+
+            function renderPagination() {
+                var paginationHtml = '';
+                paginationHtml += '<li class="page-item ' + (currentPage === 1 ? 'disabled' : '') + '">';
+                paginationHtml += '<a class="page-link" href="#" id="prev">Previous</a>';
+                paginationHtml += '</li>';
+
+                for (var i = 1; i <= totalPages; i++) {
+                    paginationHtml += '<li class="page-item ' + (i === currentPage ? 'active' : '') + '">';
+                    paginationHtml += '<a class="page-link" href="#" class="page">' + i + '</a>';
+                    paginationHtml += '</li>';
+                }
+
+                paginationHtml += '<li class="page-item ' + (currentPage === totalPages ? 'disabled' : '') + '">';
+                paginationHtml += '<a class="page-link" href="#" id="next">Next</a>';
+                paginationHtml += '</li>';
+
+                $('#pagination').html(paginationHtml);
+            }
+
+            // 點擊頁碼時
+            $('#pagination').on('click', '.page-link', function (event) {
+                event.preventDefault();
+
+                if ($(this).attr('id') === 'prev' && currentPage > 1) {
+                    currentPage--;
+                } else if ($(this).attr('id') === 'next' && currentPage < totalPages) {
+                    currentPage++;
+                } else if ($(this).hasClass('page')) {
+                    currentPage = parseInt($(this).text());
+                }
+
+                renderPagination();
+                renderContent();
+            });
+
+            // 初始渲染
+            renderPagination();
+            renderContent();
+        });
+    </script>
+</body>
+
+</html>
