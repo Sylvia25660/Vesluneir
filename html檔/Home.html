@@ -1232,7 +1232,7 @@
         <nav id="nav" class="container">
             <ul id="navbox">
                 <li>
-                    <a href="Home">Vesluneir 找攝影</a>
+                    <a href="Home.html">Vesluneir 找攝影</a>
                     <hr>
                     <p>首頁</p>
                 </li>
@@ -1352,6 +1352,10 @@
             </div>
         </div>
     </section>
+
+
+    <div id="box"></div>
+    <div id="box"></div>
 
     <!------------------------ 4. 垂直照片(S8) ------------------------------->
 
@@ -1632,7 +1636,7 @@
                         observer2.observe(section2);
                     }
                 });
-            }, { threshold: 0.5 });
+            }, { threshold: 1 });
 
             // 偵測第二部分進入視窗
             const observer2 = new IntersectionObserver(entries => {
@@ -1779,10 +1783,8 @@
             const textRight = document.querySelector('.text.right');
             const textLeft = document.querySelector('.text.left');
 
-            // 用於判斷動畫是否已經執行過
             let isAnimated = false;
 
-            // 動畫顯示函數
             function showElements() {
                 s8p1.style.transform = 'translateY(0)';
                 s8p1.style.opacity = 1;
@@ -1790,25 +1792,24 @@
                 setTimeout(() => {
                     textRight.style.transform = 'translateY(0)';
                     textRight.style.opacity = 1;
-                }, 0);
+                }, 400); // 延遲時間增加到 400ms
 
                 setTimeout(() => {
                     textLeft.style.transform = 'translateY(0)';
                     textLeft.style.opacity = 1;
-                }, 200);
+                }, 800); // 延遲時間增加到 800ms
 
                 setTimeout(() => {
                     s8p2.style.transform = 'translateY(0)';
                     s8p2.style.opacity = 1;
-                }, 400);
+                }, 1200); // 延遲時間增加到 1200ms
 
                 setTimeout(() => {
                     s8p3.style.transform = 'translateY(0)';
                     s8p3.style.opacity = 1;
-                }, 600);
+                }, 1600); // 延遲時間增加到 1600ms
             }
 
-            // 重置所有元素的樣式，準備下一次動畫
             function resetElements() {
                 s8p1.style.transform = 'translateY(50px)';
                 s8p1.style.opacity = 0;
@@ -1822,30 +1823,22 @@
                 textLeft.style.opacity = 0;
             }
 
-            // 在頁面載入後延遲一秒執行動畫
             setTimeout(() => {
                 if (!isAnimated) {
                     isAnimated = true;
                     showElements();
                 }
-            }, 1000); // 延遲1000毫秒（1秒）
+            }, 1000);
 
-            // 使用 IntersectionObserver 來監聽 S8 區塊是否進入視口
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !isAnimated) {
-                        // 當區塊進入視口且尚未執行動畫，開始動畫
                         isAnimated = true;
                         showElements();
-                        // } else if (!entry.isIntersecting) {
-                        //     // 當區塊離開視口時，重置動畫狀態
-                        //     isAnimated = false;
-                        //     resetElements();
                     }
                 });
-            }, { threshold: 0.2 }); // 設定當區塊50%進入視口時觸發
+            }, { threshold: 0.2 });
 
-            // 監控 S8 區塊
             observer.observe(s8Section);
         });
 
