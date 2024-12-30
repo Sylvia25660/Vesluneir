@@ -1,11 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #model {
+            position: fixed;
+            width: 300px;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #e2d0d0;
+            border: #999 1px solid;
+            padding: 20px;
+            /* 固定的 padding */
+            z-index: 10;
+            display: none;
+            /* 初始狀態隱藏 */
+            box-sizing: border-box;
+            max-height: 80%;
+            overflow-y: auto;
+            /* 內容超過時顯示滾動條 */
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <header>
+        <div id="header"></div>
+    </header>
+
+    <main>
+        <div id="cardlist">
+            <div id="album-card">
+                <img id="cover" src="" alt="">
+            </div>
+            <div id="model"></div>
+        </div>
+
+    </main>
+
+    <script>
+
+        // 標題
+        const newHeader = document.getElementById('header');
+        const headerP1 = document.createElement('p');
+        const headerP2 = document.createElement('p');
+
+        headerP1.innerText = '相';
+        headerP2.innerText = '簿';
+
+        headerP1.style.fontSize = '60px';
+        headerP2.style.fontSize = '60px';
+        headerP1.style.marginLeft = '20px';
+        headerP2.style.marginLeft = '20px';
+
+        newHeader.appendChild(headerP1);
+        newHeader.appendChild(headerP2);
+        document.body.appendChild(newHeader);
+
+
+        // 相簿區
+        const cardList = document.getElementById('cardlist');
+        const cardAlbum = document.getElementById('album-card');
+        const cradCover = document.getElementById('cover');
+
+        cradCover.src = "/img/photo1_lily/lily26.jpg";
+        cradCover.style.width = "300px";
+        cradCover.style.height = "auto";
+
+        cradCover.addEventListener('click', function (e) {
+            const Model = document.getElementById('model');
+            const cardUserImg = document.createElement('img');
+            const cardUserName = document.createElement('p');
+
+            cardUserImg.src = "/img/photo1_lily/lili1.jpg";
+            cardUserImg.style.width = "50px";
+            cardUserImg.style.height = "50px";
+            cardUserImg.style.borderRadius = "50%";
+
+            cardUserName.innerText = "Sherlock";
+            cardUserName.style.fontSize = "20px";
+
+            Model.innerHTML = ''; // 清空之前的內容
+
+            // 將使用者資訊加入到 model 中
+            Model.appendChild(cardUserImg);
+            Model.appendChild(cardUserName);
+
+            const imgSources = [
+                '/img/photo1_lily/lily2.jpg',
+                '/img/photo1_lily/lily4.jpg',
+                '/img/photo1_lily/lily7.jpg',
+            ];
+
+            imgSources.forEach(src => {
+                const albumImg = document.createElement('img');
+                albumImg.src = src;
+                albumImg.style.width = "200px";
+                albumImg.style.height = "auto";
+                albumImg.style.margin = "10px";
+                Model.appendChild(albumImg);
+            });
+
+            // 關閉按鈕
+            const closeButton = document.createElement('button');
+            closeButton.innerText = '關閉';
+            closeButton.style.marginTop = '10px';
+            closeButton.style.cursor = 'pointer';
+            closeButton.addEventListener('click', function () {
+                Model.style.display = 'none'; // 隱藏彈出框
+            });
+            Model.appendChild(closeButton);
+
+            // 顯示彈出框
+            Model.style.display = 'block'; // 顯示彈出框
+        });
+
+
+
+
+    </script>
+
 </body>
+
 </html>
